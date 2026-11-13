@@ -1,0 +1,3002 @@
+[
+ {
+  "query": "valid/20002",
+  "neighbours": [
+   {
+    "name": "train/3413",
+    "phash_dist": 14,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/1605",
+    "phash_dist": 16,
+    "dhash_dist": 24
+   },
+   {
+    "name": "train/3738",
+    "phash_dist": 16,
+    "dhash_dist": 18
+   }
+  ]
+ },
+ {
+  "query": "valid/20028",
+  "neighbours": [
+   {
+    "name": "train/2620",
+    "phash_dist": 12,
+    "dhash_dist": 12
+   },
+   {
+    "name": "train/3031",
+    "phash_dist": 12,
+    "dhash_dist": 11
+   },
+   {
+    "name": "train/1125",
+    "phash_dist": 16,
+    "dhash_dist": 22
+   }
+  ]
+ },
+ {
+  "query": "valid/20067",
+  "neighbours": [
+   {
+    "name": "train/129",
+    "phash_dist": 14,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/2194",
+    "phash_dist": 14,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/2288",
+    "phash_dist": 14,
+    "dhash_dist": 17
+   }
+  ]
+ },
+ {
+  "query": "valid/20079",
+  "neighbours": [
+   {
+    "name": "train/2717",
+    "phash_dist": 14,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/280",
+    "phash_dist": 14,
+    "dhash_dist": 27
+   },
+   {
+    "name": "train/1357",
+    "phash_dist": 16,
+    "dhash_dist": 26
+   }
+  ]
+ },
+ {
+  "query": "valid/20082",
+  "neighbours": [
+   {
+    "name": "train/100",
+    "phash_dist": 16,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/1616",
+    "phash_dist": 16,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/2314",
+    "phash_dist": 16,
+    "dhash_dist": 16
+   }
+  ]
+ },
+ {
+  "query": "valid/20127",
+  "neighbours": [
+   {
+    "name": "train/3400",
+    "phash_dist": 10,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/2330",
+    "phash_dist": 12,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/478",
+    "phash_dist": 12,
+    "dhash_dist": 19
+   }
+  ]
+ },
+ {
+  "query": "valid/20128",
+  "neighbours": [
+   {
+    "name": "train/3464",
+    "phash_dist": 14,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/1297",
+    "phash_dist": 16,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/2465",
+    "phash_dist": 16,
+    "dhash_dist": 22
+   }
+  ]
+ },
+ {
+  "query": "valid/20141",
+  "neighbours": [
+   {
+    "name": "train/1564",
+    "phash_dist": 14,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/1833",
+    "phash_dist": 14,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/2570",
+    "phash_dist": 14,
+    "dhash_dist": 27
+   }
+  ]
+ },
+ {
+  "query": "valid/20151",
+  "neighbours": [
+   {
+    "name": "train/1006",
+    "phash_dist": 14,
+    "dhash_dist": 10
+   },
+   {
+    "name": "train/190",
+    "phash_dist": 14,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/1995",
+    "phash_dist": 14,
+    "dhash_dist": 19
+   }
+  ]
+ },
+ {
+  "query": "valid/20164",
+  "neighbours": [
+   {
+    "name": "train/2759",
+    "phash_dist": 14,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/3018",
+    "phash_dist": 14,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/1046",
+    "phash_dist": 16,
+    "dhash_dist": 24
+   }
+  ]
+ },
+ {
+  "query": "valid/20183",
+  "neighbours": [
+   {
+    "name": "train/3020",
+    "phash_dist": 14,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/4148",
+    "phash_dist": 14,
+    "dhash_dist": 24
+   },
+   {
+    "name": "train/1436",
+    "phash_dist": 16,
+    "dhash_dist": 27
+   }
+  ]
+ },
+ {
+  "query": "valid/20186",
+  "neighbours": [
+   {
+    "name": "train/3105",
+    "phash_dist": 12,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/3693",
+    "phash_dist": 12,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/4146",
+    "phash_dist": 12,
+    "dhash_dist": 17
+   }
+  ]
+ },
+ {
+  "query": "valid/20187",
+  "neighbours": [
+   {
+    "name": "train/2131",
+    "phash_dist": 12,
+    "dhash_dist": 26
+   },
+   {
+    "name": "train/2115",
+    "phash_dist": 16,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/2446",
+    "phash_dist": 16,
+    "dhash_dist": 14
+   }
+  ]
+ },
+ {
+  "query": "valid/20191",
+  "neighbours": [
+   {
+    "name": "train/1339",
+    "phash_dist": 14,
+    "dhash_dist": 15
+   },
+   {
+    "name": "train/1888",
+    "phash_dist": 14,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/1969",
+    "phash_dist": 14,
+    "dhash_dist": 5
+   }
+  ]
+ },
+ {
+  "query": "valid/20194",
+  "neighbours": [
+   {
+    "name": "train/3445",
+    "phash_dist": 14,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/3634",
+    "phash_dist": 14,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/1162",
+    "phash_dist": 16,
+    "dhash_dist": 19
+   }
+  ]
+ },
+ {
+  "query": "valid/20202",
+  "neighbours": [
+   {
+    "name": "train/1688",
+    "phash_dist": 14,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/1436",
+    "phash_dist": 16,
+    "dhash_dist": 12
+   },
+   {
+    "name": "train/2773",
+    "phash_dist": 16,
+    "dhash_dist": 15
+   }
+  ]
+ },
+ {
+  "query": "valid/20206",
+  "neighbours": [
+   {
+    "name": "train/388",
+    "phash_dist": 14,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/2394",
+    "phash_dist": 16,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/3359",
+    "phash_dist": 16,
+    "dhash_dist": 16
+   }
+  ]
+ },
+ {
+  "query": "valid/20223",
+  "neighbours": [
+   {
+    "name": "train/1901",
+    "phash_dist": 16,
+    "dhash_dist": 26
+   },
+   {
+    "name": "train/2209",
+    "phash_dist": 16,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/2336",
+    "phash_dist": 16,
+    "dhash_dist": 20
+   }
+  ]
+ },
+ {
+  "query": "valid/20255",
+  "neighbours": [
+   {
+    "name": "train/1822",
+    "phash_dist": 12,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/1193",
+    "phash_dist": 18,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/1699",
+    "phash_dist": 18,
+    "dhash_dist": 23
+   }
+  ]
+ },
+ {
+  "query": "valid/20266",
+  "neighbours": [
+   {
+    "name": "train/1328",
+    "phash_dist": 16,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/1424",
+    "phash_dist": 16,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/2710",
+    "phash_dist": 16,
+    "dhash_dist": 22
+   }
+  ]
+ },
+ {
+  "query": "valid/20285",
+  "neighbours": [
+   {
+    "name": "train/3860",
+    "phash_dist": 6,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/1029",
+    "phash_dist": 10,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/1634",
+    "phash_dist": 10,
+    "dhash_dist": 11
+   }
+  ]
+ },
+ {
+  "query": "valid/20286",
+  "neighbours": [
+   {
+    "name": "train/2173",
+    "phash_dist": 16,
+    "dhash_dist": 26
+   },
+   {
+    "name": "train/4067",
+    "phash_dist": 16,
+    "dhash_dist": 26
+   },
+   {
+    "name": "train/254",
+    "phash_dist": 18,
+    "dhash_dist": 30
+   }
+  ]
+ },
+ {
+  "query": "valid/20291",
+  "neighbours": [
+   {
+    "name": "train/1297",
+    "phash_dist": 14,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/1647",
+    "phash_dist": 14,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/2173",
+    "phash_dist": 14,
+    "dhash_dist": 9
+   }
+  ]
+ },
+ {
+  "query": "valid/20300",
+  "neighbours": [
+   {
+    "name": "train/248",
+    "phash_dist": 12,
+    "dhash_dist": 11
+   },
+   {
+    "name": "train/1062",
+    "phash_dist": 14,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/112",
+    "phash_dist": 14,
+    "dhash_dist": 22
+   }
+  ]
+ },
+ {
+  "query": "valid/20306",
+  "neighbours": [
+   {
+    "name": "train/2283",
+    "phash_dist": 16,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/2793",
+    "phash_dist": 16,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/400",
+    "phash_dist": 16,
+    "dhash_dist": 10
+   }
+  ]
+ },
+ {
+  "query": "valid/20376",
+  "neighbours": [
+   {
+    "name": "train/2488",
+    "phash_dist": 16,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/3125",
+    "phash_dist": 16,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/441",
+    "phash_dist": 16,
+    "dhash_dist": 23
+   }
+  ]
+ },
+ {
+  "query": "valid/20382",
+  "neighbours": [
+   {
+    "name": "train/1009",
+    "phash_dist": 14,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/102",
+    "phash_dist": 14,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/1571",
+    "phash_dist": 14,
+    "dhash_dist": 19
+   }
+  ]
+ },
+ {
+  "query": "valid/20387",
+  "neighbours": [
+   {
+    "name": "train/1183",
+    "phash_dist": 16,
+    "dhash_dist": 28
+   },
+   {
+    "name": "train/2756",
+    "phash_dist": 16,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/48",
+    "phash_dist": 16,
+    "dhash_dist": 25
+   }
+  ]
+ },
+ {
+  "query": "valid/20391",
+  "neighbours": [
+   {
+    "name": "train/425",
+    "phash_dist": 10,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/1236",
+    "phash_dist": 12,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/345",
+    "phash_dist": 12,
+    "dhash_dist": 15
+   }
+  ]
+ },
+ {
+  "query": "valid/20416",
+  "neighbours": [
+   {
+    "name": "train/1791",
+    "phash_dist": 14,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/2598",
+    "phash_dist": 16,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/103",
+    "phash_dist": 18,
+    "dhash_dist": 18
+   }
+  ]
+ },
+ {
+  "query": "valid/20418",
+  "neighbours": [
+   {
+    "name": "train/1815",
+    "phash_dist": 18,
+    "dhash_dist": 36
+   },
+   {
+    "name": "train/3157",
+    "phash_dist": 18,
+    "dhash_dist": 38
+   },
+   {
+    "name": "train/3686",
+    "phash_dist": 18,
+    "dhash_dist": 36
+   }
+  ]
+ },
+ {
+  "query": "valid/20440",
+  "neighbours": [
+   {
+    "name": "train/1046",
+    "phash_dist": 16,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/3552",
+    "phash_dist": 16,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/1088",
+    "phash_dist": 18,
+    "dhash_dist": 20
+   }
+  ]
+ },
+ {
+  "query": "valid/20447",
+  "neighbours": [
+   {
+    "name": "train/3478",
+    "phash_dist": 14,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/1010",
+    "phash_dist": 16,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/1334",
+    "phash_dist": 16,
+    "dhash_dist": 15
+   }
+  ]
+ },
+ {
+  "query": "valid/20454",
+  "neighbours": [
+   {
+    "name": "train/3669",
+    "phash_dist": 16,
+    "dhash_dist": 24
+   },
+   {
+    "name": "train/1046",
+    "phash_dist": 18,
+    "dhash_dist": 25
+   },
+   {
+    "name": "train/2702",
+    "phash_dist": 18,
+    "dhash_dist": 22
+   }
+  ]
+ },
+ {
+  "query": "valid/20482",
+  "neighbours": [
+   {
+    "name": "train/339",
+    "phash_dist": 14,
+    "dhash_dist": 25
+   },
+   {
+    "name": "train/1387",
+    "phash_dist": 16,
+    "dhash_dist": 15
+   },
+   {
+    "name": "train/1511",
+    "phash_dist": 16,
+    "dhash_dist": 15
+   }
+  ]
+ },
+ {
+  "query": "valid/20488",
+  "neighbours": [
+   {
+    "name": "train/1655",
+    "phash_dist": 8,
+    "dhash_dist": 9
+   },
+   {
+    "name": "train/2568",
+    "phash_dist": 8,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/653",
+    "phash_dist": 8,
+    "dhash_dist": 9
+   }
+  ]
+ },
+ {
+  "query": "valid/20495",
+  "neighbours": [
+   {
+    "name": "train/2931",
+    "phash_dist": 16,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/4065",
+    "phash_dist": 16,
+    "dhash_dist": 28
+   },
+   {
+    "name": "train/1077",
+    "phash_dist": 18,
+    "dhash_dist": 18
+   }
+  ]
+ },
+ {
+  "query": "valid/20499",
+  "neighbours": [
+   {
+    "name": "train/3584",
+    "phash_dist": 12,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/1814",
+    "phash_dist": 14,
+    "dhash_dist": 27
+   },
+   {
+    "name": "train/577",
+    "phash_dist": 14,
+    "dhash_dist": 23
+   }
+  ]
+ },
+ {
+  "query": "valid/20513",
+  "neighbours": [
+   {
+    "name": "train/1780",
+    "phash_dist": 14,
+    "dhash_dist": 19
+   },
+   {
+    "name": "train/608",
+    "phash_dist": 14,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/1529",
+    "phash_dist": 16,
+    "dhash_dist": 28
+   }
+  ]
+ },
+ {
+  "query": "valid/20530",
+  "neighbours": [
+   {
+    "name": "train/589",
+    "phash_dist": 12,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/1393",
+    "phash_dist": 14,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/1717",
+    "phash_dist": 14,
+    "dhash_dist": 14
+   }
+  ]
+ },
+ {
+  "query": "valid/20532",
+  "neighbours": [
+   {
+    "name": "train/3227",
+    "phash_dist": 10,
+    "dhash_dist": 9
+   },
+   {
+    "name": "train/260",
+    "phash_dist": 14,
+    "dhash_dist": 8
+   },
+   {
+    "name": "train/393",
+    "phash_dist": 14,
+    "dhash_dist": 16
+   }
+  ]
+ },
+ {
+  "query": "valid/20533",
+  "neighbours": [
+   {
+    "name": "train/593",
+    "phash_dist": 14,
+    "dhash_dist": 24
+   },
+   {
+    "name": "train/1624",
+    "phash_dist": 16,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/1745",
+    "phash_dist": 16,
+    "dhash_dist": 22
+   }
+  ]
+ },
+ {
+  "query": "valid/20564",
+  "neighbours": [
+   {
+    "name": "train/220",
+    "phash_dist": 16,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/4145",
+    "phash_dist": 16,
+    "dhash_dist": 24
+   },
+   {
+    "name": "train/575",
+    "phash_dist": 16,
+    "dhash_dist": 21
+   }
+  ]
+ },
+ {
+  "query": "valid/20577",
+  "neighbours": [
+   {
+    "name": "train/659",
+    "phash_dist": 14,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/1464",
+    "phash_dist": 16,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/1673",
+    "phash_dist": 16,
+    "dhash_dist": 17
+   }
+  ]
+ },
+ {
+  "query": "valid/20589",
+  "neighbours": [
+   {
+    "name": "train/3551",
+    "phash_dist": 16,
+    "dhash_dist": 11
+   },
+   {
+    "name": "train/3885",
+    "phash_dist": 16,
+    "dhash_dist": 15
+   },
+   {
+    "name": "train/652",
+    "phash_dist": 16,
+    "dhash_dist": 7
+   }
+  ]
+ },
+ {
+  "query": "valid/20594",
+  "neighbours": [
+   {
+    "name": "train/1552",
+    "phash_dist": 14,
+    "dhash_dist": 10
+   },
+   {
+    "name": "train/1691",
+    "phash_dist": 14,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/3114",
+    "phash_dist": 14,
+    "dhash_dist": 12
+   }
+  ]
+ },
+ {
+  "query": "valid/20596",
+  "neighbours": [
+   {
+    "name": "train/1089",
+    "phash_dist": 14,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/2286",
+    "phash_dist": 14,
+    "dhash_dist": 9
+   },
+   {
+    "name": "train/2347",
+    "phash_dist": 14,
+    "dhash_dist": 26
+   }
+  ]
+ },
+ {
+  "query": "valid/20617",
+  "neighbours": [
+   {
+    "name": "train/3816",
+    "phash_dist": 12,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/4045",
+    "phash_dist": 12,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/1140",
+    "phash_dist": 14,
+    "dhash_dist": 20
+   }
+  ]
+ },
+ {
+  "query": "valid/20621",
+  "neighbours": [
+   {
+    "name": "train/1955",
+    "phash_dist": 14,
+    "dhash_dist": 32
+   },
+   {
+    "name": "train/249",
+    "phash_dist": 14,
+    "dhash_dist": 30
+   },
+   {
+    "name": "train/2650",
+    "phash_dist": 14,
+    "dhash_dist": 25
+   }
+  ]
+ },
+ {
+  "query": "valid/20635",
+  "neighbours": [
+   {
+    "name": "train/3812",
+    "phash_dist": 12,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/458",
+    "phash_dist": 12,
+    "dhash_dist": 8
+   },
+   {
+    "name": "train/151",
+    "phash_dist": 14,
+    "dhash_dist": 13
+   }
+  ]
+ },
+ {
+  "query": "valid/20647",
+  "neighbours": [
+   {
+    "name": "train/1729",
+    "phash_dist": 14,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/2965",
+    "phash_dist": 14,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/309",
+    "phash_dist": 14,
+    "dhash_dist": 25
+   }
+  ]
+ },
+ {
+  "query": "valid/20649",
+  "neighbours": [
+   {
+    "name": "train/2136",
+    "phash_dist": 12,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/2967",
+    "phash_dist": 12,
+    "dhash_dist": 32
+   },
+   {
+    "name": "train/1063",
+    "phash_dist": 14,
+    "dhash_dist": 28
+   }
+  ]
+ },
+ {
+  "query": "valid/20655",
+  "neighbours": [
+   {
+    "name": "train/1763",
+    "phash_dist": 12,
+    "dhash_dist": 29
+   },
+   {
+    "name": "train/2418",
+    "phash_dist": 12,
+    "dhash_dist": 28
+   },
+   {
+    "name": "train/586",
+    "phash_dist": 12,
+    "dhash_dist": 19
+   }
+  ]
+ },
+ {
+  "query": "valid/20666",
+  "neighbours": [
+   {
+    "name": "train/1392",
+    "phash_dist": 12,
+    "dhash_dist": 10
+   },
+   {
+    "name": "train/1401",
+    "phash_dist": 12,
+    "dhash_dist": 19
+   },
+   {
+    "name": "train/1786",
+    "phash_dist": 12,
+    "dhash_dist": 11
+   }
+  ]
+ },
+ {
+  "query": "valid/20676",
+  "neighbours": [
+   {
+    "name": "train/2127",
+    "phash_dist": 14,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/3074",
+    "phash_dist": 16,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/319",
+    "phash_dist": 16,
+    "dhash_dist": 15
+   }
+  ]
+ },
+ {
+  "query": "valid/20681",
+  "neighbours": [
+   {
+    "name": "train/2189",
+    "phash_dist": 14,
+    "dhash_dist": 15
+   },
+   {
+    "name": "train/2511",
+    "phash_dist": 14,
+    "dhash_dist": 15
+   },
+   {
+    "name": "train/2713",
+    "phash_dist": 14,
+    "dhash_dist": 9
+   }
+  ]
+ },
+ {
+  "query": "valid/20682",
+  "neighbours": [
+   {
+    "name": "train/2276",
+    "phash_dist": 10,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/1403",
+    "phash_dist": 12,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/2903",
+    "phash_dist": 12,
+    "dhash_dist": 10
+   }
+  ]
+ },
+ {
+  "query": "valid/20724",
+  "neighbours": [
+   {
+    "name": "train/3849",
+    "phash_dist": 12,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/4072",
+    "phash_dist": 12,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/467",
+    "phash_dist": 12,
+    "dhash_dist": 22
+   }
+  ]
+ },
+ {
+  "query": "valid/20733",
+  "neighbours": [
+   {
+    "name": "train/1914",
+    "phash_dist": 18,
+    "dhash_dist": 27
+   },
+   {
+    "name": "train/2191",
+    "phash_dist": 18,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/3150",
+    "phash_dist": 18,
+    "dhash_dist": 31
+   }
+  ]
+ },
+ {
+  "query": "valid/20788",
+  "neighbours": [
+   {
+    "name": "train/1358",
+    "phash_dist": 14,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/1804",
+    "phash_dist": 14,
+    "dhash_dist": 34
+   },
+   {
+    "name": "train/3303",
+    "phash_dist": 14,
+    "dhash_dist": 25
+   }
+  ]
+ },
+ {
+  "query": "valid/20801",
+  "neighbours": [
+   {
+    "name": "train/106",
+    "phash_dist": 16,
+    "dhash_dist": 24
+   },
+   {
+    "name": "train/1311",
+    "phash_dist": 16,
+    "dhash_dist": 33
+   },
+   {
+    "name": "train/1430",
+    "phash_dist": 16,
+    "dhash_dist": 22
+   }
+  ]
+ },
+ {
+  "query": "valid/20816",
+  "neighbours": [
+   {
+    "name": "train/1166",
+    "phash_dist": 18,
+    "dhash_dist": 12
+   },
+   {
+    "name": "train/1316",
+    "phash_dist": 18,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/3321",
+    "phash_dist": 18,
+    "dhash_dist": 10
+   }
+  ]
+ },
+ {
+  "query": "valid/20829",
+  "neighbours": [
+   {
+    "name": "train/3404",
+    "phash_dist": 10,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/1223",
+    "phash_dist": 12,
+    "dhash_dist": 12
+   },
+   {
+    "name": "train/1317",
+    "phash_dist": 14,
+    "dhash_dist": 20
+   }
+  ]
+ },
+ {
+  "query": "valid/20858",
+  "neighbours": [
+   {
+    "name": "train/2714",
+    "phash_dist": 10,
+    "dhash_dist": 12
+   },
+   {
+    "name": "train/1411",
+    "phash_dist": 12,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/1546",
+    "phash_dist": 12,
+    "dhash_dist": 14
+   }
+  ]
+ },
+ {
+  "query": "valid/20861",
+  "neighbours": [
+   {
+    "name": "train/2300",
+    "phash_dist": 14,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/107",
+    "phash_dist": 16,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/1523",
+    "phash_dist": 16,
+    "dhash_dist": 23
+   }
+  ]
+ },
+ {
+  "query": "valid/20889",
+  "neighbours": [
+   {
+    "name": "train/2274",
+    "phash_dist": 18,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/2673",
+    "phash_dist": 18,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/284",
+    "phash_dist": 18,
+    "dhash_dist": 15
+   }
+  ]
+ },
+ {
+  "query": "test/30006",
+  "neighbours": [
+   {
+    "name": "train/643",
+    "phash_dist": 12,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/1321",
+    "phash_dist": 14,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/1395",
+    "phash_dist": 14,
+    "dhash_dist": 7
+   }
+  ]
+ },
+ {
+  "query": "test/30011",
+  "neighbours": [
+   {
+    "name": "train/2518",
+    "phash_dist": 12,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/3180",
+    "phash_dist": 12,
+    "dhash_dist": 19
+   },
+   {
+    "name": "train/1349",
+    "phash_dist": 14,
+    "dhash_dist": 26
+   }
+  ]
+ },
+ {
+  "query": "test/30017",
+  "neighbours": [
+   {
+    "name": "train/2033",
+    "phash_dist": 16,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/3411",
+    "phash_dist": 16,
+    "dhash_dist": 19
+   },
+   {
+    "name": "train/3618",
+    "phash_dist": 16,
+    "dhash_dist": 26
+   }
+  ]
+ },
+ {
+  "query": "test/30066",
+  "neighbours": [
+   {
+    "name": "train/1018",
+    "phash_dist": 14,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/1235",
+    "phash_dist": 14,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/2276",
+    "phash_dist": 14,
+    "dhash_dist": 25
+   }
+  ]
+ },
+ {
+  "query": "test/30075",
+  "neighbours": [
+   {
+    "name": "train/255",
+    "phash_dist": 16,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/2451",
+    "phash_dist": 18,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/2896",
+    "phash_dist": 18,
+    "dhash_dist": 14
+   }
+  ]
+ },
+ {
+  "query": "test/30076",
+  "neighbours": [
+   {
+    "name": "train/2574",
+    "phash_dist": 10,
+    "dhash_dist": 12
+   },
+   {
+    "name": "train/3037",
+    "phash_dist": 10,
+    "dhash_dist": 9
+   },
+   {
+    "name": "train/3822",
+    "phash_dist": 10,
+    "dhash_dist": 9
+   }
+  ]
+ },
+ {
+  "query": "test/30095",
+  "neighbours": [
+   {
+    "name": "train/2086",
+    "phash_dist": 12,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/627",
+    "phash_dist": 12,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/784",
+    "phash_dist": 12,
+    "dhash_dist": 11
+   }
+  ]
+ },
+ {
+  "query": "test/30102",
+  "neighbours": [
+   {
+    "name": "train/1717",
+    "phash_dist": 14,
+    "dhash_dist": 27
+   },
+   {
+    "name": "train/604",
+    "phash_dist": 14,
+    "dhash_dist": 28
+   },
+   {
+    "name": "train/146",
+    "phash_dist": 16,
+    "dhash_dist": 29
+   }
+  ]
+ },
+ {
+  "query": "test/30110",
+  "neighbours": [
+   {
+    "name": "train/856",
+    "phash_dist": 12,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/1348",
+    "phash_dist": 14,
+    "dhash_dist": 12
+   },
+   {
+    "name": "train/1409",
+    "phash_dist": 14,
+    "dhash_dist": 13
+   }
+  ]
+ },
+ {
+  "query": "test/30133",
+  "neighbours": [
+   {
+    "name": "train/1021",
+    "phash_dist": 16,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/1393",
+    "phash_dist": 16,
+    "dhash_dist": 19
+   },
+   {
+    "name": "train/1828",
+    "phash_dist": 16,
+    "dhash_dist": 21
+   }
+  ]
+ },
+ {
+  "query": "test/30140",
+  "neighbours": [
+   {
+    "name": "train/1707",
+    "phash_dist": 14,
+    "dhash_dist": 15
+   },
+   {
+    "name": "train/2057",
+    "phash_dist": 14,
+    "dhash_dist": 15
+   },
+   {
+    "name": "train/2060",
+    "phash_dist": 14,
+    "dhash_dist": 14
+   }
+  ]
+ },
+ {
+  "query": "test/30147",
+  "neighbours": [
+   {
+    "name": "train/3171",
+    "phash_dist": 12,
+    "dhash_dist": 8
+   },
+   {
+    "name": "train/171",
+    "phash_dist": 14,
+    "dhash_dist": 9
+   },
+   {
+    "name": "train/2056",
+    "phash_dist": 14,
+    "dhash_dist": 14
+   }
+  ]
+ },
+ {
+  "query": "test/30167",
+  "neighbours": [
+   {
+    "name": "train/2121",
+    "phash_dist": 12,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/3361",
+    "phash_dist": 12,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/3503",
+    "phash_dist": 12,
+    "dhash_dist": 20
+   }
+  ]
+ },
+ {
+  "query": "test/30168",
+  "neighbours": [
+   {
+    "name": "train/1100",
+    "phash_dist": 12,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/2334",
+    "phash_dist": 12,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/3118",
+    "phash_dist": 12,
+    "dhash_dist": 6
+   }
+  ]
+ },
+ {
+  "query": "test/30174",
+  "neighbours": [
+   {
+    "name": "train/2041",
+    "phash_dist": 12,
+    "dhash_dist": 7
+   },
+   {
+    "name": "train/2175",
+    "phash_dist": 12,
+    "dhash_dist": 10
+   },
+   {
+    "name": "train/236",
+    "phash_dist": 12,
+    "dhash_dist": 9
+   }
+  ]
+ },
+ {
+  "query": "test/30190",
+  "neighbours": [
+   {
+    "name": "train/983",
+    "phash_dist": 14,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/208",
+    "phash_dist": 16,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/3760",
+    "phash_dist": 16,
+    "dhash_dist": 27
+   }
+  ]
+ },
+ {
+  "query": "test/30206",
+  "neighbours": [
+   {
+    "name": "train/3233",
+    "phash_dist": 10,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/2464",
+    "phash_dist": 12,
+    "dhash_dist": 12
+   },
+   {
+    "name": "train/3108",
+    "phash_dist": 12,
+    "dhash_dist": 11
+   }
+  ]
+ },
+ {
+  "query": "test/30207",
+  "neighbours": [
+   {
+    "name": "train/784",
+    "phash_dist": 6,
+    "dhash_dist": 12
+   },
+   {
+    "name": "train/3569",
+    "phash_dist": 8,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/3079",
+    "phash_dist": 10,
+    "dhash_dist": 7
+   }
+  ]
+ },
+ {
+  "query": "test/30212",
+  "neighbours": [
+   {
+    "name": "train/1392",
+    "phash_dist": 14,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/1818",
+    "phash_dist": 14,
+    "dhash_dist": 28
+   },
+   {
+    "name": "train/1955",
+    "phash_dist": 14,
+    "dhash_dist": 22
+   }
+  ]
+ },
+ {
+  "query": "test/30220",
+  "neighbours": [
+   {
+    "name": "train/1547",
+    "phash_dist": 14,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/1084",
+    "phash_dist": 16,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/1181",
+    "phash_dist": 16,
+    "dhash_dist": 15
+   }
+  ]
+ },
+ {
+  "query": "test/30221",
+  "neighbours": [
+   {
+    "name": "train/219",
+    "phash_dist": 12,
+    "dhash_dist": 24
+   },
+   {
+    "name": "train/3450",
+    "phash_dist": 12,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/499",
+    "phash_dist": 12,
+    "dhash_dist": 20
+   }
+  ]
+ },
+ {
+  "query": "test/30223",
+  "neighbours": [
+   {
+    "name": "train/1286",
+    "phash_dist": 16,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/3287",
+    "phash_dist": 16,
+    "dhash_dist": 15
+   },
+   {
+    "name": "train/3933",
+    "phash_dist": 16,
+    "dhash_dist": 20
+   }
+  ]
+ },
+ {
+  "query": "test/30228",
+  "neighbours": [
+   {
+    "name": "train/1482",
+    "phash_dist": 14,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/151",
+    "phash_dist": 14,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/1877",
+    "phash_dist": 14,
+    "dhash_dist": 12
+   }
+  ]
+ },
+ {
+  "query": "test/30231",
+  "neighbours": [
+   {
+    "name": "train/1175",
+    "phash_dist": 12,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/1299",
+    "phash_dist": 14,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/1946",
+    "phash_dist": 14,
+    "dhash_dist": 35
+   }
+  ]
+ },
+ {
+  "query": "test/30246",
+  "neighbours": [
+   {
+    "name": "train/4018",
+    "phash_dist": 14,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/861",
+    "phash_dist": 18,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/122",
+    "phash_dist": 20,
+    "dhash_dist": 16
+   }
+  ]
+ },
+ {
+  "query": "test/30262",
+  "neighbours": [
+   {
+    "name": "train/2004",
+    "phash_dist": 14,
+    "dhash_dist": 26
+   },
+   {
+    "name": "train/1142",
+    "phash_dist": 16,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/2925",
+    "phash_dist": 16,
+    "dhash_dist": 27
+   }
+  ]
+ },
+ {
+  "query": "test/30278",
+  "neighbours": [
+   {
+    "name": "train/570",
+    "phash_dist": 14,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/1376",
+    "phash_dist": 16,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/3805",
+    "phash_dist": 16,
+    "dhash_dist": 14
+   }
+  ]
+ },
+ {
+  "query": "test/30287",
+  "neighbours": [
+   {
+    "name": "train/208",
+    "phash_dist": 14,
+    "dhash_dist": 12
+   },
+   {
+    "name": "train/3845",
+    "phash_dist": 14,
+    "dhash_dist": 6
+   },
+   {
+    "name": "train/727",
+    "phash_dist": 14,
+    "dhash_dist": 14
+   }
+  ]
+ },
+ {
+  "query": "test/30294",
+  "neighbours": [
+   {
+    "name": "train/1798",
+    "phash_dist": 16,
+    "dhash_dist": 28
+   },
+   {
+    "name": "train/3217",
+    "phash_dist": 16,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/175",
+    "phash_dist": 18,
+    "dhash_dist": 20
+   }
+  ]
+ },
+ {
+  "query": "test/30303",
+  "neighbours": [
+   {
+    "name": "train/1649",
+    "phash_dist": 12,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/2268",
+    "phash_dist": 14,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/2506",
+    "phash_dist": 14,
+    "dhash_dist": 18
+   }
+  ]
+ },
+ {
+  "query": "test/30307",
+  "neighbours": [
+   {
+    "name": "train/128",
+    "phash_dist": 16,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/2509",
+    "phash_dist": 16,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/2828",
+    "phash_dist": 16,
+    "dhash_dist": 18
+   }
+  ]
+ },
+ {
+  "query": "test/30321",
+  "neighbours": [
+   {
+    "name": "train/1370",
+    "phash_dist": 14,
+    "dhash_dist": 25
+   },
+   {
+    "name": "train/1804",
+    "phash_dist": 16,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/2233",
+    "phash_dist": 16,
+    "dhash_dist": 20
+   }
+  ]
+ },
+ {
+  "query": "test/30332",
+  "neighbours": [
+   {
+    "name": "train/4011",
+    "phash_dist": 16,
+    "dhash_dist": 11
+   },
+   {
+    "name": "train/1500",
+    "phash_dist": 18,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/1701",
+    "phash_dist": 18,
+    "dhash_dist": 21
+   }
+  ]
+ },
+ {
+  "query": "test/30335",
+  "neighbours": [
+   {
+    "name": "train/2788",
+    "phash_dist": 6,
+    "dhash_dist": 15
+   },
+   {
+    "name": "train/1029",
+    "phash_dist": 12,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/1376",
+    "phash_dist": 14,
+    "dhash_dist": 10
+   }
+  ]
+ },
+ {
+  "query": "test/30351",
+  "neighbours": [
+   {
+    "name": "train/1632",
+    "phash_dist": 14,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/83",
+    "phash_dist": 14,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/1417",
+    "phash_dist": 16,
+    "dhash_dist": 19
+   }
+  ]
+ },
+ {
+  "query": "test/30353",
+  "neighbours": [
+   {
+    "name": "train/3001",
+    "phash_dist": 12,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/109",
+    "phash_dist": 14,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/2986",
+    "phash_dist": 14,
+    "dhash_dist": 10
+   }
+  ]
+ },
+ {
+  "query": "test/30354",
+  "neighbours": [
+   {
+    "name": "train/1338",
+    "phash_dist": 10,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/1724",
+    "phash_dist": 10,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/2329",
+    "phash_dist": 10,
+    "dhash_dist": 13
+   }
+  ]
+ },
+ {
+  "query": "test/30366",
+  "neighbours": [
+   {
+    "name": "train/3012",
+    "phash_dist": 14,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/3067",
+    "phash_dist": 14,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/3157",
+    "phash_dist": 14,
+    "dhash_dist": 20
+   }
+  ]
+ },
+ {
+  "query": "test/30380",
+  "neighbours": [
+   {
+    "name": "train/1214",
+    "phash_dist": 10,
+    "dhash_dist": 15
+   },
+   {
+    "name": "train/398",
+    "phash_dist": 10,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/2213",
+    "phash_dist": 12,
+    "dhash_dist": 17
+   }
+  ]
+ },
+ {
+  "query": "test/30411",
+  "neighbours": [
+   {
+    "name": "train/728",
+    "phash_dist": 10,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/1056",
+    "phash_dist": 12,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/260",
+    "phash_dist": 12,
+    "dhash_dist": 14
+   }
+  ]
+ },
+ {
+  "query": "test/30444",
+  "neighbours": [
+   {
+    "name": "train/3749",
+    "phash_dist": 14,
+    "dhash_dist": 24
+   },
+   {
+    "name": "train/1764",
+    "phash_dist": 16,
+    "dhash_dist": 25
+   },
+   {
+    "name": "train/239",
+    "phash_dist": 16,
+    "dhash_dist": 25
+   }
+  ]
+ },
+ {
+  "query": "test/30468",
+  "neighbours": [
+   {
+    "name": "train/2297",
+    "phash_dist": 14,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/1099",
+    "phash_dist": 16,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/1508",
+    "phash_dist": 16,
+    "dhash_dist": 22
+   }
+  ]
+ },
+ {
+  "query": "test/30490",
+  "neighbours": [
+   {
+    "name": "train/1932",
+    "phash_dist": 18,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/2084",
+    "phash_dist": 18,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/1121",
+    "phash_dist": 20,
+    "dhash_dist": 21
+   }
+  ]
+ },
+ {
+  "query": "test/30491",
+  "neighbours": [
+   {
+    "name": "train/3678",
+    "phash_dist": 14,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/1091",
+    "phash_dist": 16,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/1156",
+    "phash_dist": 16,
+    "dhash_dist": 12
+   }
+  ]
+ },
+ {
+  "query": "test/30499",
+  "neighbours": [
+   {
+    "name": "train/2104",
+    "phash_dist": 14,
+    "dhash_dist": 15
+   },
+   {
+    "name": "train/2155",
+    "phash_dist": 14,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/1153",
+    "phash_dist": 16,
+    "dhash_dist": 19
+   }
+  ]
+ },
+ {
+  "query": "test/30500",
+  "neighbours": [
+   {
+    "name": "train/3877",
+    "phash_dist": 14,
+    "dhash_dist": 25
+   },
+   {
+    "name": "train/1311",
+    "phash_dist": 16,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/1791",
+    "phash_dist": 16,
+    "dhash_dist": 18
+   }
+  ]
+ },
+ {
+  "query": "test/30532",
+  "neighbours": [
+   {
+    "name": "train/994",
+    "phash_dist": 12,
+    "dhash_dist": 25
+   },
+   {
+    "name": "train/1488",
+    "phash_dist": 14,
+    "dhash_dist": 19
+   },
+   {
+    "name": "train/2197",
+    "phash_dist": 14,
+    "dhash_dist": 18
+   }
+  ]
+ },
+ {
+  "query": "test/30541",
+  "neighbours": [
+   {
+    "name": "train/2745",
+    "phash_dist": 16,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/2892",
+    "phash_dist": 16,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/1387",
+    "phash_dist": 18,
+    "dhash_dist": 14
+   }
+  ]
+ },
+ {
+  "query": "test/30544",
+  "neighbours": [
+   {
+    "name": "train/273",
+    "phash_dist": 12,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/1044",
+    "phash_dist": 14,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/1408",
+    "phash_dist": 14,
+    "dhash_dist": 14
+   }
+  ]
+ },
+ {
+  "query": "test/30547",
+  "neighbours": [
+   {
+    "name": "train/973",
+    "phash_dist": 14,
+    "dhash_dist": 25
+   },
+   {
+    "name": "train/3114",
+    "phash_dist": 16,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/1371",
+    "phash_dist": 18,
+    "dhash_dist": 23
+   }
+  ]
+ },
+ {
+  "query": "test/30554",
+  "neighbours": [
+   {
+    "name": "train/1339",
+    "phash_dist": 14,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/1076",
+    "phash_dist": 16,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/1299",
+    "phash_dist": 16,
+    "dhash_dist": 17
+   }
+  ]
+ },
+ {
+  "query": "test/30573",
+  "neighbours": [
+   {
+    "name": "train/750",
+    "phash_dist": 12,
+    "dhash_dist": 8
+   },
+   {
+    "name": "train/1470",
+    "phash_dist": 14,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/1869",
+    "phash_dist": 14,
+    "dhash_dist": 11
+   }
+  ]
+ },
+ {
+  "query": "test/30594",
+  "neighbours": [
+   {
+    "name": "train/1381",
+    "phash_dist": 10,
+    "dhash_dist": 15
+   },
+   {
+    "name": "train/3058",
+    "phash_dist": 10,
+    "dhash_dist": 11
+   },
+   {
+    "name": "train/2043",
+    "phash_dist": 12,
+    "dhash_dist": 22
+   }
+  ]
+ },
+ {
+  "query": "test/30595",
+  "neighbours": [
+   {
+    "name": "train/3305",
+    "phash_dist": 16,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/1261",
+    "phash_dist": 18,
+    "dhash_dist": 25
+   },
+   {
+    "name": "train/1338",
+    "phash_dist": 18,
+    "dhash_dist": 17
+   }
+  ]
+ },
+ {
+  "query": "test/30647",
+  "neighbours": [
+   {
+    "name": "train/1801",
+    "phash_dist": 14,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/2832",
+    "phash_dist": 14,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/481",
+    "phash_dist": 14,
+    "dhash_dist": 19
+   }
+  ]
+ },
+ {
+  "query": "test/30651",
+  "neighbours": [
+   {
+    "name": "train/1233",
+    "phash_dist": 10,
+    "dhash_dist": 9
+   },
+   {
+    "name": "train/2112",
+    "phash_dist": 12,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/1781",
+    "phash_dist": 14,
+    "dhash_dist": 14
+   }
+  ]
+ },
+ {
+  "query": "test/30652",
+  "neighbours": [
+   {
+    "name": "train/234",
+    "phash_dist": 14,
+    "dhash_dist": 12
+   },
+   {
+    "name": "train/2504",
+    "phash_dist": 14,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/3117",
+    "phash_dist": 14,
+    "dhash_dist": 17
+   }
+  ]
+ },
+ {
+  "query": "test/30705",
+  "neighbours": [
+   {
+    "name": "train/2590",
+    "phash_dist": 10,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/86",
+    "phash_dist": 12,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/120",
+    "phash_dist": 14,
+    "dhash_dist": 8
+   }
+  ]
+ },
+ {
+  "query": "test/30707",
+  "neighbours": [
+   {
+    "name": "train/1443",
+    "phash_dist": 16,
+    "dhash_dist": 9
+   },
+   {
+    "name": "train/2571",
+    "phash_dist": 16,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/2863",
+    "phash_dist": 16,
+    "dhash_dist": 13
+   }
+  ]
+ },
+ {
+  "query": "test/30734",
+  "neighbours": [
+   {
+    "name": "train/3724",
+    "phash_dist": 16,
+    "dhash_dist": 17
+   },
+   {
+    "name": "train/389",
+    "phash_dist": 16,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/845",
+    "phash_dist": 16,
+    "dhash_dist": 20
+   }
+  ]
+ },
+ {
+  "query": "test/30737",
+  "neighbours": [
+   {
+    "name": "train/1244",
+    "phash_dist": 20,
+    "dhash_dist": 37
+   },
+   {
+    "name": "train/134",
+    "phash_dist": 20,
+    "dhash_dist": 36
+   },
+   {
+    "name": "train/1437",
+    "phash_dist": 20,
+    "dhash_dist": 38
+   }
+  ]
+ },
+ {
+  "query": "test/30744",
+  "neighbours": [
+   {
+    "name": "train/2949",
+    "phash_dist": 14,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/479",
+    "phash_dist": 14,
+    "dhash_dist": 26
+   },
+   {
+    "name": "train/699",
+    "phash_dist": 14,
+    "dhash_dist": 17
+   }
+  ]
+ },
+ {
+  "query": "test/30745",
+  "neighbours": [
+   {
+    "name": "train/108",
+    "phash_dist": 12,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/4042",
+    "phash_dist": 12,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/1786",
+    "phash_dist": 14,
+    "dhash_dist": 16
+   }
+  ]
+ },
+ {
+  "query": "test/30748",
+  "neighbours": [
+   {
+    "name": "train/1240",
+    "phash_dist": 12,
+    "dhash_dist": 21
+   },
+   {
+    "name": "train/1933",
+    "phash_dist": 12,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/2033",
+    "phash_dist": 12,
+    "dhash_dist": 10
+   }
+  ]
+ },
+ {
+  "query": "test/30759",
+  "neighbours": [
+   {
+    "name": "train/390",
+    "phash_dist": 12,
+    "dhash_dist": 8
+   },
+   {
+    "name": "train/1636",
+    "phash_dist": 14,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/2925",
+    "phash_dist": 14,
+    "dhash_dist": 16
+   }
+  ]
+ },
+ {
+  "query": "test/30762",
+  "neighbours": [
+   {
+    "name": "train/1675",
+    "phash_dist": 14,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/1350",
+    "phash_dist": 16,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/1403",
+    "phash_dist": 16,
+    "dhash_dist": 19
+   }
+  ]
+ },
+ {
+  "query": "test/30768",
+  "neighbours": [
+   {
+    "name": "train/1949",
+    "phash_dist": 16,
+    "dhash_dist": 13
+   },
+   {
+    "name": "train/3336",
+    "phash_dist": 16,
+    "dhash_dist": 8
+   },
+   {
+    "name": "train/566",
+    "phash_dist": 16,
+    "dhash_dist": 12
+   }
+  ]
+ },
+ {
+  "query": "test/30782",
+  "neighbours": [
+   {
+    "name": "train/992",
+    "phash_dist": 8,
+    "dhash_dist": 11
+   },
+   {
+    "name": "train/2268",
+    "phash_dist": 10,
+    "dhash_dist": 2
+   },
+   {
+    "name": "train/2469",
+    "phash_dist": 10,
+    "dhash_dist": 9
+   }
+  ]
+ },
+ {
+  "query": "test/30789",
+  "neighbours": [
+   {
+    "name": "train/3715",
+    "phash_dist": 16,
+    "dhash_dist": 23
+   },
+   {
+    "name": "train/2581",
+    "phash_dist": 18,
+    "dhash_dist": 30
+   },
+   {
+    "name": "train/2606",
+    "phash_dist": 18,
+    "dhash_dist": 23
+   }
+  ]
+ },
+ {
+  "query": "test/30790",
+  "neighbours": [
+   {
+    "name": "train/1020",
+    "phash_dist": 16,
+    "dhash_dist": 11
+   },
+   {
+    "name": "train/1248",
+    "phash_dist": 16,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/1514",
+    "phash_dist": 16,
+    "dhash_dist": 16
+   }
+  ]
+ },
+ {
+  "query": "test/30795",
+  "neighbours": [
+   {
+    "name": "train/3828",
+    "phash_dist": 10,
+    "dhash_dist": 11
+   },
+   {
+    "name": "train/815",
+    "phash_dist": 10,
+    "dhash_dist": 7
+   },
+   {
+    "name": "train/3150",
+    "phash_dist": 12,
+    "dhash_dist": 22
+   }
+  ]
+ },
+ {
+  "query": "test/30798",
+  "neighbours": [
+   {
+    "name": "train/3547",
+    "phash_dist": 16,
+    "dhash_dist": 14
+   },
+   {
+    "name": "train/1446",
+    "phash_dist": 18,
+    "dhash_dist": 15
+   },
+   {
+    "name": "train/1886",
+    "phash_dist": 18,
+    "dhash_dist": 15
+   }
+  ]
+ },
+ {
+  "query": "test/30799",
+  "neighbours": [
+   {
+    "name": "train/3033",
+    "phash_dist": 14,
+    "dhash_dist": 19
+   },
+   {
+    "name": "train/1698",
+    "phash_dist": 16,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/2347",
+    "phash_dist": 16,
+    "dhash_dist": 30
+   }
+  ]
+ },
+ {
+  "query": "test/30815",
+  "neighbours": [
+   {
+    "name": "train/680",
+    "phash_dist": 12,
+    "dhash_dist": 12
+   },
+   {
+    "name": "train/2044",
+    "phash_dist": 14,
+    "dhash_dist": 8
+   },
+   {
+    "name": "train/3966",
+    "phash_dist": 14,
+    "dhash_dist": 11
+   }
+  ]
+ },
+ {
+  "query": "test/30820",
+  "neighbours": [
+   {
+    "name": "train/4100",
+    "phash_dist": 10,
+    "dhash_dist": 10
+   },
+   {
+    "name": "train/1506",
+    "phash_dist": 12,
+    "dhash_dist": 9
+   },
+   {
+    "name": "train/2637",
+    "phash_dist": 12,
+    "dhash_dist": 11
+   }
+  ]
+ },
+ {
+  "query": "test/30825",
+  "neighbours": [
+   {
+    "name": "train/815",
+    "phash_dist": 10,
+    "dhash_dist": 9
+   },
+   {
+    "name": "train/1914",
+    "phash_dist": 12,
+    "dhash_dist": 18
+   },
+   {
+    "name": "train/3150",
+    "phash_dist": 12,
+    "dhash_dist": 16
+   }
+  ]
+ },
+ {
+  "query": "test/30829",
+  "neighbours": [
+   {
+    "name": "train/1235",
+    "phash_dist": 14,
+    "dhash_dist": 27
+   },
+   {
+    "name": "train/1263",
+    "phash_dist": 16,
+    "dhash_dist": 24
+   },
+   {
+    "name": "train/1703",
+    "phash_dist": 16,
+    "dhash_dist": 24
+   }
+  ]
+ },
+ {
+  "query": "test/30839",
+  "neighbours": [
+   {
+    "name": "train/1160",
+    "phash_dist": 14,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/1200",
+    "phash_dist": 14,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/1649",
+    "phash_dist": 14,
+    "dhash_dist": 22
+   }
+  ]
+ },
+ {
+  "query": "test/30841",
+  "neighbours": [
+   {
+    "name": "train/2017",
+    "phash_dist": 14,
+    "dhash_dist": 15
+   },
+   {
+    "name": "train/2175",
+    "phash_dist": 14,
+    "dhash_dist": 20
+   },
+   {
+    "name": "train/4099",
+    "phash_dist": 14,
+    "dhash_dist": 20
+   }
+  ]
+ },
+ {
+  "query": "test/30872",
+  "neighbours": [
+   {
+    "name": "train/2188",
+    "phash_dist": 12,
+    "dhash_dist": 19
+   },
+   {
+    "name": "train/2426",
+    "phash_dist": 12,
+    "dhash_dist": 22
+   },
+   {
+    "name": "train/551",
+    "phash_dist": 14,
+    "dhash_dist": 27
+   }
+  ]
+ },
+ {
+  "query": "test/30876",
+  "neighbours": [
+   {
+    "name": "train/2125",
+    "phash_dist": 16,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/2558",
+    "phash_dist": 16,
+    "dhash_dist": 16
+   },
+   {
+    "name": "train/702",
+    "phash_dist": 16,
+    "dhash_dist": 18
+   }
+  ]
+ },
+ {
+  "query": "test/30882",
+  "neighbours": [
+   {
+    "name": "train/390",
+    "phash_dist": 10,
+    "dhash_dist": 9
+   },
+   {
+    "name": "train/2517",
+    "phash_dist": 12,
+    "dhash_dist": 24
+   },
+   {
+    "name": "train/3205",
+    "phash_dist": 12,
+    "dhash_dist": 14
+   }
+  ]
+ },
+ {
+  "query": "test/30892",
+  "neighbours": [
+   {
+    "name": "train/874",
+    "phash_dist": 14,
+    "dhash_dist": 10
+   },
+   {
+    "name": "train/1076",
+    "phash_dist": 16,
+    "dhash_dist": 7
+   },
+   {
+    "name": "train/1700",
+    "phash_dist": 16,
+    "dhash_dist": 14
+   }
+  ]
+ },
+ {
+  "query": "test/30895",
+  "neighbours": [
+   {
+    "name": "train/1453",
+    "phash_dist": 16,
+    "dhash_dist": 19
+   },
+   {
+    "name": "train/147",
+    "phash_dist": 16,
+    "dhash_dist": 30
+   },
+   {
+    "name": "train/2113",
+    "phash_dist": 16,
+    "dhash_dist": 16
+   }
+  ]
+ }
+]

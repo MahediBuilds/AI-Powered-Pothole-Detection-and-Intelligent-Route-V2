@@ -1,0 +1,16 @@
+digraph evalp {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=10, nodesep=0.2, ranksep=0.2, pad=0.05, newrank=true];
+  node  [shape=box, style="filled", fillcolor="#f2f2f2", color="#444444", fontname="Helvetica", fontsize=10, margin="0.06,0.03", width=5.0];
+  edge  [fontname="Helvetica", fontsize=10, color="#444444", arrowsize=0.7];
+
+  ck   [label="Checkpoint (SHA-256 recorded) at a fixed image size", fillcolor="#e6e6e6"];
+  sel  [label="Checkpoint choice (candidate run): pre-declared rule on validation lists only;\nscore = mean of RDD2022-val and HRP4K-val mAP50; test lists refused"];
+  pred [label="Predictions with Ultralytics val(): confidence floor 0.001, NMS IoU 0.7,\nsingle class; matching at IoU 0.5 (greedy, by descending confidence)"];
+  s1   [label="SELECT on pooled validation (RDD2022 val + HRP4K val):\nthreshold = confidence that maximises F1 -> operating_points.json", fillcolor="#e9e9e9"];
+  s2   [label="APPLY on held-out test (RDD2022 test, HRP4K test, manhole probe)\nwith that threshold unchanged; refuses another checkpoint hash,\nanother image size, or images shared with the selection list", fillcolor="#e9e9e9"];
+  met  [label="Metrics: P, R, F1, false positives per image and per empty image,\nmAP50 and mAP50-95 (101-point AP), manhole hit share"];
+  bs   [label="Group bootstrap: 1,000 resamples of near-duplicate groups (seed 0),\n95% percentile intervals"];
+  pd   [label="Paired difference (candidate minus baseline) on identical resamples;\nrefused if lists, groups or seeds differ; interval excluding 0 flagged"];
+  mr   [label="Matched-recall check: candidate confidence at which its validation\nrecall equals the baseline's; run once on test at that confidence", fillcolor="#e6e6e6"];
+  ck -> sel -> pred -> s1 -> s2 -> met -> bs -> pd -> mr;
+}

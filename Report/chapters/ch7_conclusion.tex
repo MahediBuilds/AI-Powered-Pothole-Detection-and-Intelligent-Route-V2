@@ -1,0 +1,22 @@
+\chapter{Conclusion and Future Work}\label{ch:conclusion}
+
+\section{Conclusion}
+We rebuilt the pothole detection and route recommendation system from scratch and evaluated the software and the detector separately. The system takes a road video and a GPS log, detects potholes with a single-class YOLOv8s model, follows each pothole with a motion-aware tracker, merges repeated sightings into mapped potholes, snaps them to an OpenStreetMap road graph and stores the results in SQLite. A FastAPI backend serves a five-tab browser interface and a route planner that runs Dijkstra's algorithm with a cost that adds expected potholes to distance and treats unsurveyed road as unknown. All 1,101 automated tests passed in a full run. The browser interface has no behaviour tests.
+
+For the detector we followed a protocol meant to avoid the mistakes of the earlier implementation. Near-duplicate images were grouped by perceptual hash and kept within one split, label review could only exclude images, thresholds were fixed on validation data before testing, and every comparison carries a group-bootstrap interval. The deployed baseline, YOLOv8s trained on RDD2022 at 640 px, reached mAP\textsubscript{50} 0.497 [0.443, 0.555] on the held-out RDD2022 test split.
+
+The candidate experiment gave a mixed result. Fine-tuned on RDD2022 and HRP4K at 1280 px, the candidate raised HRP4K test mAP\textsubscript{50} from 0.018 to 0.454, a gain explained by training on that data. On RDD2022 its mAP\textsubscript{50} fell by 0.0445 and its false positives per image rose, and it did not demonstrate fewer false positives or less manhole confusion than the baseline. For that reason the deployed model is still the baseline. On our 13 unlabelled recordings the comparison is qualitative: the earlier model produced near-full-frame boxes in 3,107 of its 9,665 detections, and both new models fire on manhole covers, patches and stains.
+
+The implementation also connects to the Sustainable Development Goals set out in Table~\ref{tab:ch1-sdg}. For SDG 9, ordinary road video becomes a pothole map that also records which roads were surveyed. SDG 11 is served by route planning that steers around potholes and states how much evidence supports each route, and SDG 3 by telling drivers about potholes before they reach them. The SDG 11 part has so far been shown only with synthetic data, and none of these effects has been measured in the field.
+
+Some parts of the system are still incomplete. Road condition comes down to a pothole count, a surveyed length and a rate per 100 m for each segment, plus an evidence level for each route, with no severity or grade. Because our recordings cover only about 1,020 m, split across seven stretches that do not connect, route comparison could only be demonstrated on a synthetic session. The system also supports just one user, has no authentication, and still relies on provisional pipeline thresholds.
+
+\section{Future Work}
+\begin{enumerate}[itemsep=0pt]
+\item Label frames from our own roads, assigning each recording as a whole to a single split. Only then can accuracy be measured on the roads the system is meant for, and only then can we tell whether the baseline or the candidate does better on them.
+\item Use a labelled validation set from our roads to choose the confidence, NMS and tracking settings, apply them once to a held-out test set, and log every test evaluation.
+\item Train the candidate again with several random seeds, changing the data and the resolution one at a time, to find out what causes its gain on HRP4K and its drop on RDD2022.
+\item Turn the stored counts, surveyed lengths and rates into a road-condition score, check it against surveyed road quality, and have the router use it. Estimating severity would need labelled data, which does not exist yet.
+\item Record more roads until the surveyed stretches connect at junctions, so that routes can be compared on real data.
+\item Before anyone beyond a single local user relies on the system, add authentication, encrypted connections and automated tests for the browser interface.
+\end{enumerate}

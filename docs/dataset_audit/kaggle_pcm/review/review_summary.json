@@ -1,0 +1,55 @@
+{
+ "annotation_verdicts": {
+  "pothole": {
+   "unclear": 999,
+   "reject": 155,
+   "ok": 107
+  },
+  "manhole": {
+   "unclear": 638,
+   "damaged_or_sunken": 12,
+   "intact": 307
+  }
+ },
+ "reject_reasons": {
+  "repair patch (not an open defect)": 54,
+  "unpaved/gravel/dirt track surface": 42,
+  "puddle / water on surface, no visible depression": 23,
+  "unpaved car park / dirt lot": 19,
+  "road marking / tyre mark / shadow, not a defect": 5,
+  "manhole/drain cover or its frame, not a pothole": 12
+ },
+ "image_decisions": {
+  "EXCLUDE": 1152,
+  "NEGATIVE": 815,
+  "POSITIVE": 42
+ },
+ "exclusion_reason_counts_(images_can_have_several)": {
+  "manhole_unclear": 540,
+  "pothole_unclear": 670,
+  "pothole_reject": 93,
+  "manhole_damaged_or_sunken": 8,
+  "unlabelled_defect": 23,
+  "unpaved_or_handheld_closeup": 14,
+  "pothole_box_oob_gt2px": 1
+ },
+ "kept_pothole_boxes": 59,
+ "negatives_with_intact_manhole": 161,
+ "kept_box_sqrt_area_px": {
+  "n": 59,
+  "min": 18.70819392638427,
+  "p25": 30.031010840405177,
+  "median": 38.26244895505776,
+  "p75": 48.55601467420936,
+  "max": 300.2663292478436,
+  "lt16": 0,
+  "lt32": 18,
+  "ge32_lt64": 34,
+  "ge64": 7
+ },
+ "clipped_boxes_logged": 1,
+ "flags_used": {
+  "unlabelled_defect": 23,
+  "unpaved_or_handheld_closeup": 14
+ }
+}

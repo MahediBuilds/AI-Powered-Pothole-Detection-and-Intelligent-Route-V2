@@ -1,0 +1,24 @@
+digraph tracker {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=10, nodesep=0.12, ranksep=0.24, pad=0.05, newrank=true];
+  node  [shape=box, style="filled", fillcolor="#f2f2f2", color="#444444", fontname="Helvetica", fontsize=10, margin="0.06,0.03"];
+  edge  [fontname="Helvetica", fontsize=10, color="#444444", arrowsize=0.7];
+
+  mode [width=4.7, label="Per session, from the upper-quartile GPS speed:\n>= 2.5 m/s vehicle (every frame, min hits 6); otherwise\nwalking or default (every 3rd frame, min hits 3).\nMax age is 15 source frames in both modes.", fillcolor="#e6e6e6"];
+  fr   [width=3.6, label="Next analysed frame with detections d_1 ... d_k"];
+  pred [width=4.7, label="For each live track: predicted box = last box moved by its\nvelocity x elapsed source frames (box size unchanged)"];
+  pair [width=4.7, label="Pairs (track, detection) with IoU(predicted box, detection) >= 0.2;\ngreedy one-to-one assignment, highest IoU first"];
+  m1   [width=1.5, label="Matched:\nappend detection\nto the track"];
+  m2   [width=1.5, label="Unmatched\ndetection:\nstart a new track"];
+  m3   [width=1.5, label="Unmatched track\nolder than 15\nsource frames: ends"];
+  fl   [width=1.5, label="End of video:\nall live tracks\nend (flush)"];
+  conf [width=3.0, label="Ended track: confirmed if hits >= min hits,\notherwise counted as rejected"];
+  obs  [width=3.0, label="Confirmed track = one observation:\nbest-confidence frame, last box,\nlast time seen", fillcolor="#e6e6e6"];
+
+  mode -> fr -> pred -> pair;
+  pair -> m1; pair -> m2; pair -> m3;
+  m3 -> conf; fl -> conf; conf -> obs;
+  {rank=same; m1; m2; m3;}
+  m1 -> fr [style=dashed, constraint=false, label="next frame"];
+  m2 -> m1 [style=invis]; m1 -> m2 [style=invis]; m2 -> m3 [style=invis];
+  m3 -> fl [style=invis];
+}

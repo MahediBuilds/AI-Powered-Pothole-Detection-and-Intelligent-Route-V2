@@ -1,0 +1,67 @@
+# Unified fine-tuning run: RDD2022 + HRP4K, single class "pothole", imgsz 1280.
+# Relative paths resolve against the project root. One cloud run only; see
+# docs/cloud_run_unified_v1.md for the budget, abort rules and checklist.
+#
+# Initialised from the archived baseline (YOLOv8s, imgsz 640, RDD2022). The weights
+# are a COPY of model_archive/baseline_yolov8s_rdd2022/weights/best.pt (the archive
+# is never written to; the copy's sha256 is recorded in run_config.json).
+model: pretrained/baseline_yolov8s_rdd2022_best.pt
+data: data/processed/unified_v1/dataset.yaml   # train: lists/train.txt, val: lists/val_pooled.txt
+imgsz: 1280
+batch: 16              # 16 x 4 accumulation steps = nbs 64, as in the baseline. See runbook for memory.
+epochs: 50
+patience: 50          # = epochs: early stopping is effectively off. Ultralytics stops on pooled mAP50-95
+                      # (its fitness), which is not our selection metric and could stop before close_mosaic.
+                      # Checkpoint selection happens locally from the saved checkpoints.
+seed: 42
+deterministic: true
+device: "0"
+workers: 6             # overridden on the instance: --workers (RAM-limited, see runbook)
+project: runs/train
+name: unified_v1_y8s_1280
+exist_ok: false
+
+# Explicit optimiser: nothing is left to 'auto'. The baseline's auto choice (MuSGD, lr 0.01)
+# was driven by its iteration count (> 10000); this shorter run (about 12000 images / 64 x 50
+# epochs = 9400 iterations) would make 'auto' flip to AdamW lr 0.002, so the choice is pinned.
+# Fine-tuning from converged weights at a new resolution and a new image source: AdamW is
+# insensitive to the gradient-scale change when resolution and data mix change, and lr0 is half
+# of Ultralytics' short-run default (0.002) because the weights are already trained for the task.
+# Cosine decay to lr0 * lrf = 1e-5. 2 warmup epochs let the optimiser statistics settle;
+# warmup_bias_lr 0 matches what 'auto' does for AdamW (the 0.1 default is an SGD value).
+optim:
+  optimizer: AdamW
+  lr0: 0.001
+  lrf: 0.01
+  momentum: 0.9
+  weight_decay: 0.0005
+  warmup_epochs: 2.0
+  warmup_bias_lr: 0.0
+  cos_lr: true
+
+# Wall-clock cap on training (Ultralytics 'time' mode, hours, validation included). The epoch
+# count is an upper bound (train.py makes it shrink-only): if the budget cannot fit 50 epochs, the
+# trainer shortens the cosine schedule coherently, so it still anneals and reaches close_mosaic.
+# The remote script passes --time-hours = min(2.5, (200 - elapsed_minutes - 12) / 60), so a late
+# start shortens the schedule instead of the cap cutting it. 2.5 is the ceiling; the estimated
+# full run is 1.3-1.7 h.
+time_hours: 2.5
+# Every saved epoch*.pt is kept (names use the 0-based epoch index: epoch4.pt = 5th epoch).
+# Final selection happens locally with scripts/select_checkpoint.py.
+save_period: 5
+
+# Same augmentation as configs/train_baseline.yaml.
+augment:
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+  degrees: 0.0
+  translate: 0.1
+  scale: 0.5
+  shear: 0.0
+  perspective: 0.0
+  flipud: 0.0
+  fliplr: 0.5
+  mosaic: 1.0
+  mixup: 0.0
+  close_mosaic: 10

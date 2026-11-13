@@ -1,0 +1,29 @@
+digraph dataflow {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=10, nodesep=0.12, ranksep=0.2, pad=0.05, newrank=true];
+  node  [shape=box, style="filled", fillcolor="#f2f2f2", color="#444444", fontname="Helvetica", fontsize=10, margin="0.06,0.03", width=2.4];
+  edge  [fontname="Helvetica", fontsize=10, color="#444444", arrowsize=0.7];
+
+  subgraph cluster_a {
+    label="A. Job for each uploaded session (worker thread)"; labeljust=c; style="rounded,dashed"; color="#666666";
+    in    [label="Uploaded video and GPS CSV,\noptional JSON sidecar", fillcolor="#e6e6e6"];
+    intake [label="Intake: session row and all\nGPS fixes stored; gps_source =\nnone | recorded | synthetic"];
+    tl    [label="Timeline from frame\ntimestamps (fallback:\nindex / fps)"];
+    mode  [label="Mode: upper-quartile GPS\nspeed >= 2.5 m/s is vehicle\n(every frame, 6 hits), else\nwalking (every 3rd, 3 hits)", fillcolor="#e9e9e9"];
+    det   [label="Detector on analysed frames\nconf 0.25, NMS IoU 0.5, 640 px"];
+    trk   [label="MotionTracker: IoU >= 0.2\nwith predicted box, max age\n15 source frames"];
+    obs   [label="Confirmed track = one\nobservation (best confidence,\nlast box, annotated JPEG)"];
+    geo   [label="Geotag: position_at(last time\nseen), linear interpolation,\ngap <= 3 s, extrapolation <= 1 s"];
+    save  [label="Store observations;\njob done (complete | partial)"];
+    in -> intake -> tl -> mode -> det -> trk -> obs -> geo -> save;
+  }
+  subgraph cluster_b {
+    label="B. Map rebuilt after every successful job"; labeljust=c; style="rounded,dashed"; color="#666666";
+    raw   [label="Saved observations and GPS\nfixes from recorded sessions", fillcolor="#e6e6e6"];
+    clus  [label="Sightings within 8 m merged\n(complete linkage); position =\nmean, confidence = highest"];
+    snap  [label="Each pothole attached to the\nclosest road edge within 30 m"];
+    cov   [label="Surveyed road: 5 m either side\nof each GPS fix taken while\nthe video was recording"];
+    stat  [label="Table edge_stats, one row per\nsegment: surveyed_m,\nn_potholes, rate_per_100m"];
+    out   [label="Served to the web interface:\nmap layers, detection cards\nand the route planner", fillcolor="#e6e6e6"];
+    raw -> clus -> snap -> cov -> stat -> out;
+  }
+}

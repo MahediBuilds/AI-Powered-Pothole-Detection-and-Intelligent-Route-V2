@@ -1,0 +1,945 @@
+% =====================================================================
+% references.bib -- verified bibliography for the pothole-detection major project report.
+% Every entry was checked against a primary source (Crossref / arXiv API / official
+% proceedings page / Zenodo API / publisher page). See _working/reference_verification.csv.
+% The `keywords` field records the tier:
+%   core            = used for the main argument of the report
+%   system-optional = only cite if the corresponding system component is actually implemented
+%   background      = breadth / historical context (survey, classical or non-vision methods)
+%   old-system      = relates to the previous (YOLOv8-seg + ByteTrack) version only
+% =====================================================================
+
+% ---------------------------------------------------------------------
+% (a) Pothole / road damage detection
+% ---------------------------------------------------------------------
+
+@article{arya2022rdd2022,
+  author    = {Arya, Deeksha and Maeda, Hiroya and Ghosh, Sanjay Kumar and Toshniwal, Durga and Sekimoto, Yoshihide},
+  title     = {{RDD2022}: A multi-national image dataset for automatic road damage detection},
+  journal   = {Geoscience Data Journal},
+  year      = {2024},
+  volume    = {11},
+  pages     = {846--862},
+  doi       = {10.1002/gdj3.260},
+  note      = {Preprint: arXiv:2209.08538 (2022). Volume and pages as given in the reference list of Chen et al. (Sci. Data 2026); Crossref lists only article number gdj3.260 and no issue number},
+  keywords  = {core}
+}
+
+@article{arya2021multicountry,
+  author    = {Arya, Deeksha and Maeda, Hiroya and Ghosh, Sanjay Kumar and Toshniwal, Durga and Mraz, Alexander and Kashiyama, Takehiro and Sekimoto, Yoshihide},
+  title     = {Deep learning-based road damage detection and classification for multiple countries},
+  journal   = {Automation in Construction},
+  year      = {2021},
+  volume    = {132},
+  pages     = {103935},
+  doi       = {10.1016/j.autcon.2021.103935},
+  note      = {Preprint under the title ``Transfer Learning-based Road Damage Detection for Multiple Countries'', arXiv:2008.13101},
+  keywords  = {core}
+}
+
+@article{arya2021rdd2020,
+  author    = {Arya, Deeksha and Maeda, Hiroya and Ghosh, Sanjay Kumar and Toshniwal, Durga and Sekimoto, Yoshihide},
+  title     = {{RDD2020}: An annotated image dataset for automatic road damage detection using deep learning},
+  journal   = {Data in Brief},
+  year      = {2021},
+  volume    = {36},
+  pages     = {107133},
+  doi       = {10.1016/j.dib.2021.107133},
+  keywords  = {core}
+}
+
+@inproceedings{arya2020grddc,
+  author    = {Arya, Deeksha and Maeda, Hiroya and Ghosh, Sanjay Kumar and Toshniwal, Durga and Omata, Hiroshi and Kashiyama, Takehiro and Sekimoto, Yoshihide},
+  title     = {Global road damage detection: State-of-the-art solutions},
+  booktitle = {2020 {IEEE} International Conference on Big Data (Big Data)},
+  year      = {2020},
+  pages     = {5533--5539},
+  doi       = {10.1109/BigData50022.2020.9377790},
+  note      = {arXiv:2011.08740},
+  keywords  = {core}
+}
+
+@inproceedings{arya2022crddc,
+  author    = {Arya, Deeksha and Maeda, Hiroya and Ghosh, Sanjay Kumar and Toshniwal, Durga and Omata, Hiroshi and Kashiyama, Takehiro and Sekimoto, Yoshihide},
+  title     = {Crowdsensing-based road damage detection challenge ({CRDDC}'2022)},
+  booktitle = {2022 {IEEE} International Conference on Big Data (Big Data)},
+  year      = {2022},
+  pages     = {6378--6386},
+  doi       = {10.1109/BigData55660.2022.10021040},
+  note      = {arXiv:2211.11362},
+  keywords  = {core}
+}
+
+@article{maeda2018road,
+  author    = {Maeda, Hiroya and Sekimoto, Yoshihide and Seto, Toshikazu and Kashiyama, Takehiro and Omata, Hiroshi},
+  title     = {Road damage detection and classification using deep neural networks with smartphone images},
+  journal   = {Computer-Aided Civil and Infrastructure Engineering},
+  year      = {2018},
+  volume    = {33},
+  number    = {12},
+  pages     = {1127--1141},
+  doi       = {10.1111/mice.12387},
+  keywords  = {core}
+}
+
+@inproceedings{hegde2020yet,
+  author    = {Hegde, Vinuta and Trivedi, Dweep and Alfarrarjeh, Abdullah and Deepak, Aditi and Kim, Seon Ho and Shahabi, Cyrus},
+  title     = {Yet another deep learning approach for road damage detection using ensemble learning},
+  booktitle = {2020 {IEEE} International Conference on Big Data (Big Data)},
+  year      = {2020},
+  pages     = {5553--5558},
+  doi       = {10.1109/BigData50022.2020.9377833},
+  keywords  = {core}
+}
+
+@article{zeng2024yolov8pd,
+  author    = {Zeng, Jiayi and Zhong, Han},
+  title     = {{YOLOv8-PD}: an improved road damage detection algorithm based on {YOLOv8n} model},
+  journal   = {Scientific Reports},
+  year      = {2024},
+  volume    = {14},
+  number    = {1},
+  pages     = {12052},
+  doi       = {10.1038/s41598-024-62933-z},
+  keywords  = {core}
+}
+
+@article{wang2023blyolov8,
+  author    = {Wang, Xueqiu and Gao, Huanbing and Jia, Zemeng and Li, Zijian},
+  title     = {{BL-YOLOv8}: An improved road defect detection model based on {YOLOv8}},
+  journal   = {Sensors},
+  year      = {2023},
+  volume    = {23},
+  number    = {20},
+  pages     = {8361},
+  doi       = {10.3390/s23208361},
+  keywords  = {core}
+}
+
+@article{dhiman2020pothole,
+  author    = {Dhiman, Amita and Klette, Reinhard},
+  title     = {Pothole detection using computer vision and learning},
+  journal   = {IEEE Transactions on Intelligent Transportation Systems},
+  year      = {2020},
+  volume    = {21},
+  number    = {8},
+  pages     = {3536--3550},
+  doi       = {10.1109/TITS.2019.2931297},
+  keywords  = {background}
+}
+
+@article{ma2022review,
+  author    = {Ma, Nachuan and Fan, Jiahe and Wang, Wenshuo and Wu, Jin and Jiang, Yu and Xie, Lihua and Fan, Rui},
+  title     = {Computer vision for road imaging and pothole detection: a state-of-the-art review of systems and algorithms},
+  journal   = {Transportation Safety and Environment},
+  year      = {2022},
+  volume    = {4},
+  number    = {4},
+  pages     = {tdac026},
+  doi       = {10.1093/tse/tdac026},
+  note      = {arXiv:2204.13590},
+  keywords  = {core}
+}
+
+@article{kim2022review,
+  author    = {Kim, Young-Mok and Kim, Young-Gil and Son, Seung-Yong and Lim, Soo-Yeon and Choi, Bong-Yeol and Choi, Doo-Hyun},
+  title     = {Review of recent automated pothole-detection methods},
+  journal   = {Applied Sciences},
+  year      = {2022},
+  volume    = {12},
+  number    = {11},
+  pages     = {5320},
+  doi       = {10.3390/app12115320},
+  keywords  = {core}
+}
+
+@article{safyari2024review,
+  author    = {Safyari, Yashar and Mahdianpari, Masoud and Shiri, Hodjat},
+  title     = {A review of vision-based pothole detection methods using computer vision and machine learning},
+  journal   = {Sensors},
+  year      = {2024},
+  volume    = {24},
+  number    = {17},
+  pages     = {5652},
+  doi       = {10.3390/s24175652},
+  keywords  = {core}
+}
+
+@article{koch2011pothole,
+  author    = {Koch, Christian and Brilakis, Ioannis},
+  title     = {Pothole detection in asphalt pavement images},
+  journal   = {Advanced Engineering Informatics},
+  year      = {2011},
+  volume    = {25},
+  number    = {3},
+  pages     = {507--515},
+  doi       = {10.1016/j.aei.2011.01.002},
+  keywords  = {background}
+}
+
+@article{fan2020pothole,
+  author    = {Fan, Rui and Ozgunalp, Umar and Hosking, Brett and Liu, Ming and Pitas, Ioannis},
+  title     = {Pothole detection based on disparity transformation and road surface modeling},
+  journal   = {IEEE Transactions on Image Processing},
+  year      = {2020},
+  volume    = {29},
+  pages     = {897--908},
+  doi       = {10.1109/TIP.2019.2933750},
+  keywords  = {background}
+}
+
+@inproceedings{kang2017pothole,
+  author    = {Kang, Byeong-ho and Choi, Su-il},
+  title     = {Pothole detection system using {2D} {LiDAR} and camera},
+  booktitle = {2017 Ninth International Conference on Ubiquitous and Future Networks (ICUFN)},
+  year      = {2017},
+  pages     = {744--746},
+  doi       = {10.1109/ICUFN.2017.7993890},
+  keywords  = {background}
+}
+
+@inproceedings{eriksson2008pothole,
+  author    = {Eriksson, Jakob and Girod, Lewis and Hull, Bret and Newton, Ryan and Madden, Samuel and Balakrishnan, Hari},
+  title     = {The pothole patrol: using a mobile sensor network for road surface monitoring},
+  booktitle = {Proceedings of the 6th International Conference on Mobile Systems, Applications, and Services (MobiSys '08)},
+  year      = {2008},
+  pages     = {29--39},
+  doi       = {10.1145/1378600.1378605},
+  keywords  = {background}
+}
+
+@inproceedings{mednis2011real,
+  author    = {Mednis, Artis and Strazdins, Girts and Zviedris, Reinholds and Kanonirs, Georgijs and Selavo, Leo},
+  title     = {Real time pothole detection using {Android} smartphones with accelerometers},
+  booktitle = {2011 International Conference on Distributed Computing in Sensor Systems and Workshops (DCOSS)},
+  year      = {2011},
+  pages     = {1--6},
+  doi       = {10.1109/DCOSS.2011.5982206},
+  keywords  = {background}
+}
+
+% ---------------------------------------------------------------------
+% (d) Datasets
+% ---------------------------------------------------------------------
+
+@article{chen2026hrp4k,
+  author    = {Chen, Hanshen and Tu, Zhoulin and Zhao, Yu and Ye, Jianfeng},
+  title     = {A high-resolution perspective-view road image dataset for pothole detection},
+  journal   = {Scientific Data},
+  year      = {2026},
+  volume    = {13},
+  number    = {1},
+  pages     = {961},
+  doi       = {10.1038/s41597-026-07317-w},
+  keywords  = {core}
+}
+
+@misc{chen2026hrp4kzenodo,
+  author       = {Chen, Hanshen},
+  title        = {{HRP4K}},
+  howpublished = {Zenodo dataset, version V1.01},
+  year         = {2026},
+  doi          = {10.5281/zenodo.21941931},
+  url          = {https://zenodo.org/records/21941931},
+  note         = {Record description: ``HRP4K: A high-resolution perspective-view road image dataset for pothole detection''. V1.01 corrects an incomplete upload in v1.0. CC BY 4.0. Concept DOI 10.5281/zenodo.17522873; the Scientific Data paper cites 10.5281/zenodo.17522874},
+  keywords     = {core}
+}
+
+@article{giordani2026roaddamage,
+  author    = {Giordani, Enrico and Arcioni, Lorenzo and Gil-Mart{\'\i}n, Manuel and Foresti, Gian Luca and Marini, Marco Raoul},
+  title     = {Real-world road damage dataset with potholes, cracks, and maintenance holes},
+  journal   = {Scientific Reports},
+  year      = {2026},
+  volume    = {16},
+  number    = {1},
+  pages     = {15318},
+  doi       = {10.1038/s41598-026-46679-4},
+  keywords  = {core}
+}
+
+@misc{giordani2025roaddamagezenodo,
+  author       = {Giordani, Enrico and Arcioni, Lorenzo and Gil-Mart{\'\i}n, Manuel and Marini, Marco Raoul},
+  title        = {Road damage dataset: Potholes, cracks and manholes},
+  howpublished = {Zenodo dataset, version 0.1.0},
+  year         = {2025},
+  doi          = {10.5281/zenodo.17834373},
+  url          = {https://zenodo.org/records/17834373},
+  note         = {CC BY 4.0. Images 640x360 per the record description; companion paper: Giordani et al., Sci. Rep. 16, 15318 (2026)},
+  keywords     = {core}
+}
+
+@inproceedings{lin2014coco,
+  author    = {Lin, Tsung-Yi and Maire, Michael and Belongie, Serge and Hays, James and Perona, Pietro and Ramanan, Deva and Doll{\'a}r, Piotr and Zitnick, C. Lawrence},
+  title     = {Microsoft {COCO}: Common objects in context},
+  booktitle = {Computer Vision -- {ECCV} 2014},
+  year      = {2014},
+  pages     = {740--755},
+  publisher = {Springer International Publishing},
+  doi       = {10.1007/978-3-319-10602-1_48},
+  keywords  = {core}
+}
+
+@article{everingham2010pascal,
+  author    = {Everingham, Mark and Van Gool, Luc and Williams, Christopher K. I. and Winn, John and Zisserman, Andrew},
+  title     = {The {Pascal} visual object classes ({VOC}) challenge},
+  journal   = {International Journal of Computer Vision},
+  year      = {2010},
+  volume    = {88},
+  number    = {2},
+  pages     = {303--338},
+  doi       = {10.1007/s11263-009-0275-4},
+  keywords  = {core}
+}
+
+% ---------------------------------------------------------------------
+% (b) Object detection foundations and YOLOv8 components
+% ---------------------------------------------------------------------
+
+@inproceedings{girshick2014rich,
+  author    = {Girshick, Ross and Donahue, Jeff and Darrell, Trevor and Malik, Jitendra},
+  title     = {Rich feature hierarchies for accurate object detection and semantic segmentation},
+  booktitle = {2014 {IEEE} Conference on Computer Vision and Pattern Recognition},
+  year      = {2014},
+  pages     = {580--587},
+  doi       = {10.1109/CVPR.2014.81},
+  keywords  = {core}
+}
+
+@article{ren2017faster,
+  author    = {Ren, Shaoqing and He, Kaiming and Girshick, Ross and Sun, Jian},
+  title     = {Faster {R-CNN}: Towards real-time object detection with region proposal networks},
+  journal   = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year      = {2017},
+  volume    = {39},
+  number    = {6},
+  pages     = {1137--1149},
+  doi       = {10.1109/TPAMI.2016.2577031},
+  note      = {Conference version: Advances in Neural Information Processing Systems 28 (2015); arXiv:1506.01497},
+  keywords  = {core}
+}
+
+@inproceedings{liu2016ssd,
+  author    = {Liu, Wei and Anguelov, Dragomir and Erhan, Dumitru and Szegedy, Christian and Reed, Scott and Fu, Cheng-Yang and Berg, Alexander C.},
+  title     = {{SSD}: Single shot {MultiBox} detector},
+  booktitle = {Computer Vision -- {ECCV} 2016},
+  year      = {2016},
+  pages     = {21--37},
+  publisher = {Springer International Publishing},
+  doi       = {10.1007/978-3-319-46448-0_2},
+  keywords  = {core}
+}
+
+@inproceedings{redmon2016yolo,
+  author    = {Redmon, Joseph and Divvala, Santosh and Girshick, Ross and Farhadi, Ali},
+  title     = {You only look once: Unified, real-time object detection},
+  booktitle = {2016 {IEEE} Conference on Computer Vision and Pattern Recognition ({CVPR})},
+  year      = {2016},
+  pages     = {779--788},
+  doi       = {10.1109/CVPR.2016.91},
+  keywords  = {core}
+}
+
+@misc{bochkovskiy2020yolov4,
+  author       = {Bochkovskiy, Alexey and Wang, Chien-Yao and Liao, Hong-Yuan Mark},
+  title        = {{YOLOv4}: Optimal speed and accuracy of object detection},
+  howpublished = {arXiv preprint},
+  year         = {2020},
+  eprint       = {2004.10934},
+  archiveprefix = {arXiv},
+  url          = {https://arxiv.org/abs/2004.10934},
+  keywords     = {core}
+}
+
+@misc{jocher2023yolov8,
+  author       = {Jocher, Glenn and Chaurasia, Ayush and Qiu, Jing},
+  title        = {Ultralytics {YOLOv8}},
+  howpublished = {Software, version 8.0.0},
+  year         = {2023},
+  url          = {https://github.com/ultralytics/ultralytics},
+  note         = {Citation form given on the official Ultralytics YOLOv8 documentation page (https://docs.ultralytics.com/models/yolov8/); licence AGPL-3.0},
+  keywords     = {core}
+}
+
+@article{lin2020focal,
+  author    = {Lin, Tsung-Yi and Goyal, Priya and Girshick, Ross and He, Kaiming and Doll{\'a}r, Piotr},
+  title     = {Focal loss for dense object detection},
+  journal   = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year      = {2020},
+  volume    = {42},
+  number    = {2},
+  pages     = {318--327},
+  doi       = {10.1109/TPAMI.2018.2858826},
+  note      = {Conference version: ICCV 2017, doi 10.1109/ICCV.2017.324},
+  keywords  = {core}
+}
+
+@inproceedings{lin2017fpn,
+  author    = {Lin, Tsung-Yi and Doll{\'a}r, Piotr and Girshick, Ross and He, Kaiming and Hariharan, Bharath and Belongie, Serge},
+  title     = {Feature pyramid networks for object detection},
+  booktitle = {2017 {IEEE} Conference on Computer Vision and Pattern Recognition ({CVPR})},
+  year      = {2017},
+  pages     = {936--944},
+  doi       = {10.1109/CVPR.2017.106},
+  keywords  = {core}
+}
+
+@inproceedings{liu2018panet,
+  author    = {Liu, Shu and Qi, Lu and Qin, Haifang and Shi, Jianping and Jia, Jiaya},
+  title     = {Path aggregation network for instance segmentation},
+  booktitle = {2018 {IEEE/CVF} Conference on Computer Vision and Pattern Recognition},
+  year      = {2018},
+  pages     = {8759--8768},
+  doi       = {10.1109/CVPR.2018.00913},
+  keywords  = {core}
+}
+
+@inproceedings{wang2020cspnet,
+  author    = {Wang, Chien-Yao and Liao, Hong-Yuan Mark and Wu, Yueh-Hua and Chen, Ping-Yang and Hsieh, Jun-Wei and Yeh, I-Hau},
+  title     = {{CSPNet}: A new backbone that can enhance learning capability of {CNN}},
+  booktitle = {2020 {IEEE/CVF} Conference on Computer Vision and Pattern Recognition Workshops ({CVPRW})},
+  year      = {2020},
+  pages     = {1571--1580},
+  doi       = {10.1109/CVPRW50498.2020.00203},
+  keywords  = {core}
+}
+
+@inproceedings{li2020generalized,
+  author    = {Li, Xiang and Wang, Wenhai and Wu, Lijun and Chen, Shuo and Hu, Xiaolin and Li, Jun and Tang, Jinhui and Yang, Jian},
+  title     = {Generalized focal loss: Learning qualified and distributed bounding boxes for dense object detection},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2020},
+  volume    = {33},
+  pages     = {21002--21012},
+  url       = {https://papers.nips.cc/paper/2020/hash/f0bda020d2470f2e74990a07a607ebd9-Abstract.html},
+  note      = {arXiv:2006.04388},
+  keywords  = {core}
+}
+
+@inproceedings{feng2021tood,
+  author    = {Feng, Chengjian and Zhong, Yujie and Gao, Yu and Scott, Matthew R. and Huang, Weilin},
+  title     = {{TOOD}: Task-aligned one-stage object detection},
+  booktitle = {2021 {IEEE/CVF} International Conference on Computer Vision ({ICCV})},
+  year      = {2021},
+  pages     = {3490--3499},
+  doi       = {10.1109/ICCV48922.2021.00349},
+  keywords  = {core}
+}
+
+% ---------------------------------------------------------------------
+% (c) Transfer learning, domain shift, small objects, input resolution
+% ---------------------------------------------------------------------
+
+@inproceedings{yosinski2014transferable,
+  author    = {Yosinski, Jason and Clune, Jeff and Bengio, Yoshua and Lipson, Hod},
+  title     = {How transferable are features in deep neural networks?},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2014},
+  volume    = {27},
+  pages     = {3320--3328},
+  url       = {https://arxiv.org/abs/1411.1792},
+  note      = {Volume and pages from the journal reference field of the arXiv record},
+  keywords  = {core}
+}
+
+@article{pan2010survey,
+  author    = {Pan, Sinno Jialin and Yang, Qiang},
+  title     = {A survey on transfer learning},
+  journal   = {IEEE Transactions on Knowledge and Data Engineering},
+  year      = {2010},
+  volume    = {22},
+  number    = {10},
+  pages     = {1345--1359},
+  doi       = {10.1109/TKDE.2009.191},
+  keywords  = {core}
+}
+
+@inproceedings{torralba2011unbiased,
+  author    = {Torralba, Antonio and Efros, Alexei A.},
+  title     = {Unbiased look at dataset bias},
+  booktitle = {CVPR 2011},
+  year      = {2011},
+  pages     = {1521--1528},
+  doi       = {10.1109/CVPR.2011.5995347},
+  keywords  = {core}
+}
+
+@inproceedings{koh2021wilds,
+  author    = {Koh, Pang Wei and Sagawa, Shiori and Marklund, Henrik and Xie, Sang Michael and Zhang, Marvin and Balsubramani, Akshay and Hu, Weihua and Yasunaga, Michihiro and Phillips, Richard Lanas and Gao, Irena and Lee, Tony and David, Etienne and Stavness, Ian and Guo, Wei and Earnshaw, Berton and Haque, Imran and Beery, Sara M. and Leskovec, Jure and Kundaje, Anshul and Pierson, Emma and Levine, Sergey and Finn, Chelsea and Liang, Percy},
+  title     = {{WILDS}: A benchmark of in-the-wild distribution shifts},
+  booktitle = {Proceedings of the 38th International Conference on Machine Learning},
+  series    = {Proceedings of Machine Learning Research},
+  year      = {2021},
+  volume    = {139},
+  pages     = {5637--5664},
+  url       = {https://proceedings.mlr.press/v139/koh21a.html},
+  keywords  = {core}
+}
+
+@inproceedings{chen2018domain,
+  author    = {Chen, Yuhua and Li, Wen and Sakaridis, Christos and Dai, Dengxin and Van Gool, Luc},
+  title     = {Domain adaptive {Faster R-CNN} for object detection in the wild},
+  booktitle = {2018 {IEEE/CVF} Conference on Computer Vision and Pattern Recognition},
+  year      = {2018},
+  pages     = {3339--3348},
+  doi       = {10.1109/CVPR.2018.00352},
+  keywords  = {core}
+}
+
+@inproceedings{singh2018snip,
+  author    = {Singh, Bharat and Davis, Larry S.},
+  title     = {An analysis of scale invariance in object detection -- {SNIP}},
+  booktitle = {2018 {IEEE/CVF} Conference on Computer Vision and Pattern Recognition},
+  year      = {2018},
+  pages     = {3578--3587},
+  doi       = {10.1109/CVPR.2018.00377},
+  keywords  = {core}
+}
+
+@article{cheng2023small,
+  author    = {Cheng, Gong and Yuan, Xiang and Yao, Xiwen and Yan, Kebing and Zeng, Qinghua and Xie, Xingxing and Han, Junwei},
+  title     = {Towards large-scale small object detection: Survey and benchmarks},
+  journal   = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year      = {2023},
+  doi       = {10.1109/TPAMI.2023.3290594},
+  note      = {Crossref gives pages 1--20 (early-access pagination) and no volume/issue; volume and issue are therefore omitted},
+  keywords  = {core}
+}
+
+@inproceedings{akyon2022sahi,
+  author    = {Akyon, Fatih Cagatay and Altinuc, Sinan Onur and Temizel, Alptekin},
+  title     = {Slicing aided hyper inference and fine-tuning for small object detection},
+  booktitle = {2022 {IEEE} International Conference on Image Processing ({ICIP})},
+  year      = {2022},
+  pages     = {966--970},
+  doi       = {10.1109/ICIP46576.2022.9897990},
+  keywords  = {core}
+}
+
+@inproceedings{tan2019efficientnet,
+  author    = {Tan, Mingxing and Le, Quoc},
+  title     = {{EfficientNet}: Rethinking model scaling for convolutional neural networks},
+  booktitle = {Proceedings of the 36th International Conference on Machine Learning},
+  series    = {Proceedings of Machine Learning Research},
+  year      = {2019},
+  volume    = {97},
+  pages     = {6105--6114},
+  url       = {https://proceedings.mlr.press/v97/tan19a.html},
+  keywords  = {core}
+}
+
+% ---------------------------------------------------------------------
+% (e) Dataset quality: label noise, near-duplicates, leakage, group-wise splitting
+% ---------------------------------------------------------------------
+
+@article{frenay2014label,
+  author    = {Fr{\'e}nay, Beno{\^\i}t and Verleysen, Michel},
+  title     = {Classification in the presence of label noise: A survey},
+  journal   = {IEEE Transactions on Neural Networks and Learning Systems},
+  year      = {2014},
+  volume    = {25},
+  number    = {5},
+  pages     = {845--869},
+  doi       = {10.1109/TNNLS.2013.2292894},
+  keywords  = {core}
+}
+
+@inproceedings{northcutt2021pervasive,
+  author    = {Northcutt, Curtis G. and Athalye, Anish and Mueller, Jonas},
+  title     = {Pervasive label errors in test sets destabilize machine learning benchmarks},
+  booktitle = {35th Conference on Neural Information Processing Systems (NeurIPS 2021), Track on Datasets and Benchmarks},
+  year      = {2021},
+  url       = {https://arxiv.org/abs/2103.14749},
+  note      = {arXiv:2103.14749; venue from the journal reference field of the arXiv record},
+  keywords  = {core}
+}
+
+@inproceedings{chadwick2019noisy,
+  author    = {Chadwick, Simon and Newman, Paul},
+  title     = {Training object detectors with noisy data},
+  booktitle = {2019 {IEEE} Intelligent Vehicles Symposium (IV)},
+  year      = {2019},
+  pages     = {1319--1325},
+  doi       = {10.1109/IVS.2019.8814137},
+  keywords  = {core}
+}
+
+@article{barz2020train,
+  author    = {Barz, Bj{\"o}rn and Denzler, Joachim},
+  title     = {Do we train on test data? {Purging CIFAR} of near-duplicates},
+  journal   = {Journal of Imaging},
+  year      = {2020},
+  volume    = {6},
+  number    = {6},
+  pages     = {41},
+  doi       = {10.3390/jimaging6060041},
+  keywords  = {core}
+}
+
+@article{kapoor2023leakage,
+  author    = {Kapoor, Sayash and Narayanan, Arvind},
+  title     = {Leakage and the reproducibility crisis in machine-learning-based science},
+  journal   = {Patterns},
+  year      = {2023},
+  volume    = {4},
+  number    = {9},
+  pages     = {100804},
+  doi       = {10.1016/j.patter.2023.100804},
+  keywords  = {core}
+}
+
+@article{roberts2017crossvalidation,
+  author    = {Roberts, David R. and Bahn, Volker and Ciuti, Simone and Boyce, Mark S. and Elith, Jane and Guillera-Arroita, Gurutzeta and Hauenstein, Severin and Lahoz-Monfort, Jos{\'e} J. and Schr{\"o}der, Boris and Thuiller, Wilfried and Warton, David I. and Wintle, Brendan A. and Hartig, Florian and Dormann, Carsten F.},
+  title     = {Cross-validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure},
+  journal   = {Ecography},
+  year      = {2017},
+  volume    = {40},
+  number    = {8},
+  pages     = {913--929},
+  doi       = {10.1111/ecog.02881},
+  keywords  = {core}
+}
+
+@inproceedings{zauner2011rihamark,
+  author    = {Zauner, Christoph and Steinebach, Martin and Hermann, Eckehard},
+  title     = {Rihamark: perceptual image hash benchmarking},
+  booktitle = {Media Watermarking, Security, and Forensics III},
+  series    = {Proceedings of SPIE},
+  year      = {2011},
+  volume    = {7880},
+  pages     = {78800X},
+  doi       = {10.1117/12.876617},
+  keywords  = {core}
+}
+
+@article{farid2021perceptual,
+  author    = {Farid, Hany},
+  title     = {An overview of perceptual hashing},
+  journal   = {Journal of Online Trust and Safety},
+  year      = {2021},
+  volume    = {1},
+  number    = {1},
+  doi       = {10.54501/jots.v1i1.24},
+  keywords  = {core}
+}
+
+@article{pedregosa2011scikit,
+  author    = {Pedregosa, Fabian and Varoquaux, Ga{\"e}l and Gramfort, Alexandre and Michel, Vincent and Thirion, Bertrand and Grisel, Olivier and Blondel, Mathieu and Prettenhofer, Peter and Weiss, Ron and Dubourg, Vincent and Vanderplas, Jake and Passos, Alexandre and Cournapeau, David and Brucher, Matthieu and Perrot, Matthieu and Duchesnay, {\'E}douard},
+  title     = {Scikit-learn: Machine learning in {Python}},
+  journal   = {Journal of Machine Learning Research},
+  year      = {2011},
+  volume    = {12},
+  pages     = {2825--2830},
+  url       = {https://jmlr.org/papers/v12/pedregosa11a.html},
+  keywords  = {system-optional}
+}
+
+% ---------------------------------------------------------------------
+% (f) Evaluation: mAP, bootstrap, paired comparison, model selection
+% ---------------------------------------------------------------------
+
+@inproceedings{padilla2020survey,
+  author    = {Padilla, Rafael and Netto, Sergio L. and da Silva, Eduardo A. B.},
+  title     = {A survey on performance metrics for object-detection algorithms},
+  booktitle = {2020 International Conference on Systems, Signals and Image Processing (IWSSIP)},
+  year      = {2020},
+  pages     = {237--242},
+  doi       = {10.1109/IWSSIP48289.2020.9145130},
+  keywords  = {core}
+}
+
+@article{padilla2021comparative,
+  author    = {Padilla, Rafael and Passos, Wesley L. and Dias, Thadeu L. B. and Netto, Sergio L. and da Silva, Eduardo A. B.},
+  title     = {A comparative analysis of object detection metrics with a companion open-source toolkit},
+  journal   = {Electronics},
+  year      = {2021},
+  volume    = {10},
+  number    = {3},
+  pages     = {279},
+  doi       = {10.3390/electronics10030279},
+  keywords  = {core}
+}
+
+@article{efron1979bootstrap,
+  author    = {Efron, B.},
+  title     = {Bootstrap methods: Another look at the jackknife},
+  journal   = {The Annals of Statistics},
+  year      = {1979},
+  volume    = {7},
+  number    = {1},
+  pages     = {1--26},
+  doi       = {10.1214/aos/1176344552},
+  keywords  = {core}
+}
+
+@book{efron1993bootstrap,
+  author    = {Efron, Bradley and Tibshirani, Robert J.},
+  title     = {An Introduction to the Bootstrap},
+  publisher = {Springer US},
+  year      = {1993},
+  isbn      = {9781489945419},
+  doi       = {10.1007/978-1-4899-4541-9},
+  keywords  = {core}
+}
+
+@inproceedings{koehn2004significance,
+  author    = {Koehn, Philipp},
+  title     = {Statistical significance tests for machine translation evaluation},
+  booktitle = {Proceedings of the 2004 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  year      = {2004},
+  pages     = {388--395},
+  address   = {Barcelona, Spain},
+  publisher = {Association for Computational Linguistics},
+  url       = {https://aclanthology.org/W04-3250/},
+  keywords  = {core}
+}
+
+@inproceedings{bergkirkpatrick2012significance,
+  author    = {Berg-Kirkpatrick, Taylor and Burkett, David and Klein, Dan},
+  title     = {An empirical investigation of statistical significance in {NLP}},
+  booktitle = {Proceedings of the 2012 Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning},
+  year      = {2012},
+  pages     = {995--1005},
+  address   = {Jeju Island, Korea},
+  publisher = {Association for Computational Linguistics},
+  url       = {https://aclanthology.org/D12-1091/},
+  keywords  = {core}
+}
+
+@article{cawley2010overfitting,
+  author    = {Cawley, Gavin C. and Talbot, Nicola L. C.},
+  title     = {On over-fitting in model selection and subsequent selection bias in performance evaluation},
+  journal   = {Journal of Machine Learning Research},
+  year      = {2010},
+  volume    = {11},
+  pages     = {2079--2107},
+  url       = {https://jmlr.org/papers/v11/cawley10a.html},
+  keywords  = {core}
+}
+
+% ---------------------------------------------------------------------
+% (g) Ensembling, tracking, instance segmentation
+% ---------------------------------------------------------------------
+
+@article{solovyev2021wbf,
+  author    = {Solovyev, Roman and Wang, Weimin and Gabruseva, Tatiana},
+  title     = {Weighted boxes fusion: Ensembling boxes from different object detection models},
+  journal   = {Image and Vision Computing},
+  year      = {2021},
+  volume    = {107},
+  pages     = {104117},
+  doi       = {10.1016/j.imavis.2021.104117},
+  note      = {arXiv:1910.13302},
+  keywords  = {core}
+}
+
+@inproceedings{zhang2022bytetrack,
+  author    = {Zhang, Yifu and Sun, Peize and Jiang, Yi and Yu, Dongdong and Weng, Fucheng and Yuan, Zehuan and Luo, Ping and Liu, Wenyu and Wang, Xinggang},
+  title     = {{ByteTrack}: Multi-object tracking by associating every detection box},
+  booktitle = {Computer Vision -- {ECCV} 2022},
+  year      = {2022},
+  pages     = {1--21},
+  publisher = {Springer Nature Switzerland},
+  doi       = {10.1007/978-3-031-20047-2_1},
+  note      = {arXiv:2110.06864},
+  keywords  = {old-system}
+}
+
+@inproceedings{he2017maskrcnn,
+  author    = {He, Kaiming and Gkioxari, Georgia and Doll{\'a}r, Piotr and Girshick, Ross},
+  title     = {Mask {R-CNN}},
+  booktitle = {2017 {IEEE} International Conference on Computer Vision ({ICCV})},
+  year      = {2017},
+  pages     = {2980--2988},
+  doi       = {10.1109/ICCV.2017.322},
+  keywords  = {old-system}
+}
+
+@inproceedings{bolya2019yolact,
+  author    = {Bolya, Daniel and Zhou, Chong and Xiao, Fanyi and Lee, Yong Jae},
+  title     = {{YOLACT}: Real-time instance segmentation},
+  booktitle = {2019 {IEEE/CVF} International Conference on Computer Vision ({ICCV})},
+  year      = {2019},
+  pages     = {9156--9165},
+  doi       = {10.1109/ICCV.2019.00925},
+  keywords  = {old-system}
+}
+
+% ---------------------------------------------------------------------
+% (h) Optimisation and training
+% ---------------------------------------------------------------------
+
+@inproceedings{kingma2015adam,
+  author    = {Kingma, Diederik P. and Ba, Jimmy},
+  title     = {Adam: A method for stochastic optimization},
+  booktitle = {3rd International Conference on Learning Representations (ICLR)},
+  year      = {2015},
+  url       = {https://arxiv.org/abs/1412.6980},
+  note      = {arXiv:1412.6980; venue from the comment field of the arXiv record},
+  keywords  = {core}
+}
+
+@inproceedings{loshchilov2019adamw,
+  author    = {Loshchilov, Ilya and Hutter, Frank},
+  title     = {Decoupled weight decay regularization},
+  booktitle = {7th International Conference on Learning Representations (ICLR)},
+  year      = {2019},
+  url       = {https://arxiv.org/abs/1711.05101},
+  note      = {arXiv:1711.05101; venue from the comment field of the arXiv record},
+  keywords  = {core}
+}
+
+@inproceedings{loshchilov2017sgdr,
+  author    = {Loshchilov, Ilya and Hutter, Frank},
+  title     = {{SGDR}: Stochastic gradient descent with warm restarts},
+  booktitle = {5th International Conference on Learning Representations (ICLR)},
+  year      = {2017},
+  url       = {https://arxiv.org/abs/1608.03983},
+  note      = {arXiv:1608.03983; venue from the comment field of the arXiv record},
+  keywords  = {core}
+}
+
+% ---------------------------------------------------------------------
+% (i) Routing, road network, road-condition assessment (optional group)
+% ---------------------------------------------------------------------
+
+@article{dijkstra1959note,
+  author    = {Dijkstra, E. W.},
+  title     = {A note on two problems in connexion with graphs},
+  journal   = {Numerische Mathematik},
+  year      = {1959},
+  volume    = {1},
+  number    = {1},
+  pages     = {269--271},
+  doi       = {10.1007/BF01386390},
+  keywords  = {system-optional}
+}
+
+@article{hart1968astar,
+  author    = {Hart, Peter E. and Nilsson, Nils J. and Raphael, Bertram},
+  title     = {A formal basis for the heuristic determination of minimum cost paths},
+  journal   = {IEEE Transactions on Systems Science and Cybernetics},
+  year      = {1968},
+  volume    = {4},
+  number    = {2},
+  pages     = {100--107},
+  doi       = {10.1109/TSSC.1968.300136},
+  keywords  = {system-optional}
+}
+
+@article{boeing2017osmnx,
+  author    = {Boeing, Geoff},
+  title     = {{OSMnx}: New methods for acquiring, constructing, analyzing, and visualizing complex street networks},
+  journal   = {Computers, Environment and Urban Systems},
+  year      = {2017},
+  volume    = {65},
+  pages     = {126--139},
+  doi       = {10.1016/j.compenvurbsys.2017.05.004},
+  keywords  = {system-optional}
+}
+
+@article{haklay2008osm,
+  author    = {Haklay, M. and Weber, P.},
+  title     = {{OpenStreetMap}: User-generated street maps},
+  journal   = {IEEE Pervasive Computing},
+  year      = {2008},
+  volume    = {7},
+  number    = {4},
+  pages     = {12--18},
+  doi       = {10.1109/MPRV.2008.80},
+  keywords  = {system-optional}
+}
+
+@inproceedings{luxen2011osrm,
+  author    = {Luxen, Dennis and Vetter, Christian},
+  title     = {Real-time routing with {OpenStreetMap} data},
+  booktitle = {Proceedings of the 19th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems},
+  year      = {2011},
+  pages     = {513--516},
+  doi       = {10.1145/2093973.2094062},
+  keywords  = {old-system}
+}
+
+@misc{astm2020d6433,
+  author       = {{ASTM International}},
+  title        = {{Standard Practice for Roads and Parking Lots Pavement Condition Index Surveys}},
+  howpublished = {Standard D6433-20},
+  year         = {2020},
+  doi          = {10.1520/D6433-20},
+  note         = {Year taken from the designation suffix; Crossref gives no date for this record},
+  keywords     = {system-optional}
+}
+
+@article{kapp2025streetsurfacevis,
+  author    = {Kapp, Alexandra and Hoffmann, Edith and Weigmann, Esther and Mihaljevi{\'c}, Helena},
+  title     = {{StreetSurfaceVis}: a dataset of crowdsourced street-level imagery annotated by road surface type and quality},
+  journal   = {Scientific Data},
+  year      = {2025},
+  volume    = {12},
+  number    = {1},
+  pages     = {92},
+  doi       = {10.1038/s41597-024-04295-9},
+  keywords  = {system-optional}
+}
+
+@misc{balakuntala2013pothole,
+  author       = {Balakuntala, Shreyas and Venkatesh, Sandeep},
+  title        = {An intelligent system to detect, avoid and maintain potholes: A graph theoretic approach},
+  howpublished = {arXiv preprint},
+  year         = {2013},
+  eprint       = {1305.5522},
+  archiveprefix = {arXiv},
+  url          = {https://arxiv.org/abs/1305.5522},
+  note         = {Conceptual framework; not peer-reviewed as far as could be verified},
+  keywords     = {system-optional}
+}
+
+@misc{sahoo2025iwatchroadv2,
+  author       = {Sahoo, Rishi Raj and Mohanty, Surbhi Saswati and Mishra, Subhankar},
+  title        = {{iWatchRoadv2}: Pothole detection, geospatial mapping, and intelligent road governance},
+  howpublished = {arXiv preprint},
+  year         = {2025},
+  eprint       = {2510.16375},
+  archiveprefix = {arXiv},
+  url          = {https://arxiv.org/abs/2510.16375},
+  note         = {Preprint; peer-review status not verified},
+  keywords     = {system-optional}
+}
+
+% ---------------------------------------------------------------------
+% (j) Frameworks
+% ---------------------------------------------------------------------
+
+@inproceedings{paszke2019pytorch,
+  author    = {Paszke, Adam and Gross, Sam and Massa, Francisco and Lerer, Adam and Bradbury, James and Chanan, Gregory and Killeen, Trevor and Lin, Zeming and Gimelshein, Natalia and Antiga, Luca and Desmaison, Alban and K{\"o}pf, Andreas and Yang, Edward and DeVito, Zachary and Raison, Martin and Tejani, Alykhan and Chilamkurthy, Sasank and Steiner, Benoit and Fang, Lu and Bai, Junjie and Chintala, Soumith},
+  title     = {{PyTorch}: An imperative style, high-performance deep learning library},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2019},
+  volume    = {32},
+  url       = {https://papers.nips.cc/paper_files/paper/2019/hash/bdbca288fee7f92f2bfa9f7012727740-Abstract.html},
+  keywords  = {core}
+}
+
+@misc{ramirez2018fastapi,
+  author       = {Ram{\'\i}rez, Sebasti{\'a}n},
+  title        = {{FastAPI}},
+  howpublished = {Software and official documentation},
+  year         = {2018},
+  url          = {https://fastapi.tiangolo.com/},
+  note         = {No paper exists; MIT licence (copyright 2018 Sebasti{\'a}n Ram{\'\i}rez); accessed 2026-11-13},
+  keywords     = {system-optional}
+}
+
+% ---------------------------------------------------------------------
+% Context from the previous report (kept)
+% ---------------------------------------------------------------------
+
+@techreport{morth2023road,
+  author       = {{Ministry of Road Transport and Highways, Government of India}},
+  title        = {{Road Accidents in India 2022}},
+  institution  = {Transport Research Wing, Ministry of Road Transport and Highways},
+  address      = {New Delhi},
+  year         = {2023},
+  url          = {https://pib.gov.in/PressReleasePage.aspx?PRID=1973295},
+  note         = {Report released 31 October 2023; figures on pothole-related accidents are in Table 3.5. The URL is the official PIB press release for the report},
+  keywords     = {core}
+}

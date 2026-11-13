@@ -1,0 +1,82 @@
+\chapter{Software and Hardware Requirement Specification}\label{ch:requirements}
+
+This chapter states what the system does, the qualities it has been checked for, and the hardware, software and cost of the project. Statuses reflect the code and the test suite at the end of the project.
+
+\section{Functional Requirements}
+Table~\ref{tab:ch3-fr} groups the functional requirements. A requirement counts as tested when automated tests of the corresponding modules exist and pass (Section~\ref{sec:ch6-tests}).
+
+\begin{table}[!htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|L{0.9cm}|L{9.4cm}|L{2.6cm}|}
+\hline
+\textbf{ID} & \textbf{Requirement} & \textbf{Status} \\
+\hline
+FR1 & Accept a road video (mp4, mov, avi, mkv) up to 2,048 MB with an optional GPS CSV file and sidecar, and validate them. & Implemented, tested \\
+\hline
+FR2 & Choose the frame stride and confirmation hits from the GPS speed (every 3rd frame and 3 hits at walking pace; every frame and 6 hits at vehicle speed). & Implemented, tested \\
+\hline
+FR3 & Detect potholes in sampled frames with a single-class YOLOv8 checkpoint; mark a job complete, partial or failed from the share of failed frames. & Implemented, tested \\
+\hline
+FR4 & Link detections of one pothole across frames into one sighting, positioned by interpolating the GPS log. & Implemented, tested \\
+\hline
+FR5 & Merge sightings within 8 m into mapped potholes; snap them to the nearest road edge within 30 m; compute per edge the surveyed length, pothole count and rate per 100 m. & Implemented, tested \\
+\hline
+FR6 & Plan up to three routes on a locally stored OpenStreetMap graph and report for each the distance, time, potholes observed, surveyed fraction and evidence level. & Implemented, tested; demonstrated on synthetic data \\
+\hline
+FR7 & Process uploads as background jobs with status reporting; store all data in SQLite; expose 20 HTTP endpoints and a command-line interface. & Implemented, tested \\
+\hline
+FR8 & Keep synthetic demonstration data apart from recorded data, with demonstration mode off by default. & Implemented, tested \\
+\hline
+FR9 & Provide a web interface with five tabs (dashboard, upload, sessions, detections, route planner) and a Leaflet map. & Implemented, untested \\
+\hline
+FR10 & Build the single-class datasets and train and evaluate detectors with group-bootstrap intervals. & Partial \\
+\hline
+FR11 & Assess road condition per road segment. & Partial \\
+\hline
+\end{tabular}
+\caption{Functional requirements and their status.}
+\label{tab:ch3-fr}
+\end{table}
+
+FR10 is partial because training runs from a tested entry point but is not exercised by a real training run in the suite, and the evaluation is implemented in scripts while the corresponding package module is a stub. FR11 is partial because the system produces counts, surveyed lengths and rates per segment and an evidence level per route, but no severity, score or grade.
+
+\section{Non-functional Requirements}
+Table~\ref{tab:ch3-nfr} lists only the qualities for which the project holds evidence.
+
+\begin{table}[!htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|L{2.6cm}|L{10.4cm}|}
+\hline
+\textbf{Quality} & \textbf{Requirement and evidence} \\
+\hline
+Reproducibility & Every training run uses seed 42 in deterministic mode and saves its configuration. Checkpoints and dataset manifests carry SHA-256 hashes, and Ultralytics is pinned at version 8.4.210. Each model was trained only once, so we cannot say how much results vary between runs. \\
+\hline
+Testability & 1,101 automated tests; a fast subset uses a fake detector and needs no GPU. The JavaScript front end is not tested. \\
+\hline
+Performance & The deployed baseline takes 8.16 ms per frame on average on an RTX 4060 Laptop GPU (FP32, 640 px, forward pass plus NMS). Processing a 60 s clip takes about 19 s if it was recorded at vehicle speed and about 6 s at walking pace. \\
+\hline
+Reliability & If no more than 2\% of frames fail, the job counts as complete. Up to 25\% gives a partial result with a warning, and anything above that fails the job. Each rejected GPS row is stored with its reason, and a job cut short by a shutdown is marked as failed when the server next starts. \\
+\hline
+Data integrity & SQLite runs with write-ahead logging and enforced foreign keys. Raw and derived data are stored separately, so the map can always be rebuilt from the raw rows, and a database with a different schema version is rejected. \\
+\hline
+Concurrency and security & Jobs run one at a time, and an operating-system lock lets only one process write to a given database. There is no login: the server listens on 127.0.0.1 and is meant for one person on their own machine. \\
+\hline
+Portability & Runs on Python 3.10 or later. The detector uses the GPU when CUDA is present and falls back to the CPU otherwise, although CPU speed was not measured. Routing works offline from a local road graph, but the background map tiles are fetched from the internet. \\
+\hline
+\end{tabular}
+\caption{Non-functional requirements and the evidence for each.}
+\label{tab:ch3-nfr}
+\end{table}
+
+\section{Hardware Requirements}
+Development, inference, testing and latency measurements used a Windows 11 laptop with an NVIDIA GeForce RTX 4060 Laptop GPU (8 GB). Both training runs used one rented NVIDIA RTX 5090 GPU (32 GB) on Vast.ai with 16 virtual CPUs and about 30 GB of host memory; the laptop GPU memory was too small for training at 1280 px. The datasets needed about 26 GB for the source archives (RDD2022 13.26 GB, HRP4K 12.8 GB). No minimum configuration for running the application was established.
+
+\section{Software Requirements}
+The system is written in Python 3.10 and uses PyTorch \cite{paszke2019pytorch} and Ultralytics YOLOv8 \cite{jocher2023yolov8} for the detector, OpenCV for video, FastAPI with uvicorn for the API, SQLite for storage, OSMnx \cite{boeing2017osmnx} and NetworkX for the road graph and routing, Leaflet for the map, and pytest for testing. Table~\ref{tab:ch5-tech} in Chapter~\ref{ch:implementation} gives the versions. The cloud runs used Linux with Python 3.12 and PyTorch 2.14.1 for CUDA 13.0.
+
+\section{Cost Estimation}
+We paid nothing for software or data, since every tool we used is open source and every dataset was free to download. The development laptop already belonged to the team, and our own working hours are not costed. That leaves rented GPU time as the only real expense. For the candidate we rented an RTX 5090 at 0.512 US dollars an hour and kept it for about 89 minutes. Our account credit went from 7.82 to 7.05 dollars, so the run cost roughly 0.77 dollars, against our estimate of 1.2 to 1.3 dollars and a budget of 3 dollars. The baseline run also used a rented GPU, for about 31 minutes, but we did not note its hourly price at the time and so cannot state what it cost.

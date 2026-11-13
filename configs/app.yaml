@@ -1,0 +1,64 @@
+# Application settings. Relative paths resolve against the project root
+# (the directory containing pyproject.toml), not the current directory.
+data_dir: data
+db_path: data/roadsense.sqlite
+runs_dir: runs
+web_dir: src/roadsense/web/static
+
+# GPS ingestion thresholds. These are PROVISIONAL defaults: they must be fixed
+# on a dedicated tuning session before any test-set evaluation, then frozen.
+ingest:
+  max_gps_accuracy_m: 25.0     # fixes reported less accurate than this are stored but not used
+  max_gps_gap_s: 3.0           # never interpolate a position across a longer gap between fixes
+  max_gps_extrapolation_s: 1.0 # hold the first/last fix for at most this long outside the trace
+
+# Inference with our trained YOLOv8s detector. PROVISIONAL thresholds: tune on a
+# tuning session, never on the RDD2022 test split or our test footage.
+detection:
+  weights: runs/train/baseline/weights/best.pt
+  conf: 0.25                   # minimum detection confidence
+  iou: 0.5                     # NMS IoU threshold
+  imgsz: 640
+  device: auto                 # auto = GPU 0 when CUDA is available, else CPU
+  # Share of analysed frames the detector may fail on. Up to the first value the job
+  # is "complete"; above it the job is "partial" (kept, with a warning); above the
+  # second it fails.
+  partial_frame_error_fraction: 0.02
+  max_frame_error_fraction: 0.25
+
+# Frame sampling and tracking. PROVISIONAL. frame_stride, max_age_frames and min_hits
+# are for slow (walking) sessions. A session whose upper-quartile GPS speed is at least
+# vehicle_speed_mps is a vehicle recording: a pothole moves further between analysed
+# frames than its own height, so every frame is analysed and tracks need more hits.
+tracking:
+  frame_stride: 3              # run the detector on every 3rd frame (slow sessions)
+  iou_match: 0.2               # minimum IoU between a detection and the track's predicted box
+  max_age_frames: 5            # analysed frames (at frame_stride) a track survives unmatched;
+                               # the tracker gets max_age_frames * frame_stride source frames
+  min_hits: 3                  # detections needed before a track counts as one pothole
+  vehicle_speed_mps: 2.5       # upper-quartile GPS speed at or above which a session is a vehicle one
+  vehicle_frame_stride: 1      # run the detector on every frame in vehicle sessions
+  vehicle_min_hits: 6          # detections needed before a track counts, vehicle sessions
+
+# Observations -> mapped potholes. PROVISIONAL.
+mapping:
+  dedup_radius_m: 8.0          # largest distance allowed between any two sightings of one mapped pothole
+  max_snap_m: 30.0             # farthest a point may be from a road to be put on it
+
+routing:
+  graph_path: data/graphs/road_graph.json
+  max_detour_per_pothole_m: 300.0   # at full avoidance, one estimated pothole = 300 m of distance
+  # Road with no survey is unknown, never costed as pothole-free. Its rate is the
+  # observed rate blended with this ASSUMED rate, which counts as much as
+  # prior_strength_m metres of survey. Both numbers are assumptions, not measurements.
+  assumed_rate_per_100m: 1.0
+  prior_strength_m: 500.0
+  unsurveyed_rate_per_100m: null    # set a number to fix the rate and skip the blend
+  min_surveyed_fraction: 0.2        # below this share surveyed, a route's evidence is "insufficient"
+  adequate_surveyed_fraction: 0.8   # from this share surveyed, it is "adequate"
+  default_speed_kph: 30.0
+
+uploads:
+  dir: data/uploads
+  artifacts_dir: data/artifacts
+  max_upload_mb: 2048

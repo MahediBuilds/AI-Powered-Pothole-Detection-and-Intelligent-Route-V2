@@ -1,0 +1,42 @@
+digraph arch {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=10, nodesep=0.15, ranksep=0.34, pad=0.05, newrank=true];
+  node  [shape=box, style="filled", fillcolor="#f2f2f2", color="#444444", fontname="Helvetica", fontsize=10, margin="0.07,0.04"];
+  edge  [fontname="Helvetica", fontsize=10, color="#444444", arrowsize=0.7];
+
+  browser [label="Web browser\nLeaflet UI, 5 tabs"];
+  osmtile [label="OSM tile server\n(internet)", style="filled,dashed", fillcolor="#ffffff"];
+  cli     [label="Command line\nadd, add-dir, list,\nrebuild-map, reset"];
+
+  subgraph cluster_srv {
+    label="Server process (one uvicorn worker, holds the process lock)"; labeljust=l;
+    style="rounded,filled"; fillcolor="#fafafa"; color="#555555";
+    api    [label="FastAPI application\nrouters: system, sessions, mapdata, routes\nerror envelope, static files", width=3.2];
+    runner [label="JobRunner thread\nin-memory queue,\none job at a time"];
+    router [label="Route planner\nnetworkx Dijkstra"];
+    pipe   [label="Session pipeline\nvideo + GPS, Detector\n(YOLOv8s best.pt),\nMotionTracker, geotag"];
+    mapb   [label="Map builder\nclustering, snapping,\ncoverage, edge stats"];
+  }
+
+  db    [label="SQLite (WAL)\nroadsense.sqlite", shape=cylinder, fillcolor="#e6e6e6"];
+  files [label="uploads/ and\nartifacts/", shape=folder, fillcolor="#e6e6e6"];
+  gjson [label="road_graph.json\n(written once by\nOSMnx download)", shape=note, fillcolor="#e6e6e6"];
+
+  {rank=same; browser; osmtile; cli;}
+  {rank=same; router; runner;}
+  {rank=same; mapb; pipe;}
+  {rank=same; gjson; db; files;}
+
+  browser -> api [label="HTTP/JSON"];
+  browser -> osmtile [style=dashed, label="tiles", constraint=false];
+  api -> runner [label="submit"];
+  api -> router [label="POST /api/routes"];
+  runner -> pipe;
+  pipe -> mapb [label="after\neach job"];
+  cli -> pipe [label="same\npipeline"];
+  pipe -> files; pipe -> db;
+  mapb -> db;
+  router -> db [label="reads"];
+  router -> gjson [style=dashed];
+  mapb -> gjson [style=dashed];
+  router -> runner [style=invis]; mapb -> pipe [style=invis]; gjson -> db -> files [style=invis];
+}

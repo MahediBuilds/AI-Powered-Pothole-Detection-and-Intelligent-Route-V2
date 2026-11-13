@@ -1,0 +1,394 @@
+{
+ "exact_sha256": {
+  "groups": 0,
+  "images_in_groups": 0,
+  "groups_spanning_splits": 0,
+  "examples": []
+ },
+ "dhash": {
+  "T4": {
+   "n_clusters_total": 4185,
+   "n_clusters_size_ge2": 214,
+   "images_in_size_ge2": 2032,
+   "largest_cluster": 1504,
+   "within_split": {
+    "train": {
+     "clusters": 139,
+     "images": 357
+    },
+    "valid": {
+     "clusters": 29,
+     "images": 66
+    },
+    "test": {
+     "clusters": 22,
+     "images": 47
+    }
+   },
+   "cross_split": {
+    "clusters": 24,
+    "images": 1562,
+    "valid_images_in_cross": 219,
+    "test_images_in_cross": 271,
+    "train_images_in_cross": 1072,
+    "pattern": {
+     "test+train+valid": 2,
+     "test+train": 7,
+     "train+valid": 14,
+     "test+valid": 1
+    }
+   },
+   "valid_test_images_sharing_cluster_with_train": {
+    "valid": 218,
+    "test": 270
+   }
+  },
+  "T8": {
+   "n_clusters_total": 1617,
+   "n_clusters_size_ge2": 88,
+   "images_in_size_ge2": 4474,
+   "largest_cluster": 4250,
+   "within_split": {
+    "train": {
+     "clusters": 55,
+     "images": 141
+    },
+    "valid": {
+     "clusters": 15,
+     "images": 44
+    },
+    "test": {
+     "clusters": 9,
+     "images": 22
+    }
+   },
+   "cross_split": {
+    "clusters": 9,
+    "images": 4267,
+    "valid_images_in_cross": 576,
+    "test_images_in_cross": 638,
+    "train_images_in_cross": 3053,
+    "pattern": {
+     "test+train+valid": 1,
+     "test+train": 4,
+     "train+valid": 3,
+     "test+valid": 1
+    }
+   },
+   "valid_test_images_sharing_cluster_with_train": {
+    "valid": 575,
+    "test": 636
+   }
+  },
+  "T12": {
+   "n_clusters_total": 357,
+   "n_clusters_size_ge2": 16,
+   "images_in_size_ge2": 5662,
+   "largest_cluster": 5627,
+   "within_split": {
+    "train": {
+     "clusters": 9,
+     "images": 22
+    },
+    "valid": {
+     "clusters": 2,
+     "images": 4
+    },
+    "test": {
+     "clusters": 2,
+     "images": 5
+    }
+   },
+   "cross_split": {
+    "clusters": 3,
+    "images": 5631,
+    "valid_images_in_cross": 814,
+    "test_images_in_cross": 837,
+    "train_images_in_cross": 3980,
+    "pattern": {
+     "test+train+valid": 1,
+     "train+valid": 1,
+     "test+train": 1
+    }
+   },
+   "valid_test_images_sharing_cluster_with_train": {
+    "valid": 814,
+    "test": 837
+   }
+  },
+  "nearest_train_distance": {
+   "valid": {
+    "min_dist_to_train_hist": {
+     "0": 3,
+     "1": 25,
+     "2": 24,
+     "3": 56,
+     "4": 77,
+     "5": 71,
+     "6": 109,
+     "7": 93,
+     "8": 81,
+     "9": 72,
+     "10": 58,
+     "11": 64,
+     "12": 45,
+     "13": 39,
+     "14": 30,
+     "15": 24,
+     "16": 10,
+     "17": 12,
+     "18": 5,
+     "19": 2
+    },
+    "median": 7.0,
+    "share_le_8": 0.5988888888888889,
+    "share_le_12": 0.8644444444444445,
+    "share_le_16": 0.9788888888888889
+   },
+   "test": {
+    "min_dist_to_train_hist": {
+     "0": 11,
+     "1": 27,
+     "2": 57,
+     "3": 65,
+     "4": 81,
+     "5": 84,
+     "6": 97,
+     "7": 84,
+     "8": 88,
+     "9": 59,
+     "10": 54,
+     "11": 51,
+     "12": 46,
+     "13": 36,
+     "14": 22,
+     "15": 17,
+     "16": 4,
+     "17": 11,
+     "18": 2,
+     "19": 2,
+     "20": 2
+    },
+    "median": 7.0,
+    "share_le_8": 0.66,
+    "share_le_12": 0.8933333333333333,
+    "share_le_16": 0.9811111111111112
+   }
+  },
+  "nearest_train_to_train": {
+   "median": 6.0,
+   "share_le_8": 0.7408993576017131,
+   "share_le_12": 0.9428979300499644
+  }
+ },
+ "phash": {
+  "T4": {
+   "n_clusters_total": 5730,
+   "n_clusters_size_ge2": 171,
+   "images_in_size_ge2": 444,
+   "largest_cluster": 15,
+   "within_split": {
+    "train": {
+     "clusters": 129,
+     "images": 338
+    },
+    "valid": {
+     "clusters": 22,
+     "images": 53
+    },
+    "test": {
+     "clusters": 19,
+     "images": 38
+    }
+   },
+   "cross_split": {
+    "clusters": 1,
+    "images": 15,
+    "valid_images_in_cross": 1,
+    "test_images_in_cross": 1,
+    "train_images_in_cross": 13,
+    "pattern": {
+     "test+train+valid": 1
+    }
+   },
+   "valid_test_images_sharing_cluster_with_train": {
+    "valid": 1,
+    "test": 1
+   }
+  },
+  "T8": {
+   "n_clusters_total": 4767,
+   "n_clusters_size_ge2": 430,
+   "images_in_size_ge2": 1666,
+   "largest_cluster": 346,
+   "within_split": {
+    "train": {
+     "clusters": 294,
+     "images": 883
+    },
+    "valid": {
+     "clusters": 54,
+     "images": 139
+    },
+    "test": {
+     "clusters": 50,
+     "images": 117
+    }
+   },
+   "cross_split": {
+    "clusters": 32,
+    "images": 527,
+    "valid_images_in_cross": 53,
+    "test_images_in_cross": 78,
+    "train_images_in_cross": 396,
+    "pattern": {
+     "test+train+valid": 5,
+     "test+train": 15,
+     "train+valid": 10,
+     "test+valid": 2
+    }
+   },
+   "valid_test_images_sharing_cluster_with_train": {
+    "valid": 51,
+    "test": 76
+   }
+  },
+  "T12": {
+   "n_clusters_total": 2312,
+   "n_clusters_size_ge2": 277,
+   "images_in_size_ge2": 3968,
+   "largest_cluster": 3193,
+   "within_split": {
+    "train": {
+     "clusters": 163,
+     "images": 450
+    },
+    "valid": {
+     "clusters": 35,
+     "images": 96
+    },
+    "test": {
+     "clusters": 28,
+     "images": 74
+    }
+   },
+   "cross_split": {
+    "clusters": 51,
+    "images": 3348,
+    "valid_images_in_cross": 447,
+    "test_images_in_cross": 496,
+    "train_images_in_cross": 2405,
+    "pattern": {
+     "test+train+valid": 3,
+     "train+valid": 26,
+     "test+train": 15,
+     "test+valid": 7
+    }
+   },
+   "valid_test_images_sharing_cluster_with_train": {
+    "valid": 438,
+    "test": 486
+   }
+  },
+  "nearest_train_distance": {
+   "valid": {
+    "min_dist_to_train_hist": {
+     "4": 1,
+     "6": 9,
+     "8": 24,
+     "10": 90,
+     "12": 217,
+     "14": 278,
+     "16": 206,
+     "18": 66,
+     "20": 9
+    },
+    "median": 14.0,
+    "share_le_8": 0.03777777777777778,
+    "share_le_12": 0.3788888888888889,
+    "share_le_16": 0.9166666666666666
+   },
+   "test": {
+    "min_dist_to_train_hist": {
+     "4": 1,
+     "6": 10,
+     "8": 35,
+     "10": 134,
+     "12": 202,
+     "14": 258,
+     "16": 192,
+     "18": 63,
+     "20": 5
+    },
+    "median": 14.0,
+    "share_le_8": 0.051111111111111114,
+    "share_le_12": 0.42444444444444446,
+    "share_le_16": 0.9244444444444444
+   }
+  },
+  "nearest_train_to_train": {
+   "median": 12.0,
+   "share_le_8": 0.29764453961456105,
+   "share_le_12": 0.6521532238876993
+  }
+ },
+ "cross_dataset": {
+  "rdd2022_pothole": {
+   "n_other": 13788,
+   "exact_sha256_matches": 0,
+   "exact_examples": [],
+   "dhash_le_4_pairs": 6950,
+   "hrp_images_with_dhash_match_le_4": 824,
+   "phash_le_4_pairs": 0,
+   "both_dhash_and_phash_le_4_pairs": 0,
+   "dhash_le_8_pairs": 113292,
+   "hrp_images_with_dhash_match_le_8": 3145,
+   "phash_le_8_pairs": 32,
+   "both_dhash_and_phash_le_8_pairs": 0,
+   "dhash_le_12_pairs": 821540,
+   "hrp_images_with_dhash_match_le_12": 5364,
+   "phash_le_12_pairs": 1540,
+   "both_dhash_and_phash_le_12_pairs": 67,
+   "min_dhash_dist": 0,
+   "min_phash_dist": 6,
+   "china_motorbike_n": 934,
+   "china_motorbike_min_dhash_dist": 2,
+   "china_motorbike_min_phash_dist": 8,
+   "china_motorbike_pairs_dhash_le_12": 20127,
+   "china_motorbike_resolutions": {
+    "512x512": 934
+   },
+   "other_resolutions_top": {
+    "600x600": 6281,
+    "720x720": 4216,
+    "640x640": 2083,
+    "512x512": 934,
+    "1024x1024": 147
+   },
+   "closest_pairs_examples": []
+  },
+  "kaggle_pcm": {
+   "n_other": 2009,
+   "exact_sha256_matches": 0,
+   "exact_examples": [],
+   "dhash_le_4_pairs": 1663,
+   "hrp_images_with_dhash_match_le_4": 430,
+   "phash_le_4_pairs": 0,
+   "both_dhash_and_phash_le_4_pairs": 0,
+   "dhash_le_8_pairs": 33937,
+   "hrp_images_with_dhash_match_le_8": 2297,
+   "phash_le_8_pairs": 4,
+   "both_dhash_and_phash_le_8_pairs": 0,
+   "dhash_le_12_pairs": 224396,
+   "hrp_images_with_dhash_match_le_12": 4593,
+   "phash_le_12_pairs": 424,
+   "both_dhash_and_phash_le_12_pairs": 33,
+   "min_dhash_dist": 1,
+   "min_phash_dist": 8,
+   "other_resolutions_top": {
+    "640x360": 2009
+   },
+   "closest_pairs_examples": []
+  }
+ }
+}

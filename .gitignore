@@ -1,0 +1,65 @@
+# Local-only material (build artefacts, drafts, templates, extra files)
+Others/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+env/
+build/
+dist/
+cache/
+.cache/
+*.cache
+
+# Databases
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3
+*.sqlite*
+*.db
+
+# Datasets, recordings and generated data (data/graphs is kept)
+data/*
+!data/graphs/
+runs/*
+!runs/train/
+runs/train/*
+!runs/train/baseline/
+runs/train/baseline/*
+!runs/train/baseline/weights/
+runs/train/baseline/weights/*
+!runs/train/baseline/weights/best.pt
+!runs/train/unified_v1_y8s_1280/
+runs/train/unified_v1_y8s_1280/*
+!runs/train/unified_v1_y8s_1280/weights/
+runs/train/unified_v1_y8s_1280/weights/*
+!runs/train/unified_v1_y8s_1280/weights/epoch25.pt
+
+# Model files (only the two weights above are tracked)
+*.onnx
+
+# Videos
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# LaTeX build junk (main.pdf is kept)
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.bbl
+*.blg
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,105 @@
+\chapter{Literature Survey}\label{ch:literature}
+
+\section{Overview}
+We review the literature by theme: sensing approaches, learned detectors, road-damage datasets, methodological issues that affect how far published scores can be trusted, and systems that link detection to maps and routes. For each theme we note what it means for this project. Results are given as the cited authors report them; results of this project are in Chapter~\ref{ch:results}.
+
+\section{Detailed Survey}
+
+\subsection{Sensor-based and three-dimensional approaches}
+Recent surveys group pothole detection into vibration-based, vision-based and three-dimensional reconstruction-based methods \cite{kim2022review,ma2022review,safyari2024review}. Vibration methods infer a pothole from the shock a vehicle receives. Eriksson et al. equipped seven taxis in Boston with accelerometers and GPS and report a false-positive rate below 0.2\% on good road segments \cite{eriksson2008pothole}; Mednis et al. run similar detectors on Android phones and report true positive rates up to 90\% \cite{mednis2011real}. These methods need no camera, but a pothole is recorded only after a vehicle has hit it.
+
+Three-dimensional methods measure the surface directly. Fan et al. fit a quadratic road surface to stereo disparity and flag deviating points, reporting about 98.7\% accuracy on their own data \cite{fan2020pothole}; Kang and Choi combine a 2-D LiDAR with a camera \cite{kang2017pothole}; Dhiman and Klette compare stereo-vision and deep-learning techniques \cite{dhiman2020pothole}. Depth gives a physical measure that one image cannot, at the cost of extra hardware, and each study reports figures on its own data. We chose a single forward-facing camera and a GPS log, both of which any phone already has. Without depth information the system cannot measure how large or deep a pothole is, so it does not estimate size or severity.
+
+\subsection{Learned object detectors}
+Faster R-CNN is the usual example of a two-stage detector. It first proposes candidate regions and then classifies each of them \cite{ren2017faster}, which tends to be accurate but slower than a single-stage design. YOLO drops the proposal step and predicts boxes and class scores for the whole image in one pass; its authors report 45 frames per second for the base model \cite{redmon2016yolo}. This single-pass design is what lets us process road video on a laptop GPU.
+
+We use Ultralytics YOLOv8. It was released as software without a paper, so we cite it in the form its documentation gives \cite{jocher2023yolov8}. We use the YOLOv8s size without architectural changes. Recent work modifies YOLOv8 for road damage: Zeng and Zhong report a lightweight YOLOv8n variant on RDD2022 with a gain of 1.4 mAP points over their baseline \cite{zeng2024yolov8pd}. Such papers report single-split point estimates, so a reader cannot tell whether the gains exceed the variation between splits or runs. Keeping the architecture fixed lets us study the effect of data and evaluation choices on their own.
+
+\subsection{Road-damage datasets and challenges}
+Maeda et al. released 9,053 smartphone images with 15,435 damage instances in eight classes \cite{maeda2018road}. RDD2020 grew this to 26,336 images from India, Japan and the Czech Republic \cite{arya2021rdd2020}; the 2020 challenge on it was won by a YOLO-based ensemble with F1 scores of 0.67 and 0.66 on two test sets \cite{arya2020grddc}. Arya et al. also studied models trained on one country and applied to others \cite{arya2021multicountry}. RDD2022 contains 47,420 images from six countries with four damage types: longitudinal, transverse and alligator cracks, and potholes \cite{arya2022rdd2022}. Its 2022 challenge reported per-country leaderboards and a best F1 of 76\% from an ensemble of YOLO and Faster R-CNN models \cite{arya2022crddc}. For our purposes RDD2022 has two limitations: the pothole is one of four classes, so a single-class detector requires relabelling, and most of its images are small, between 600 and 720 px square.
+
+HRP4K approaches the problem from the other side. Chen et al. provide 6,003 forward-view images at $3840 \times 2160$ from 170 vehicle-mounted video clips in Zhejiang, China, with 7,217 pothole boxes, 2,000 pothole-free images, a video-level split and a median box of about 100 by 35 px; their best benchmarked detector reaches mAP\textsubscript{50} 0.611 \cite{chen2026hrp4k}. We used version 1.01 of its Zenodo record \cite{chen2026hrp4kzenodo}. Giordani et al. provide 2,009 images from Rome and Sacrofano with potholes, cracks and 957 labelled manholes \cite{giordani2026roaddamage}. It is the only verified source we found that treats manholes, a common look-alike, as an explicit class; we use a reviewed subset of it for evaluation only.
+
+\subsection{Pitfalls in training and evaluating detectors}
+\subsubsection*{Changes in data and object scale}
+Every benchmark dataset has biases of its own, as Torralba and Efros demonstrated \cite{torralba2011unbiased}, and Koh et al. found that differences between training data and real-world data can cut accuracy considerably \cite{koh2021wilds}. The common remedy is to start from a pre-trained model and fine-tune it, because transferred features do better than random initialisation even when the original task was different \cite{yosinski2014transferable}. Scale is a second source of shift: in HRP4K the median pothole box, measured as the square root of its area, is about 10 px once the frame is shrunk to the $640 \times 360$ that a 640 px detector sees. Slicing the image at inference \cite{akyon2022sahi} is one remedy; we raised the input size to 1280 px instead and did not test slicing.
+
+\subsubsection*{Near-duplicates and leakage}
+Consecutive video frames are nearly identical, so a random split places near-copies on both sides. Barz and Denzler found duplicates of 3.3\% of CIFAR-10 and 10\% of CIFAR-100 test images in the training sets \cite{barz2020train}; Kapoor and Narayanan document leakage across 294 papers in 17 fields \cite{kapoor2023leakage}; and Roberts et al. show that ignoring dependence between samples underestimates prediction error \cite{roberts2017crossvalidation}. Perceptual hashes detect near-duplicates without labels \cite{zauner2011rihamark}. Label noise is a related threat: Northcutt et al. found at least 3.3\% label errors on average in the test sets of ten common datasets, enough to change model rankings \cite{northcutt2021pervasive}. We found no audit of the pothole labels of RDD2022.
+
+\subsubsection*{Evaluation practice}
+Average precision has several interpolation variants and implementations differ \cite{padilla2020survey}. A single score hides its sampling uncertainty, which the bootstrap estimates by resampling \cite{efron1993bootstrap}; paired bootstrap resampling compares two systems on one test set \cite{koehn2004significance}, although independence between samples must hold \cite{bergkirkpatrick2012significance}. Selecting thresholds or models on the data used to report results biases the outcome \cite{cawley2010overfitting}. The road-damage papers and challenge summaries we read report point estimates without intervals \cite{zeng2024yolov8pd,arya2022crddc}.
+
+\subsubsection*{Ensembling}
+Ensembles win road-damage challenges \cite{arya2020grddc,arya2022crddc}, and weighted boxes fusion averages the coordinates of clustered boxes instead of discarding all but one \cite{solovyev2021wbf}. Running several models, however, multiplies the inference time, and none of the abstracts we read set that cost against the accuracy gained.
+
+\subsection{Condition indices, tracking and pothole-aware routing}
+The pavement condition index of ASTM D6433 combines distress type, severity and extent from a structured survey \cite{astm2020d6433}; per-segment pothole counts, as produced by our system, are a much simpler quantity. To count a pothole once in video, a tracker associates detections across frames; ByteTrack, used in Phase 1, also associates low-score boxes \cite{zhang2022bytetrack}. For routing, OpenStreetMap supplies the road network \cite{haklay2008osm}, OSMnx builds analysable street graphs from it \cite{boeing2017osmnx}, Dijkstra's algorithm finds shortest paths with non-negative weights \cite{dijkstra1959note}, and OSRM is a routing engine on OpenStreetMap data \cite{luxen2011osrm}. We found little work that links detection to routing. Balakuntala and Venkatesh describe a conceptual sensor-based system with pothole-minimising route selection and no evaluation \cite{balakuntala2013pothole}; Sahoo et al. describe a YOLO-based platform with geotagging, an OpenStreetMap view and a database, trained on more than 7,000 Indian dashcam frames \cite{sahoo2025iwatchroadv2}. Both are preprints, and the second is the closest system-level precedent we found.
+
+Table~\ref{tab:ch2-comparison} summarises the lines of work.
+
+\begin{table}[!htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|L{2.9cm}|L{2.1cm}|L{3.8cm}|L{4.2cm}|}
+\hline
+\textbf{Approach} & \textbf{Works} & \textbf{Strengths} & \textbf{Limitations} \\
+\hline
+Vibration sensing & \cite{eriksson2008pothole,mednis2011real} & Low cost; sensors already in phones & Pothole recorded only after it is hit \\
+\hline
+Stereo, LiDAR and 3-D & \cite{fan2020pothole,kang2017pothole,dhiman2020pothole} & Direct depth measurement & Extra hardware; results on own data only \\
+\hline
+CNN detectors on RDD data & \cite{arya2020grddc,arya2022crddc,zeng2024yolov8pd} & Real-time capable; public benchmarks & Point estimates on one split; pothole is one of several classes \\
+\hline
+High-resolution forward-view data & \cite{chen2026hrp4k} & Small potholes; empty images; video-level split & One region; far fewer images than RDD2022 \\
+\hline
+Data with manholes & \cite{giordani2026roaddamage} & Manholes labelled explicitly & Small; one region \\
+\hline
+Detection-to-routing systems & \cite{balakuntala2013pothole,sahoo2025iwatchroadv2} & Detection joined to mapping or routes & Preprints; no independent evaluation \\
+\hline
+\end{tabular}
+\caption{Comparison of the main lines of work.}
+\label{tab:ch2-comparison}
+\end{table}
+
+\section{Research Gap Identification}
+The gaps below are stated only as far as the cited sources go; ``we did not find'' refers to the sources we examined.
+\begin{enumerate}[label=G\arabic*.,ref=G\arabic*,itemsep=0pt]
+  \item \label{gap:generalisation} Pothole detectors are rarely tested on a set that their training pipeline did not touch, although dataset bias predicts drops \cite{torralba2011unbiased,koh2021wilds} and the HRP4K authors note that models may need fine-tuning for other regions \cite{chen2026hrp4k}.
+  \item \label{gap:viewpoint} We did not find a study that evaluates one detector, under one protocol, on both small square street images such as RDD2022 and high-resolution perspective views such as HRP4K.
+  \item \label{gap:leakage} Duplicates inflate scores \cite{barz2020train} and label errors change conclusions \cite{northcutt2021pervasive}, but the road-damage papers we read do not describe de-duplication, and we found no label audit of RDD2022.
+  \item \label{gap:evaluation} Road-damage results are reported as point estimates \cite{zeng2024yolov8pd}, without the intervals, paired tests and validation-only threshold selection that are standard elsewhere \cite{efron1993bootstrap,koehn2004significance,cawley2010overfitting}.
+  \item \label{gap:lookalikes} Only one dataset we found labels manholes to reduce false positives \cite{giordani2026roaddamage}; we found no source that quantifies confusion with patches or stains.
+  \item \label{gap:routing} Pothole-aware mapping and routing work is thin and consists mainly of preprints \cite{balakuntala2013pothole,sahoo2025iwatchroadv2}, and none we found distinguishes unsurveyed road from road surveyed and found clean.
+\end{enumerate}
+
+\section{Mapping of Objective with Research Gap Identification}
+Table~\ref{tab:ch2-mapping} maps the objectives of Chapter~\ref{ch:intro} to these gaps. It states where the work is described, not how well each gap was closed.
+
+\begin{table}[!htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|L{3.6cm}|L{1.8cm}|L{7.4cm}|}
+\hline
+\textbf{Objective} & \textbf{Gaps} & \textbf{How the work addresses them} \\
+\hline
+\ref{obj:data}. Data with controlled leakage & \ref{gap:leakage} & Perceptual-hash groups, whole-group splits, leakage guard, exclusion-only review, recorded exclusions (Sections~\ref{sec:ch4-dataset}, \ref{sec:ch6-data}) \\
+\hline
+\ref{obj:baseline}. Reproducible baseline & \ref{gap:evaluation} & Fixed seed, recorded configuration, hashed checkpoint (Section~\ref{sec:ch5-training}) \\
+\hline
+\ref{obj:protocol}. Evaluation protocol & \ref{gap:generalisation}, \ref{gap:evaluation}, \ref{gap:lookalikes} & Validation-only thresholds, group-bootstrap intervals, paired differences, external manhole probe (Section~\ref{sec:ch6-protocol}) \\
+\hline
+\ref{obj:finetune}. Fine-tuning experiment & \ref{gap:generalisation}, \ref{gap:viewpoint} & Candidate at 1280 px on RDD2022 and HRP4K compared with the baseline on both (Section~\ref{sec:ch6-results}) \\
+\hline
+\ref{obj:pipeline}. Detection-to-map pipeline & \ref{gap:routing} & Tracking, geotagging, merging, road snapping, surveyed length (Section~\ref{sec:ch4-pipeline}) \\
+\hline
+\ref{obj:routing}. Pothole-aware routing & \ref{gap:routing} & Expected-pothole cost that treats unsurveyed road as unknown; evidence level per route (Section~\ref{sec:ch4-route}) \\
+\hline
+\ref{obj:backend}. Tested backend & \ref{gap:routing} & API, background jobs, database and command line with an automated test suite (Chapter~\ref{ch:implementation}, Section~\ref{sec:ch6-tests}) \\
+\hline
+\end{tabular}
+\caption{Mapping of the objectives to the research gaps.}
+\label{tab:ch2-mapping}
+\end{table}

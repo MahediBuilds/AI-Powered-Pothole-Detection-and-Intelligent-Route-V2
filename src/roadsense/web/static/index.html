@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RoadSense</title>
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>RoadSense <span>Pothole mapping and route recommendation</span></h1>
+    <nav role="tablist" aria-label="Sections">
+      <button role="tab" data-tab="dashboard" aria-selected="true" type="button">Dashboard</button>
+      <button role="tab" data-tab="upload" aria-selected="false" tabindex="-1" type="button">Upload</button>
+      <button role="tab" data-tab="sessions" aria-selected="false" tabindex="-1" type="button">Sessions</button>
+      <button role="tab" data-tab="detections" aria-selected="false" tabindex="-1" type="button">Detections</button>
+      <button role="tab" data-tab="routes" aria-selected="false" tabindex="-1" type="button">Route planner</button>
+    </nav>
+  </header>
+
+  <div id="conn-banner" class="banner" role="alert" hidden>
+    <span>Cannot reach the server. Data shown may be out of date.</span>
+    <button id="conn-retry" type="button">Retry</button>
+  </div>
+
+  <div id="demo-banner" class="banner demo-banner" role="status" hidden>
+    <span>Demo mode is on: synthetic demonstration data is shown on the map and used by the route planner. It does not describe real roads.</span>
+  </div>
+
+  <main class="layout">
+    <aside class="panel" aria-label="Side panel">
+      <!-- Dashboard -->
+      <section id="tab-dashboard" class="tab-panel">
+        <h2>Dashboard</h2>
+        <div id="dash-error" hidden></div>
+        <div id="stat-tiles" class="tiles"></div>
+        <div class="card switch-card">
+          <label class="switch"><input type="checkbox" id="include-synthetic">
+            <span>Demo mode: show synthetic demonstration data</span></label>
+          <p class="hint">Demo data comes from generated GPS traces. It is kept out of all real-road statistics and is off by default. It does not describe real roads.</p>
+          <p id="demo-none-hint" class="hint" hidden>No synthetic session exists, so this switch has no effect.</p>
+          <div id="rebuild-error" hidden></div>
+        </div>
+        <h3>System</h3>
+        <div id="system-panel" class="card"></div>
+      </section>
+
+      <!-- Upload -->
+      <section id="tab-upload" class="tab-panel" hidden>
+        <h2>Upload a video</h2>
+        <form id="upload-form" class="card form" novalidate>
+          <label for="up-video">Video (required: .mp4, .mov, .avi, .mkv)</label>
+          <input type="file" id="up-video" accept=".mp4,.mov,.avi,.mkv,video/*">
+          <label for="up-gps">GPS CSV (optional)</label>
+          <input type="file" id="up-gps" accept=".csv,text/csv">
+          <label for="up-sidecar">Sidecar JSON (optional)</label>
+          <input type="file" id="up-sidecar" accept=".json,application/json">
+          <label for="up-role">Role</label>
+          <select id="up-role">
+            <option value="survey">survey</option>
+            <option value="tuning">tuning</option>
+            <option value="test">test</option>
+            <option value="demo">demo</option>
+          </select>
+          <label class="check"><input type="checkbox" id="up-synthetic"> This GPS trace is synthetic (demo only)</label>
+          <label class="check"><input type="checkbox" id="up-include" checked> Include in map</label>
+          <div id="up-progress-wrap" hidden>
+            <div id="up-progress-slot"></div>
+            <p id="up-progress-text" class="hint"></p>
+          </div>
+          <div id="up-message" hidden></div>
+          <button type="submit" id="up-submit" class="primary">Upload and process</button>
+        </form>
+      </section>
+
+      <!-- Sessions -->
+      <section id="tab-sessions" class="tab-panel" hidden>
+        <h2>Sessions</h2>
+        <div id="sessions-error" hidden></div>
+        <div id="sessions-list" class="list"></div>
+      </section>
+
+      <!-- Detections -->
+      <section id="tab-detections" class="tab-panel" hidden>
+        <h2>Detections</h2>
+        <div id="det-error" hidden></div>
+        <div id="det-body"><p class="empty">Choose a session and press "View detections".</p></div>
+      </section>
+
+      <!-- Route planner -->
+      <section id="tab-routes" class="tab-panel" hidden>
+        <h2>Route planner</h2>
+        <div id="route-unavailable" class="message error" hidden></div>
+        <form id="route-form" class="card form" novalidate>
+          <label for="r-origin">Origin (lat, lon)</label>
+          <div class="row">
+            <input type="text" id="r-origin" placeholder="12.9716, 77.5946" autocomplete="off">
+            <button type="button" id="pick-origin" aria-pressed="false">Pick origin on map</button>
+          </div>
+          <label for="r-dest">Destination (lat, lon)</label>
+          <div class="row">
+            <input type="text" id="r-dest" placeholder="12.9800, 77.6000" autocomplete="off">
+            <button type="button" id="pick-dest" aria-pressed="false">Pick destination on map</button>
+          </div>
+          <label for="r-avoid">Preference: <output id="r-avoid-out">50%</output> avoid potholes</label>
+          <input type="range" id="r-avoid" min="0" max="1" step="0.05" value="0.5">
+          <div class="range-labels"><span>Shortest distance</span><span>Avoid potholes</span></div>
+          <div id="route-message" hidden></div>
+          <button type="submit" id="route-submit" class="primary">Find routes</button>
+          <button type="button" id="route-example" hidden>Load demo example (synthetic data)</button>
+        </form>
+        <div id="route-results"></div>
+      </section>
+    </aside>
+
+    <div class="map-wrap">
+      <div id="map" aria-label="Map"></div>
+      <div id="map-hint" class="map-hint" hidden>No data yet. Upload a video to start mapping potholes.</div>
+      <div id="pick-hint" class="map-hint pick" hidden></div>
+      <div class="map-controls" aria-label="Map layers">
+        <strong>Layers</strong>
+        <label><input type="checkbox" id="lyr-potholes" checked> Potholes (recorded GPS)</label>
+        <label><input type="checkbox" id="lyr-demo" checked> Demo data (synthetic GPS)</label>
+        <label><input type="checkbox" id="lyr-coverage" checked> Surveyed road</label>
+      </div>
+      <div class="legend" aria-label="Legend">
+        <strong>Legend</strong>
+        <div><i class="sw sw-recorded"></i> Pothole, recorded GPS</div>
+        <div><i class="sw sw-demo"></i> Pothole, demo data (synthetic GPS)</div>
+        <div><i class="sw-line sw-cov"></i> Surveyed road (a video drove along it)</div>
+        <div><i class="sw-line sw-demo-line"></i> Demo drive (synthetic GPS): not a real survey</div>
+        <div><i class="sw-line sw-track"></i> GPS track of a session</div>
+        <p>Road without a coloured line has not been surveyed: unknown, not pothole-free.</p>
+        <p>One detector class (pothole). No severity, size or depth is estimated.</p>
+      </div>
+    </div>
+  </main>
+
+  <dialog id="image-dialog" class="dialog wide" aria-label="Detection image">
+    <form method="dialog">
+      <div id="image-dialog-body"></div>
+      <p id="image-dialog-caption" class="hint"></p>
+      <button class="primary" value="close">Close</button>
+    </form>
+  </dialog>
+  <dialog id="confirm-dialog" class="dialog" aria-labelledby="confirm-title">
+    <form method="dialog">
+      <h3 id="confirm-title"></h3>
+      <p id="confirm-text"></p>
+      <div class="row end">
+        <button id="confirm-cancel" value="cancel">Cancel</button>
+        <button id="confirm-ok" class="danger" value="ok">Confirm</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

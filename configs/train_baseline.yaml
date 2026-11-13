@@ -1,0 +1,32 @@
+# Baseline single-class pothole detector training run.
+# Relative paths resolve against the project root.
+model: yolov8s.pt      # YOLOv8s box detection (not the -seg variant)
+data: data/processed/rdd2022_pothole/dataset.yaml   # written by the dataset converter
+imgsz: 640
+batch: 16
+epochs: 100
+patience: 20
+seed: 42
+deterministic: true
+device: "0"            # "cpu" for a CPU run (or pass --device cpu)
+workers: 4
+project: runs/train
+name: baseline
+exist_ok: false
+
+# Passed through to Ultralytics. Only these keys are accepted.
+# flipud stays 0: road scenes are not vertically symmetric.
+augment:
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+  degrees: 0.0
+  translate: 0.1
+  scale: 0.5
+  shear: 0.0
+  perspective: 0.0
+  flipud: 0.0
+  fliplr: 0.5
+  mosaic: 1.0
+  mixup: 0.0
+  close_mosaic: 10

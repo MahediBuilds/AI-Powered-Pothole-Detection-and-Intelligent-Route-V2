@@ -1,0 +1,176 @@
+{
+ "note": "Hand-picked, not representative. 'favourable_to' / 'unfavourable_to' are visual impressions of which model's boxes look sensible / questionable in that frame.",
+ "cases": [
+  {
+   "id": "C01",
+   "kind": "pothole_water_filled",
+   "recording": "road_20261022_165007",
+   "frame": 356,
+   "why": "Water-filled pothole-like cavity (from earlier notes). Old boxes the cavity (plus a very wide box over the cavity and gravel); baseline and candidate box only the gravel/debris patch to its right and not the cavity. Visual impression only; no ground truth.",
+   "favourable_to": "baseline;candidate",
+   "unfavourable_to": "old"
+  },
+  {
+   "id": "C02",
+   "kind": "paint_or_lime_blob",
+   "recording": "road_20261022_165007",
+   "frame": 308,
+   "why": "White lime/paint-like blobs on the road, boxed by all three at similar locations (earlier notes: shared apparent false alarm). Visual impression only; no ground truth.",
+   "favourable_to": "old;baseline;candidate",
+   "unfavourable_to": ""
+  },
+  {
+   "id": "C03",
+   "kind": "pothole_round_sunken",
+   "recording": "road_20261013_173922",
+   "frame": 1053,
+   "why": "Round sunken pothole-like area with a darker rim. Old and baseline box the whole area; candidate boxes only the upper rim. Old also has a small box at the top-left corner. Visual impression only; no ground truth.",
+   "favourable_to": "candidate",
+   "unfavourable_to": "old;baseline"
+  },
+  {
+   "id": "C04",
+   "kind": "pothole_round_sunken",
+   "recording": "road_20261013_173922",
+   "frame": 1073,
+   "why": "Same round pothole-like area as C03 (earlier note: baseline-only). Old and baseline box it, candidate has no box in this frame. Visual impression only; no ground truth.",
+   "favourable_to": "candidate",
+   "unfavourable_to": "old;baseline"
+  },
+  {
+   "id": "C05",
+   "kind": "manhole_cover",
+   "recording": "road_20261013_173205",
+   "frame": 963,
+   "why": "Flush manhole cover in a gravelly lane. Old boxes the cover (0.87), a car-side strip and a box-art object; baseline and candidate do not fire. A manhole is not a pothole by the class definition. Visual impression only; no ground truth.",
+   "favourable_to": "old",
+   "unfavourable_to": "baseline;candidate"
+  },
+  {
+   "id": "C06",
+   "kind": "patch_sandy_area",
+   "recording": "road_20261013_173205",
+   "frame": 410,
+   "why": "Sandy depressed area next to a tarpaulin; could be a patch or a pothole-like cavity (unclear). Only old fires, with a tall box including part of the tarpaulin; baseline and candidate silent. Visual impression only; no ground truth.",
+   "favourable_to": "baseline;candidate (if it is a pothole)",
+   "unfavourable_to": "old (box is much larger than the sandy area)"
+  },
+  {
+   "id": "C07",
+   "kind": "sandy_cavity",
+   "recording": "road_20261013_165247",
+   "frame": 654,
+   "why": "Large sandy cavity-like patch at the top of the frame (earlier notes). Old and baseline box it, candidate does not in this frame. Visual impression only; no ground truth.",
+   "favourable_to": "candidate",
+   "unfavourable_to": "old;baseline"
+  },
+  {
+   "id": "C08",
+   "kind": "repaired_strip",
+   "recording": "road_20261022_164947",
+   "frame": 281,
+   "why": "Repaired strip across the road (looks like a speed-breaker or patch band) with a dark patch and cracked kerb apron. No model boxes the strip here; old boxes two edge regions (kerb apron and top-left road). Visual impression only; no ground truth.",
+   "favourable_to": "",
+   "unfavourable_to": "old (boxes on kerb apron and plain road)"
+  },
+  {
+   "id": "C09",
+   "kind": "repaired_strip",
+   "recording": "road_20261022_164947",
+   "frame": 270,
+   "why": "Same repaired strip from another angle. Neither baseline nor candidate boxes the strip itself; candidate boxes the gravelly area left of the strip and the plain road above it, old boxes the kerb apron and the left gravel. Visual impression only; no ground truth.",
+   "favourable_to": "",
+   "unfavourable_to": "old;candidate"
+  },
+  {
+   "id": "C10",
+   "kind": "manhole_cover",
+   "recording": "road_20261013_173403",
+   "frame": 708,
+   "why": "Ornate worn manhole-like cover and a patch at the top right (earlier notes). Old and candidate box the cover (candidate low confidence 0.39); baseline silent here. Visual impression only; no ground truth.",
+   "favourable_to": "baseline",
+   "unfavourable_to": "old;candidate (if the cover is not a pothole)"
+  },
+  {
+   "id": "C11",
+   "kind": "round_cover",
+   "recording": "road_20261013_174130",
+   "frame": 3,
+   "why": "Flush manhole cover on smooth tarmac. Candidate boxes it (0.79, plus a small box on the kerb line); old boxes a kerb-side bag/scooter region and a long kerb strip; baseline silent. Visual impression only; no ground truth.",
+   "favourable_to": "baseline",
+   "unfavourable_to": "old;candidate"
+  },
+  {
+   "id": "C12",
+   "kind": "round_cover_or_kerb",
+   "recording": "road_20261013_174130",
+   "frame": 131,
+   "why": "Smooth road next to a white kerb line: baseline boxes plain tarmac beside the line (0.75), old boxes a parked scooter/bag region and a car, candidate silent. No obvious pothole in the boxed areas. Visual impression only; no ground truth.",
+   "favourable_to": "candidate",
+   "unfavourable_to": "old;baseline"
+  },
+  {
+   "id": "C13",
+   "kind": "ring_shaped_mark",
+   "recording": "road_20261013_180439",
+   "frame": 283,
+   "why": "Faded ring-shaped mark (possibly a cover or old patch) on a blurred dusk road. Baseline boxes the ring (0.67); old returns a near-full-frame box (0.87); candidate silent. Visual impression only; no ground truth.",
+   "favourable_to": "candidate (if the ring is a real pothole)",
+   "unfavourable_to": "old (whole-frame box)"
+  },
+  {
+   "id": "C14",
+   "kind": "puddle_or_wet_patch",
+   "recording": "road_20261022_164858",
+   "frame": 465,
+   "why": "Wet/water patch on the road (earlier notes: possible shallow pothole). Old and baseline box the wet patch; candidate silent; a smaller wet spot lower down is boxed by nobody. Visual impression only; no ground truth.",
+   "favourable_to": "candidate",
+   "unfavourable_to": "old;baseline (if wet patches are not potholes)"
+  },
+  {
+   "id": "C15",
+   "kind": "rider_foot",
+   "recording": "road_20261022_164858",
+   "frame": 321,
+   "why": "Downward view with a rider's foot at the bottom and patched concrete. Candidate boxes the foot (0.45); old boxes the edge of a water patch at the top; baseline silent. Visual impression only; no ground truth.",
+   "favourable_to": "",
+   "unfavourable_to": "candidate (foot);old"
+  },
+  {
+   "id": "C16",
+   "kind": "possible_drain_or_hole",
+   "recording": "road_20261013_173922",
+   "frame": 945,
+   "why": "Plain tarmac with a tiny pale mark; only the candidate boxes it (0.56). Chosen as a candidate-only small-box example; nothing pothole-like is obvious. Visual impression only; no ground truth.",
+   "favourable_to": "",
+   "unfavourable_to": "candidate"
+  },
+  {
+   "id": "C17",
+   "kind": "old_whole_frame_box",
+   "recording": "road_20261013_180932",
+   "frame": 363,
+   "why": "Residential street with parked cars: old returns a near-full-frame box (0.87) that covers the whole scene; baseline and candidate silent. Typical of the old model's whole-frame boxes on the dusk clips. Visual impression only; no ground truth.",
+   "favourable_to": "baseline;candidate",
+   "unfavourable_to": "old"
+  },
+  {
+   "id": "C18",
+   "kind": "patched_area",
+   "recording": "road_20261013_180932",
+   "frame": 838,
+   "why": "Dusk road with a distant pale patch: old returns a near-full-frame box, candidate boxes a small pale patch (0.72), baseline silent. Visual impression only; no ground truth.",
+   "favourable_to": "",
+   "unfavourable_to": "old;candidate"
+  },
+  {
+   "id": "C19",
+   "kind": "patched_area",
+   "recording": "road_20261013_180932",
+   "frame": 759,
+   "why": "Distant round cover with a dark patched area near it: baseline boxes the round cover (0.67); old returns a near-full-frame box; candidate silent. Visual impression only; no ground truth.",
+   "favourable_to": "",
+   "unfavourable_to": "old"
+  }
+ ]
+}

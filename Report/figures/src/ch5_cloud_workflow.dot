@@ -1,0 +1,30 @@
+digraph cloud {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=10, nodesep=0.3, ranksep=0.22, pad=0.05, newrank=true];
+  node  [shape=box, style="filled", fillcolor="#f2f2f2", color="#444444", fontname="Helvetica", fontsize=10, margin="0.06,0.03", width=2.3];
+  edge  [fontname="Helvetica", fontsize=10, color="#444444", arrowsize=0.7];
+
+  subgraph cluster_l {
+    label="Local machine"; labeljust=c; style="rounded,dashed"; color="#666666";
+    l1 [label="Build bundle: train and\nvalidation images, code,\nstarting weights, digest\n(test rows refused)"];
+    l2 [label="Owner approval and live\nprice check before renting", fillcolor="#e6e6e6"];
+    l3 [label="Upload: 16 parallel streams,\n128 MB chunks, retries,\nremote SHA-256 check"];
+    l4 [label="Download stripped\ncheckpoints during training"];
+    l5 [label="Destroy instance;\nverify billing"];
+    l6 [label="select_checkpoint.py\n(validation lists only),\nthen evaluation scripts", fillcolor="#e9e9e9"];
+    l1 -> l2 -> l3;
+    l4 -> l5 -> l6;
+  }
+  subgraph cluster_r {
+    label="Rented GPU instance (Vast.ai)"; labeljust=c; style="rounded,dashed"; color="#666666";
+    r1 [label="setup: pinned\ndependencies, GPU check"];
+    r2 [label="data: verify digest,\nunpack bundle"];
+    r3 [label="train: detached run,\ntime cap, watchdog;\nworkers set by RAM"];
+    r4 [label="pack: stripped\ncheckpoints, logs,\nSHA256SUMS"];
+    r1 -> r2 -> r3 -> r4;
+  }
+  l3 -> r1 [label=" SSH"];
+  r3 -> l4 [label=" status, files", style=dashed];
+  r4 -> l4;
+  {rank=same; l3; r1;}
+  {rank=same; l4; r4;}
+}

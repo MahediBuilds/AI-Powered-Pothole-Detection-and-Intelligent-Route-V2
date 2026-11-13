@@ -1,0 +1,30 @@
+digraph jobs {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=10, nodesep=0.35, ranksep=0.38, pad=0.05, newrank=true, compound=true];
+  node  [shape=box, style="rounded,filled", fillcolor="#f2f2f2", color="#444444", fontname="Helvetica", fontsize=10, margin="0.08,0.05"];
+  edge  [fontname="Helvetica", fontsize=10, color="#444444", arrowsize=0.7];
+
+  start [shape=circle, label="", width=0.18, style=filled, fillcolor="#222222"];
+  queued [label="queued"];
+  subgraph cluster_run {
+    label="running"; labeljust=c; style="rounded,filled"; fillcolor="#f7f7f7"; color="#555555";
+    s1 [label="stage: reading video", fillcolor="#ffffff"];
+    s2 [label="stage: detecting\n(progress = frame / total)", fillcolor="#ffffff"];
+    s3 [label="stage: saving", fillcolor="#ffffff"];
+    s1 -> s2 -> s3;
+  }
+  done_c [label="done, outcome complete\n(failed frames <= 2%)", fillcolor="#e6e6e6"];
+  done_p [label="done, outcome partial\n(failed frames 2% to 25%,\nwarning added)", fillcolor="#e6e6e6"];
+  failed [label="failed\n(error text stored,\nno observations)", fillcolor="#d0d0d0"];
+
+  {rank=same; s2; failed;}
+  start -> queued [label=" POST /api/sessions\n or .../reprocess"];
+  queued -> s1 [label=" worker takes job"];
+  s3 -> done_c; s3 -> done_p;
+  s2 -> failed [label="> 25% of frames fail,\nor first 30 all fail"];
+  queued -> failed [label="detector\ncannot be\nloaded"];
+  s1 -> failed [label="unreadable\nvideo"];
+  failed -> done_p [style=invis];
+  restart [shape=note, style=filled, fillcolor="#ffffff", label="At server start, jobs left\nqueued or running are\nmarked failed"];
+  restart -> failed [style=dashed, arrowhead=none];
+  {rank=same; done_c; done_p; restart;}
+}

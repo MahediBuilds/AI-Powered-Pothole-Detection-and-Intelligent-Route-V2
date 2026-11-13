@@ -1,0 +1,400 @@
+{
+ "n_images_dir": 2009,
+ "n_images_coco": 2009,
+ "n_annotations": 4737,
+ "categories": {
+  "0": "pothole",
+  "1": "crack",
+  "2": "manhole"
+ },
+ "resolution_coco": {
+  "640x360": 2009
+ },
+ "resolution_actual": {
+  "640x360": 2009
+ },
+ "coco_size_mismatch": 0,
+ "annotation_keys": [
+  "area",
+  "bbox",
+  "category_id",
+  "id",
+  "image_id",
+  "iscrowd"
+ ],
+ "segmentation_present": 0,
+ "segmentation_len_counter": {
+  "0": 4737
+ },
+ "bbox_equals_polygon_envelope": 0,
+ "bbox_differs_from_polygon_envelope": 0,
+ "polygons_that_are_axis_aligned_rectangles": 0,
+ "per_class": {
+  "pothole": {
+   "instances": 1261,
+   "images": 795,
+   "w_px": {
+    "min": 4.999680000000001,
+    "p5": 18.000639999999976,
+    "median": 44.99968000000001,
+    "mean": 54.80096228390166,
+    "p95": 116.99967999999998,
+    "max": 459.99936
+   },
+   "h_px": {
+    "min": 5.000039999999956,
+    "p5": 9.000000000000057,
+    "median": 19.999799999999993,
+    "mean": 24.49325890563045,
+    "p95": 55.999799999999965,
+    "max": 230.00004
+   },
+   "sqrt_area_px": {
+    "min": 6.707989266538819,
+    "p5": 13.856337178345488,
+    "median": 29.580652461769667,
+    "mean": 35.90766185374965,
+    "p95": 74.59225670226097,
+    "max": 300.2663292478436
+   },
+   "area_frac": {
+    "min": 0.0001953,
+    "p5": 0.0008333249999999974,
+    "median": 0.0037978081599999995,
+    "mean": 0.008368359402812055,
+    "p95": 0.024149326214999985,
+    "max": 0.39131887361100004
+   },
+   "w_frac": {
+    "min": 0.007812000000000001,
+    "p5": 0.028125999999999964,
+    "median": 0.07031200000000001,
+    "mean": 0.08562650356859636,
+    "p95": 0.18281199999999997,
+    "max": 0.7187490000000001
+   },
+   "n_lt_16px_side": 430,
+   "n_lt_32sqrt": 721
+  },
+  "crack": {
+   "instances": 2519,
+   "images": 1375,
+   "w_px": {
+    "min": 2.0,
+    "p5": 26.000575999999977,
+    "median": 79.99999999999999,
+    "mean": 101.6097720047638,
+    "p95": 248.0999679999999,
+    "max": 640.0
+   },
+   "h_px": {
+    "min": 0.0,
+    "p5": 16.000200000000035,
+    "median": 42.99983999999998,
+    "mean": 51.26280352520841,
+    "p95": 104.99975999999998,
+    "max": 358.99992000000003
+   },
+   "sqrt_area_px": {
+    "min": 0.0,
+    "p5": 24.73253613633256,
+    "median": 57.13140502273683,
+    "mean": 69.36546448233965,
+    "p95": 146.83225365572846,
+    "max": 459.56509528030955
+   },
+   "area_frac": {
+    "min": 0.0,
+    "p5": 0.0026549421527999953,
+    "median": 0.014166655554999994,
+    "mean": 0.03116481085037753,
+    "p95": 0.09357561760409985,
+    "max": 0.9166669999999999
+   },
+   "w_frac": {
+    "min": 0.003125,
+    "p5": 0.040625899999999965,
+    "median": 0.12499999999999997,
+    "mean": 0.15876526875744343,
+    "p95": 0.3876561999999999,
+    "max": 1.0
+   },
+   "n_lt_16px_side": 141,
+   "n_lt_32sqrt": 339
+  },
+  "manhole": {
+   "instances": 957,
+   "images": 759,
+   "w_px": {
+    "min": 10.0,
+    "p5": 26.0,
+    "median": 55.00031999999999,
+    "mean": 57.866245350052246,
+    "p95": 100.0,
+    "max": 235.00032
+   },
+   "h_px": {
+    "min": 5.000040000000013,
+    "p5": 9.799775999999984,
+    "median": 19.000079999999997,
+    "mean": 20.449318119122257,
+    "p95": 36.0,
+    "max": 83.99988000000002
+   },
+   "sqrt_area_px": {
+    "min": 9.16545252984268,
+    "p5": 15.874541126250016,
+    "median": 32.496199160394106,
+    "mean": 34.12757175133676,
+    "p95": 57.580779433257874,
+    "max": 128.89530868096634
+   },
+   "area_frac": {
+    "min": 0.00036460729199999826,
+    "p5": 0.0010937545831999984,
+    "median": 0.0045833461799999935,
+    "mean": 0.005923933516192268,
+    "p95": 0.014390511528000003,
+    "max": 0.07210937760399999
+   },
+   "w_frac": {
+    "min": 0.015625,
+    "p5": 0.040625,
+    "median": 0.08593799999999999,
+    "mean": 0.09041600835945664,
+    "p95": 0.15625,
+    "max": 0.36718799999999996
+   },
+   "n_lt_16px_side": 324,
+   "n_lt_32sqrt": 466
+  }
+ },
+ "images_with_no_annotations_coco": 0,
+ "annotations_per_image": {
+  "min": 1.0,
+  "p5": 1.0,
+  "median": 2.0,
+  "mean": 2.3578894972623194,
+  "p95": 5.0,
+  "max": 13.0
+ },
+ "validity": {
+  "out_of_bounds": 45,
+  "zero_or_negative_area": 1,
+  "duplicate_boxes_same_class": 0,
+  "ann_missing_image_id": 0,
+  "coco_images_missing_on_disk": 0,
+  "disk_images_not_in_coco": 0
+ },
+ "yolo_label_files": 2009,
+ "polygon_label_files": 2009,
+ "yolo_empty_files": 0,
+ "polygon_empty_files": 0,
+ "images_without_yolo_file": 0,
+ "yolo_files_without_image": 0,
+ "yolo_instances": {
+  "2": 957,
+  "0": 1261,
+  "1": 2519
+ },
+ "polygon_instances": {
+  "2": 957,
+  "0": 1261,
+  "1": 2519
+ },
+ "yolo_rows_bad_len": 0,
+ "yolo_oob": 26,
+ "yolo_zero_area": 1,
+ "yolo_images_with_class": {
+  "0": 795,
+  "1": 1375,
+  "2": 759
+ },
+ "yolo_images_pothole_and_manhole": 236,
+ "polygon_label_rows_not_axis_aligned": 0,
+ "exact_duplicate_groups": [
+  [
+   "vlcsnap-2025-02-18-17h03m41s574.jpg",
+   "vlcsnap-2025-02-18-17h04m14s457.jpg"
+  ],
+  [
+   "vlcsnap-2025-02-18-17h11m34s646.jpg",
+   "vlcsnap-2025-02-18-18h30m17s408.jpg"
+  ],
+  [
+   "vlcsnap-2025-02-19-14h41m29s105.jpg",
+   "vlcsnap-2025-02-19-14h41m49s395.jpg"
+  ],
+  [
+   "vlcsnap-2025-02-19-15h02m56s842.jpg",
+   "vlcsnap-2025-02-19-15h03m10s511.jpg"
+  ],
+  [
+   "vlcsnap-2025-02-26-20h36m03s983.jpg",
+   "vlcsnap-2025-02-26-20h36m04s054.jpg"
+  ]
+ ],
+ "near_dup_pairs_dhash64_ham_le6": 933,
+ "near_dup_clusters": 143,
+ "images_in_near_dup_clusters": 425,
+ "largest_near_dup_cluster": 48,
+ "near_dup_pair_examples": [
+  [
+   "20250223_143954.jpg",
+   "20250223_143958.jpg",
+   2
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap-00031.jpg",
+   5
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap-00032.jpg",
+   6
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap-00037.jpg",
+   4
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap_2025-03-16-15h13m58s251.jpg",
+   6
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap_2025-03-16-15h14m02s970.jpg",
+   6
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap_2025-03-16-15h14m57s465.jpg",
+   6
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap_2025-03-16-15h15m07s464.jpg",
+   5
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap_2025-03-16-15h15m46s340.jpg",
+   6
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap_2025-03-16-15h16m01s326.jpg",
+   6
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap_2025-03-16-15h17m03s874.jpg",
+   6
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap_2025-03-16-15h17m18s760.jpg",
+   6
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap_2025-03-16-15h17m30s232.jpg",
+   6
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap_2025-03-16-15h18m48s028.jpg",
+   6
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap_2025-03-16-15h18m58s066.jpg",
+   6
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap_2025-03-16-15h19m02s496.jpg",
+   6
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap_2025-03-16-15h19m36s147.jpg",
+   6
+  ],
+  [
+   "vlcsnap-00007.jpg",
+   "vlcsnap_2025-03-16-15h20m55s801.jpg",
+   4
+  ],
+  [
+   "vlcsnap-00009.jpg",
+   "vlcsnap-00011.jpg",
+   0
+  ],
+  [
+   "vlcsnap-00013.jpg",
+   "vlcsnap-00014.jpg",
+   6
+  ]
+ ],
+ "near_dup_pairs_dhash_ham_le3": 259,
+ "near_dup_pairs_dhash_ham_le10": 2672,
+ "files_with_timestamp": 1797,
+ "files_without_timestamp": 212,
+ "files_without_timestamp_pattern": {
+  "vlcsnap-#####.jpg": 211,
+  "vlcsnap-#####-MSI.jpg": 1
+ },
+ "timestamp_kinds": {
+  "phone_name": 102,
+  "vlcsnap": 1695
+ },
+ "dates": {
+  "2025-02-16": 3,
+  "2025-02-18": 581,
+  "2025-02-19": 821,
+  "2025-02-23": 39,
+  "2025-02-26": 217,
+  "2025-03-16": 136
+ },
+ "sequences_gap_2s": {
+  "n_groups": 999,
+  "size_median": 1.0,
+  "size_max": 17,
+  "singletons": 663
+ },
+ "sequences_gap_5s": {
+  "n_groups": 470,
+  "size_median": 2.0,
+  "size_max": 47,
+  "singletons": 194
+ },
+ "sequences_gap_10s": {
+  "n_groups": 243,
+  "size_median": 3.0,
+  "size_max": 85,
+  "singletons": 64
+ },
+ "sequences_gap_30s": {
+  "n_groups": 75,
+  "size_median": 10.0,
+  "size_max": 217,
+  "singletons": 6
+ },
+ "sequences_gap_60s": {
+  "n_groups": 43,
+  "size_median": 16.0,
+  "size_max": 304,
+  "singletons": 5
+ },
+ "numbered_vlcsnap_range": [
+  1,
+  214
+ ],
+ "images_pothole_only": 162,
+ "images_manhole_only": 352,
+ "images_crack_only": 691
+}

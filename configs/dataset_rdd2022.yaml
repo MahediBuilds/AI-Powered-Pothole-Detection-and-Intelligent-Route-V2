@@ -1,0 +1,23 @@
+# RDD2022 -> single-class pothole dataset conversion.
+# Relative paths resolve against the project root.
+raw_dir: data/raw/rdd2022
+out_dir: data/processed/rdd2022_pothole
+# Norway is optional (10.6 GB, ~4040x2035 images). China_Drone is excluded (top-down drone view).
+countries: [India, Japan, Czech, United_States, China_MotorBike]
+pothole_labels: [D40]
+# Subsets whose pothole-free images may be used as negatives.
+negative_countries: [India, Japan, Czech, United_States, China_MotorBike]
+# RDD2022 ids are not in capture order, so splits group near-duplicate frames by
+# perceptual hash (64-bit dHash, single linkage). `blocks` is kept for datasets whose
+# ids do follow capture order.
+split:
+  strategy: similarity        # similarity | blocks | country
+  seed: 42
+  max_hash_distance_bits: 8   # used only by similarity: max Hamming distance linking two images
+  block_size: 200             # used only by blocks: ids per block; block = numeric_id // block_size
+  fractions: {train: 0.8, val: 0.1, test: 0.1}
+  val_countries: []           # used only when strategy: country
+  test_countries: []
+train_negative_ratio: 2.0     # max negatives per positive image in TRAIN only; null keeps all
+min_box_side_px: 2
+link_mode: hardlink           # hardlink | copy (hardlink falls back to copy with a recorded warning)

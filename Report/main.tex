@@ -1,0 +1,223 @@
+\documentclass[12pt,a4paper]{report}
+
+% Packages (template preamble kept; changes against the template are marked FIX)
+% FIX: Times under pdfLaTeX (template, Overleaf); TeX Gyre Termes, the same metrics, when a local
+% build uses XeTeX (Tectonic), where the times package has no effect.
+\usepackage{iftex}
+\ifXeTeX
+  \usepackage{fontspec}
+  \setmainfont{texgyretermes}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+  \setmonofont{texgyrecursor}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\else
+  \usepackage{times}            % Times New Roman font
+\fi
+\usepackage{setspace}           % Line spacing
+\usepackage[a4paper, left=1.5in, right=1in, top=1in, bottom=1in]{geometry}
+\usepackage{titlesec}           % Chapter/section formatting
+\usepackage{fancyhdr}           % Header/Footer
+\usepackage{graphicx}           % Figures
+\usepackage{tocloft}            % TOC formatting
+\usepackage{etoolbox}           % needed for patching TOC entries
+% FIX: lipsum, xcolor and the second titlesec line of the template are removed (unused).
+% FIX: packages the chapters need are added.
+\usepackage{amsmath}            % Equations
+\usepackage{amssymb}            % Symbols
+\usepackage{float}              % [H] placement
+\usepackage{array}              % Table column types
+\usepackage{tabularx}           % Tables that fit the text width
+\usepackage{longtable}          % Tables that break across pages
+\usepackage{multirow}           % Merged table cells
+\usepackage{url}                % URLs in references
+\usepackage{enumitem}           % List spacing
+\usepackage{caption}            % Captions
+\usepackage[hidelinks]{hyperref} % FIX: hidelinks removes the coloured link boxes
+
+% Left-aligned fixed-width column, used by the tables in the chapters
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% FIX: figures are looked up in figures/ (the logos stay in the report root)
+\graphicspath{{figures/}}
+
+% Line spacing
+\onehalfspacing
+\setlength{\emergencystretch}{2em} % FIX: avoids text running into the margin
+% FIX: float placement that fills pages instead of leaving gaps before tables and figures
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\textfraction}{0.12}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+
+
+% Title formatting
+\titleformat{\chapter}[hang]{\bfseries\centering\LARGE}{Chapter \thechapter}{1em}{}
+\titleformat{\section}[hang]{\bfseries\Large}{\thesection}{1em}{}
+
+% Fancy Header/Footer
+\setlength{\headheight}{15pt}   % FIX: fancyhdr needs at least 14.5pt for a 12pt header
+\pagestyle{fancy}
+\fancyhf{}
+% FIX: the header carries the official project title
+\lhead{\textit{AI Powered Pothole Detection and Intelligent Route Optimization System}}
+\lfoot{\textit{Dept. of CSE,BMSCE}}
+\rfoot{\textit{Page \thepage}}
+
+% Make chapter pages use fancy style
+\makeatletter
+\let\ps@plain\ps@fancy
+\makeatother
+
+\begin{document}
+
+% ---------- FRONT MATTER: ROMAN NUMBERS ----------
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+% ----- Title Page -----
+% FIX: the template's "Group Number" line (with its stray backslash) is removed; identity details
+% are copied from the Phase 1 report.
+\begin{titlepage}
+  \thispagestyle{empty}
+  \centering
+
+  {\Huge \textbf{AI Powered Pothole Detection and Intelligent Route Optimization System}}\\[1.0cm]
+  \includegraphics[width=0.18\linewidth]{VTU-Logojpg.jpg}\\[0.9cm]
+  {\Large \textbf{PROJECT REPORT}}\\[0.2cm]
+  {\large \textit{Submitted by}}\\[0.5cm]
+  {\large Zain Mahedi (1WA23CS056)}\\
+  {\large Thanu George (1WA23CS019)}\\
+  {\large Vikas Shashi (1WA23CS043)}\\
+  {\large Tanish Agrawal (1WA23CS008)}\\[0.7cm]
+  {\itshape in partial fulfillment for the award of the degree of}\\[0.15cm]
+  {\Large \textbf{BACHELOR OF ENGINEERING}}\\[0.2cm]
+  {\large in}\\[0.2cm]
+  {\Large \textbf{COMPUTER SCIENCE AND ENGINEERING}}\\[0.9cm]
+  {\large Under the Guidance of}\\
+  {\large \textbf{Dr. Seema Patil}}\\
+  {\large Associate Professor, Department of CSE, BMSCE}
+  \vfill
+  \includegraphics[width=0.18\linewidth]{bmscelogo.jpg}\\[0.5cm]
+  {\Large \textbf{B.M.S. COLLEGE OF ENGINEERING}}\\
+  {\large (Autonomous Institution under VTU)}\\
+  {\large BENGALURU - 560019}\\
+  {\large Academic Year - 2026--2027}
+
+\end{titlepage}
+% ----- Certificate -----
+\chapter*{Certificate}
+\thispagestyle{empty}
+\vspace{2cm}
+This is to certify that the project report entitled \textbf{``AI Powered Pothole Detection and Intelligent Route Optimization System''} is a bonafide work carried out by \textbf{Zain Mahedi (1WA23CS056)}, \textbf{Thanu George (1WA23CS019)}, \textbf{Vikas Shashi (1WA23CS043)} and \textbf{Tanish Agrawal (1WA23CS008)} in partial fulfillment of the requirements for the award of the degree of \textbf{Bachelor of Engineering} in \textbf{Computer Science and Engineering}, under my supervision during the academic year 2026--2027.
+
+\vspace{2cm}
+\begin{flushleft}
+Guide Signature\hspace{30mm} HoD signature \hspace{25mm} Principal Signature\\
+(Dr. Seema Patil) \hspace{25mm} Dr. Kavitha Sooda \hspace{19mm} Dr. Bheemsha Arya
+\end{flushleft}
+\vspace{2cm}
+\begin{flushleft}
+Name and signature of Examiners along with date \\
+\vspace {1cm}
+Examiner 1 \\
+\vspace {1cm}
+Examiner 2 \\
+
+\end{flushleft}
+
+
+
+% ----- Abstract -----
+% The body text is in chapters/abstract.tex (heading and page style are set here).
+\chapter*{Abstract}
+\thispagestyle{empty}
+\input{chapters/abstract}
+%-------------Declaration ----------
+\chapter*{DECLARATION}
+\thispagestyle{empty}
+We, hereby declare that the Major Project Phase-2 work entitled ``AI Powered Pothole Detection and Intelligent Route Optimization System'' is a bonafide work and has been carried out  by us under the guidance of Dr. Seema Patil, Associate Professor, Department of Computer Science and Engineering, B.M.S. College of Engineering, Bengaluru, in partial  fulfillment of the requirements of the degree of Bachelor of Engineering in Computer Science  and Engineering of Visvesvaraya Technological University, Belagavi.
+I further declare that, to the best of my knowledge and belief, this project has not been  submitted either in part or in full to any other university for the award of any degree.
+\vspace{0.3cm}
+\begin{flushleft}
+Candidate details:
+\end{flushleft}
+\vspace{0.1cm}
+\begin{center}
+\begin{tabular}{|c|l|c|c|}
+\hline
+\textbf{SL. NO.} & \textbf{Student Name} & \textbf{USN} & \textbf{Student's Signature} \\
+\hline
+1 & Zain Mahedi & 1WA23CS056 & \\
+\hline
+2 & Thanu George & 1WA23CS019 & \\
+\hline
+3 & Vikas Shashi & 1WA23CS043 & \\
+\hline
+4 & Tanish Agrawal & 1WA23CS008 & \\
+\hline
+\end{tabular}
+\end{center}
+\begin{flushleft}
+Place: Bengaluru \\
+Date: \\
+\end{flushleft}
+Certified that these candidates are students of Computer Science and Engineering Department  of B.M.S. College of Engineering. They have carried out the project work of titled ``AI Powered Pothole Detection and Intelligent Route Optimization System'' as Major Project Phase-2  work. It is in partial fulfillment for completing the requirement for the award of B.E. degree  by VTU. The works is original and duly certify the same.
+\vspace{1cm}
+\begin{flushleft}
+Guide Name: Dr. Seema Patil \\
+Date: \\
+Signature \\
+\end{flushleft}
+% ----- Acknowledgment -----
+\chapter*{Acknowledgment}
+\thispagestyle{empty}
+We are thankful to our guide, \textbf{Dr. Seema Patil}, Associate Professor, Department of Computer Science and Engineering, B.M.S. College of Engineering, who advised and encouraged us at every stage of this project.
+
+We thank \textbf{Dr. Kavitha Sooda}, Head of the Department of Computer Science and Engineering, for giving us the facilities and support this work required, and \textbf{Dr. Bheemsha Arya}, Principal, B.M.S. College of Engineering, for allowing us to take up this project.
+
+The project coordinators, faculty and non-teaching staff of the department helped us throughout, and we thank them. We also thank the creators of the open-source tools and public datasets used in this work, including Ultralytics YOLOv8, PyTorch, OpenStreetMap and OSRM.
+
+Our families and friends supported us the whole way, and we thank them too.
+\newpage
+% ----- TOC, LoF, LoT -----
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\listoffigures
+\thispagestyle{empty}
+\newpage
+\listoftables
+\thispagestyle{empty}
+
+% ---------- MAIN MATTER: ARABIC NUMBERS ----------
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% ----- Chapters -----
+% FIX: no section numbers are typed into the chapter files (the template's "1.1 1.1" defect).
+\input{chapters/ch1_introduction}
+\input{chapters/ch2_literature}
+\input{chapters/ch3_requirements}
+\input{chapters/ch4_design}
+\input{chapters/ch5_implementation}
+\input{chapters/ch6_testing_results}
+\input{chapters/ch7_conclusion}
+
+\clearpage
+% ----- References -----
+% FIX: one heading only. In the report class, thebibliography prints its own chapter heading
+% (\bibname), so the template's extra \chapter*{REFERENCES} is dropped and \bibname is renamed.
+% references_generated.tex is written by tools/build_bibliography.py (see README.txt).
+\renewcommand{\bibname}{REFERENCES}
+\input{references_generated}
+\clearpage
+
+% ----- Appendices -----
+\appendix
+\renewcommand{\thechapter}{\Alph{chapter}}
+\renewcommand{\thesection}{\Roman{section}}
+\input{chapters/appendices}
+
+\end{document}

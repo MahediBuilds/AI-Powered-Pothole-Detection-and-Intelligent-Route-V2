@@ -1,0 +1,85 @@
+{
+ "10": {
+  "groups_total": 243,
+  "groups_with_kept": 152,
+  "groups_with_pos": 21,
+  "groups_with_neg": 143,
+  "groups_with_both": 12,
+  "largest_group_kept": 52,
+  "top5": [
+   52,
+   45,
+   29,
+   24,
+   24
+  ],
+  "kept_in_timestamped": 740,
+  "singletons_kept": 51
+ },
+ "60": {
+  "groups_total": 43,
+  "groups_with_kept": 34,
+  "groups_with_pos": 11,
+  "groups_with_neg": 33,
+  "groups_with_both": 10,
+  "largest_group_kept": 116,
+  "top5": [
+   116,
+   91,
+   85,
+   64,
+   53
+  ],
+  "kept_in_timestamped": 740,
+  "singletons_kept": 5
+ },
+ "untimestamped": {
+  "total": 212,
+  "POSITIVE": 1,
+  "NEGATIVE": 116
+ },
+ "kept_by_date_[pos,neg]": {
+  "2025-02-16": [
+   0,
+   1
+  ],
+  "2025-02-19": [
+   21,
+   186
+  ],
+  "2025-02-23": [
+   7,
+   2
+  ],
+  "2025-02-18": [
+   5,
+   317
+  ],
+  "2025-02-26": [
+   8,
+   108
+  ],
+  "2025-03-16": [
+   0,
+   85
+  ]
+ },
+ "excluded_by_primary_reason(priority order)": {
+  "pothole_unclear": 650,
+  "pothole_reject": 93,
+  "manhole_damaged_or_sunken": 7,
+  "unlabelled_defect": 23,
+  "unpaved_or_handheld_closeup": 14,
+  "manhole_unclear": 364,
+  "pothole_box_oob_gt2px": 1
+ },
+ "excluded_with_single_reason": {
+  "manhole_damaged_or_sunken": 5,
+  "pothole_unclear": 483,
+  "pothole_reject": 68,
+  "unlabelled_defect": 23,
+  "unpaved_or_handheld_closeup": 14,
+  "manhole_unclear": 364
+ },
+ "pos_imgs_with_rejects_etc": null
+}

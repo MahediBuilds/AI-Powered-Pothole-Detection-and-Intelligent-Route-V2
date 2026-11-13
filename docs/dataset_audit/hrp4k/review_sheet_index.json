@@ -1,0 +1,322 @@
+{
+ "empties_00.jpg": [
+  "train/2532",
+  "train/2668",
+  "train/659",
+  "test/30575",
+  "train/574",
+  "train/3171"
+ ],
+ "empties_01.jpg": [
+  "test/30826",
+  "train/1070",
+  "train/2892",
+  "train/576",
+  "valid/20320",
+  "train/1312"
+ ],
+ "empties_02.jpg": [
+  "train/3843",
+  "train/276",
+  "train/4106",
+  "train/2201",
+  "valid/20000",
+  "train/736"
+ ],
+ "empties_03.jpg": [
+  "train/2686",
+  "test/30525",
+  "test/30558",
+  "test/30070",
+  "train/916",
+  "train/1443"
+ ],
+ "empties_04.jpg": [
+  "valid/20162",
+  "valid/20775",
+  "test/30552",
+  "valid/20889",
+  "test/30845",
+  "train/170"
+ ],
+ "empties_05.jpg": [
+  "train/3945",
+  "valid/20486",
+  "train/3764",
+  "train/2322",
+  "valid/20879",
+  "valid/20182"
+ ],
+ "empties_06.jpg": [
+  "test/30255",
+  "train/1004",
+  "train/2092",
+  "train/2584",
+  "valid/20762",
+  "test/30511"
+ ],
+ "empties_07.jpg": [
+  "valid/20633",
+  "test/30367",
+  "test/30092",
+  "train/520",
+  "train/1943",
+  "train/1619"
+ ],
+ "empties_08.jpg": [
+  "valid/20142",
+  "valid/20631",
+  "valid/20803",
+  "train/609",
+  "train/2914",
+  "train/2012"
+ ],
+ "empties_09.jpg": [
+  "test/30420",
+  "train/339",
+  "test/30273",
+  "test/30219",
+  "train/2337",
+  "train/3899"
+ ],
+ "empties_10.jpg": [
+  "test/30837",
+  "train/3748",
+  "train/4008",
+  "train/211",
+  "train/131",
+  "train/3412"
+ ],
+ "empties_11.jpg": [
+  "train/1461",
+  "test/30118",
+  "train/1383",
+  "valid/20227",
+  "train/1741",
+  "train/2781"
+ ],
+ "empties_12.jpg": [
+  "test/30546",
+  "train/1712",
+  "train/420",
+  "train/2019",
+  "train/2784",
+  "train/2637"
+ ],
+ "empties_13.jpg": [
+  "train/3985",
+  "train/3577",
+  "train/2488",
+  "valid/20832",
+  "train/1192",
+  "valid/20466"
+ ],
+ "empties_14.jpg": [
+  "train/3065",
+  "train/1489",
+  "train/3145",
+  "train/2268",
+  "train/3999",
+  "train/3255"
+ ],
+ "empties_15.jpg": [
+  "train/4055",
+  "test/30442",
+  "valid/20745",
+  "test/30658",
+  "test/30556",
+  "train/3989"
+ ],
+ "empties_16.jpg": [
+  "valid/20763",
+  "test/30371",
+  "train/2739",
+  "train/1453",
+  "train/3954",
+  "train/3731"
+ ],
+ "empties_17.jpg": [
+  "test/30227",
+  "valid/20317",
+  "test/30852",
+  "test/30850",
+  "train/1543",
+  "train/1350"
+ ],
+ "empties_18.jpg": [
+  "train/3547",
+  "train/1702",
+  "train/2227",
+  "valid/20898",
+  "train/3644",
+  "test/30488"
+ ],
+ "empties_19.jpg": [
+  "train/2593",
+  "train/1501",
+  "train/3622",
+  "train/3338",
+  "train/3668",
+  "valid/20173"
+ ],
+ "positives_00.jpg": [
+  "train/2180",
+  "valid/20099",
+  "valid/20148",
+  "valid/20319",
+  "train/349",
+  "train/2752"
+ ],
+ "positives_01.jpg": [
+  "train/3014",
+  "train/4158",
+  "train/3629",
+  "test/30142",
+  "test/30278",
+  "train/2466"
+ ],
+ "positives_02.jpg": [
+  "train/2885",
+  "train/1343",
+  "train/2984",
+  "train/512",
+  "train/1464",
+  "train/19"
+ ],
+ "positives_03.jpg": [
+  "valid/20465",
+  "test/30268",
+  "train/2425",
+  "valid/20187",
+  "train/73",
+  "train/3322"
+ ],
+ "positives_04.jpg": [
+  "train/3831",
+  "train/1680",
+  "train/854",
+  "train/1073",
+  "train/896",
+  "train/415"
+ ],
+ "positives_05.jpg": [
+  "train/372",
+  "train/1065",
+  "train/3494",
+  "test/30379",
+  "test/30330",
+  "train/656"
+ ],
+ "positives_06.jpg": [
+  "test/30745",
+  "train/1954",
+  "train/416",
+  "train/4152",
+  "test/30438",
+  "train/1922"
+ ],
+ "positives_07.jpg": [
+  "train/2928",
+  "train/94",
+  "train/821",
+  "train/1472",
+  "train/2591",
+  "train/2375"
+ ],
+ "positives_08.jpg": [
+  "train/1766",
+  "valid/20498",
+  "train/98",
+  "train/527",
+  "train/2427",
+  "train/3175"
+ ],
+ "positives_09.jpg": [
+  "train/1938",
+  "train/4025",
+  "train/1005",
+  "train/3301",
+  "train/939",
+  "train/2284"
+ ],
+ "positives_10.jpg": [
+  "test/30469",
+  "train/3181",
+  "valid/20382",
+  "train/369",
+  "train/3636",
+  "test/30832"
+ ],
+ "positives_11.jpg": [
+  "train/3558",
+  "train/2371",
+  "train/3341",
+  "test/30706",
+  "train/178",
+  "test/30524"
+ ],
+ "positives_12.jpg": [
+  "train/3008",
+  "train/4116",
+  "test/30086",
+  "train/953",
+  "train/2628",
+  "train/312"
+ ],
+ "positives_13.jpg": [
+  "train/601",
+  "train/1187",
+  "train/1925",
+  "train/1977",
+  "train/1279",
+  "valid/20884"
+ ],
+ "positives_14.jpg": [
+  "test/30531",
+  "valid/20079",
+  "test/30449",
+  "train/3946",
+  "train/3472",
+  "valid/20635"
+ ],
+ "positives_15.jpg": [
+  "train/813",
+  "train/934",
+  "train/1380",
+  "valid/20530",
+  "train/2018",
+  "valid/20281"
+ ],
+ "positives_16.jpg": [
+  "train/491",
+  "train/2741",
+  "test/30040",
+  "test/30547",
+  "train/748",
+  "test/30425"
+ ],
+ "positives_17.jpg": [
+  "train/412",
+  "train/3506",
+  "train/1268",
+  "train/2879",
+  "valid/20143",
+  "valid/20083"
+ ],
+ "positives_18.jpg": [
+  "valid/20036",
+  "test/30269",
+  "train/3017",
+  "valid/20100",
+  "train/1993",
+  "train/2117"
+ ],
+ "positives_19.jpg": [
+  "train/3257",
+  "test/30249",
+  "valid/20338",
+  "test/30036",
+  "train/880",
+  "train/3936"
+ ]
+}

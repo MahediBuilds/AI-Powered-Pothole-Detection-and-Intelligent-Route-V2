@@ -1,0 +1,15 @@
+digraph routecost {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=10, nodesep=0.2, ranksep=0.2, pad=0.05];
+  node  [shape=box, style="filled", fillcolor="#f2f2f2", color="#444444", fontname="Helvetica", fontsize=10, margin="0.08,0.03", width=4.9];
+  edge  [fontname="Helvetica", fontsize=10, color="#444444", arrowsize=0.7];
+
+  in   [label="Request: origin, destination and avoidance a between 0 and 1.\nBoth points move to their closest graph node; a point\nfurther than 250 m from any node returns outside_graph", fillcolor="#e6e6e6"];
+  ld   [label="From the latest map build, each edge has n mapped potholes\nand s surveyed metres; N and S are their totals over the map"];
+  rate [label="Rate assumed on road nobody surveyed (per 100 m):\nr = (100 N + 1.0 x 500) / (S + 500), unless a fixed value is set", fillcolor="#e9e9e9"];
+  E    [label="Expected potholes on an edge of length L: E = n + r (L - s) / 100\nCost of that edge: L + a x 300 m x E", fillcolor="#e9e9e9"];
+  D    [label="NetworkX runs Dijkstra three times: a = 0, the requested a, a = 1.\nThe cheaper of two parallel edges is used; no path returns no_route"];
+  M    [label="Merge identical edge sequences: 1 to 3 routes\n(Shortest, Your setting, Strongest pothole avoidance)"];
+  X    [label="Per route: distance, duration, mapped potholes passed,\nsurveyed share f = surveyed length / route length"];
+  EV   [label="Evidence: f >= 0.8 adequate; 0.2 <= f < 0.8 partial;\nf < 0.2 insufficient; explanation and caveats added", fillcolor="#e6e6e6"];
+  in -> ld -> rate -> E -> D -> M -> X -> EV;
+}

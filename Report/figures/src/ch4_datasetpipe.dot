@@ -1,0 +1,31 @@
+digraph dataset {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=10, nodesep=0.2, ranksep=0.2, pad=0.05, newrank=true];
+  node  [shape=box, style="filled", fillcolor="#f2f2f2", color="#444444", fontname="Helvetica", fontsize=10, margin="0.06,0.03", width=2.6];
+  edge  [fontname="Helvetica", fontsize=10, color="#444444", arrowsize=0.7];
+
+  subgraph cluster_r {
+    label="RDD2022 (5 subsets)"; labeljust=c; style="rounded,dashed"; color="#666666";
+    r1 [label="Fetch and audit; VOC XML;\nD40 = pothole, other labels\n= not a pothole", fillcolor="#e6e6e6"];
+    r2 [label="Convert: invalid pothole box\nexcludes the image;\nnegatives: no D40 box"];
+    r3 [label="dHash 64 bit; link images\nwithin 8 bits (single linkage);\nconnected component = group"];
+    r4 [label="Whole groups to one split,\nper country, quotas by image\ncount (0.8 / 0.1 / 0.1, seed 42)"];
+    r5 [label="Cap train negatives at\n2 x positives; val and test\nkeep natural mix"];
+    r1 -> r2 -> r3 -> r4 -> r5;
+  }
+  subgraph cluster_h {
+    label="HRP4K v1.01 (predefined splits kept)"; labeljust=c; style="rounded,dashed"; color="#666666";
+    h1 [label="Audit: integrity, SHA-256\nduplicates, box statistics", fillcolor="#e6e6e6"];
+    h2 [label="Box review sheets (single\nAI pass): ok / reject / unclear;\nimages with a reject box excluded"];
+    h3 [label="pHash 64 bit, Hamming <= 8,\nclusters; val or test image\nsharing a cluster with train\nis excluded (leakage guard)"];
+    h4 [label="Resize to 1280 x 720;\nlabels copied unchanged"];
+    h1 -> h2 -> h3 -> h4;
+  }
+  u [width=5.3, label="unified_v1: train 12,193 images; pooled validation 3,609
+images (RDD2022 + HRP4K); test splits kept separate;
+one manifest row and status per source image", fillcolor="#e9e9e9"];
+  chk [width=5.3, label="Checks: no image in two splits, no group spanning splits,
+no val or test image within 8 hash bits of a train image"];
+  k [width=5.3, label="Manhole probe (evaluation only): 203 images from
+Giordani et al., exclusion-only review, never used in training", fillcolor="#e6e6e6"];
+  r5 -> u; h4 -> u; u -> chk; chk -> k [style=invis];
+}

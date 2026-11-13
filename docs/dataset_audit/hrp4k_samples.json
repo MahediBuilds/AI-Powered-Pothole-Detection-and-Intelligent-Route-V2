@@ -1,0 +1,475 @@
+{
+ "samples": [
+  {
+   "split": "test",
+   "name": "30112",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 1990416,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "test",
+   "name": "30149",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2048789,
+   "n_boxes": 3,
+   "exif": false
+  },
+  {
+   "split": "test",
+   "name": "30225",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2087936,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "test",
+   "name": "30472",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2317581,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "test",
+   "name": "30525",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 1989334,
+   "n_boxes": 0,
+   "exif": false
+  },
+  {
+   "split": "test",
+   "name": "30816",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2457758,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "100",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2128901,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "101",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2352082,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "102",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2199426,
+   "n_boxes": 4,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "281",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2513818,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "608",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2542156,
+   "n_boxes": 0,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "633",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 1958969,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "724",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2285242,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "931",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2280025,
+   "n_boxes": 0,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "1008",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2342638,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "1781",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2011324,
+   "n_boxes": 2,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "1804",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 1816539,
+   "n_boxes": 2,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "1951",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2120017,
+   "n_boxes": 0,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "2363",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2646758,
+   "n_boxes": 0,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "2500",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2172398,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "2501",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2261444,
+   "n_boxes": 2,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "2502",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2317620,
+   "n_boxes": 2,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "2675",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 1731684,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "2768",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 1884181,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "3077",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2109453,
+   "n_boxes": 10,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "3173",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2355249,
+   "n_boxes": 5,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "3239",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2071960,
+   "n_boxes": 0,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "3668",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2453195,
+   "n_boxes": 0,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "3900",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2040238,
+   "n_boxes": 3,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "3901",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2571806,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "3902",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 1873449,
+   "n_boxes": 0,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "4165",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2361579,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "train",
+   "name": "4175",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 1707249,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "valid",
+   "name": "20138",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 1962314,
+   "n_boxes": 2,
+   "exif": false
+  },
+  {
+   "split": "valid",
+   "name": "20207",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 1829963,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "valid",
+   "name": "20209",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2402803,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "valid",
+   "name": "20399",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 1953498,
+   "n_boxes": 0,
+   "exif": false
+  },
+  {
+   "split": "valid",
+   "name": "20424",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 1817078,
+   "n_boxes": 1,
+   "exif": false
+  },
+  {
+   "split": "valid",
+   "name": "20757",
+   "size": [
+    3840,
+    2160
+   ],
+   "bytes": 2368587,
+   "n_boxes": 1,
+   "exif": false
+  }
+ ],
+ "adjacent_pairs": [
+  {
+   "split": "train",
+   "a": 100,
+   "b": 101,
+   "dhash_ham": 23
+  },
+  {
+   "split": "train",
+   "a": 101,
+   "b": 102,
+   "dhash_ham": 27
+  },
+  {
+   "split": "train",
+   "a": 2500,
+   "b": 2501,
+   "dhash_ham": 25
+  },
+  {
+   "split": "train",
+   "a": 2501,
+   "b": 2502,
+   "dhash_ham": 32
+  },
+  {
+   "split": "train",
+   "a": 3900,
+   "b": 3901,
+   "dhash_ham": 28
+  },
+  {
+   "split": "train",
+   "a": 3901,
+   "b": 3902,
+   "dhash_ham": 20
+  }
+ ],
+ "non_adjacent_hamming_min_median": [
+  8,
+  23.0
+ ]
+}

@@ -1,0 +1,143 @@
+\chapter{Implementation}\label{ch:implementation}
+
+\section{Overview of Technologies Used}\label{sec:ch5-tech}
+The application and the model-development tools are written in Python and installed as one package. Table~\ref{tab:ch5-tech} lists the main technologies with the versions in the development environment (Windows 11, RTX 4060 Laptop GPU). The training runs used a rented RTX 5090 under Linux with Python 3.12 and PyTorch 2.14.1 for CUDA 13.0.
+
+\begin{table}[!htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|L{3.6cm}|L{2.6cm}|L{6.8cm}|}
+\hline
+\textbf{Technology} & \textbf{Version} & \textbf{Use}\\
+\hline
+Python & 3.10.0 & Language of all code\\
+\hline
+PyTorch \cite{paszke2019pytorch} & 2.14.1 (CUDA 12.6) & Tensor library under Ultralytics\\
+\hline
+Ultralytics & 8.4.210 (pinned) & YOLOv8s training, validation and inference\\
+\hline
+OpenCV, NumPy, Pillow & 5.0.0.93, 2.2.6, 12.3.0 & Video decoding, array computation, image hashing\\
+\hline
+pydantic, PyYAML & 2.14.3, 6.0.3 & Strictly validated YAML configuration\\
+\hline
+FastAPI, uvicorn & 0.162.4, 0.54.0 & REST API, static files, server (one worker)\\
+\hline
+SQLite (\texttt{sqlite3}) & standard library & Storage in write-ahead logging mode, plain SQL\\
+\hline
+OSMnx \cite{boeing2017osmnx}, NetworkX & 2.0.7, 3.4.2 & One-off road-network download; graph and Dijkstra\\
+\hline
+Leaflet & 1.9.4 & Interactive map in the browser\\
+\hline
+pytest, httpx & 9.1.1, 0.28.1 & Test suite and API test client\\
+\hline
+\end{tabular}
+\caption{Main technologies and their use.}
+\label{tab:ch5-tech}
+\end{table}
+
+\section{Implementation details of modules}\label{sec:ch5-modules}
+
+\subsection{Dataset tooling}\label{sec:ch5-datatools}
+The package \texttt{roadsense.data} downloads RDD2022 from its figshare record with an MD5 check, parses the Pascal VOC annotations, keeps the label D40 as the only pothole class and writes YOLO label files together with a manifest that gives every source image a status. An image with an invalid pothole box is excluded whole, since dropping only the box would turn a pothole image into a false negative. The split functions implement the hash grouping of Section~\ref{sec:ch4-dataset}, and an independent script re-derives the converted dataset from the raw XML to detect converter defects. The builder \texttt{scripts/build\_unified\_v1.py} produces the versioned datasets \texttt{unified\_v1} (RDD2022 and HRP4K) and \texttt{kaggle\_probe\_v1} (the evaluation-only manhole probe). The builder works in a temporary directory and moves the result into place only after its checks pass: every image must decode, no image may appear in two splits, and no group may be divided between splits. Running it twice on the same input produces the same manifests and labels.
+
+\subsection{Training}\label{sec:ch5-training}
+A model is trained by running the module \texttt{roadsense.training.train} with a configuration file given through the \texttt{-{}-config} option. The entry point validates the YAML configuration (unknown keys are errors), checks that the dataset defines exactly one class named pothole, refuses weights for other tasks, refuses any image under a directory named test, and writes the resolved configuration and dataset hashes into the run directory before training. Table~\ref{tab:ch5-train} compares the two runs.
+
+\begin{table}[!htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|L{3.3cm}|L{4.5cm}|L{5.0cm}|}
+\hline
+\textbf{Setting} & \textbf{Baseline (deployed)} & \textbf{Candidate (experimental)}\\
+\hline
+Initial weights & COCO-pretrained \texttt{yolov8s.pt} \cite{lin2014coco} & Baseline checkpoint (epoch 56)\\
+\hline
+Training data & RDD2022, 8,220 images & RDD2022 and HRP4K, 12,193 images\\
+\hline
+Validation data & RDD2022, 2,784 images & Pooled RDD2022 and HRP4K, 3,609 images\\
+\hline
+Image size & $640\times 640$ & $1280\times 1280$\\
+\hline
+Batch & 64 & 16 with 4 accumulation steps\\
+\hline
+Epochs & 100 (patience 20); stopped at 76, best 56 & 50; selected \texttt{epoch25.pt}\\
+\hline
+Optimiser, learning rate & Automatic choice (MuSGD), 0.01 & AdamW \cite{loshchilov2019adamw}, 0.001, cosine schedule\\
+\hline
+Augmentation & \multicolumn{2}{L{9.5cm}|}{Mosaic \cite{bochkovskiy2020yolov4} (off for the last 10 epochs), HSV jitter, translation 0.1, scale 0.5, horizontal flip; vertical flip off}\\
+\hline
+Seed & \multicolumn{2}{L{9.5cm}|}{42, deterministic mode, mixed precision}\\
+\hline
+Training time & 20 min 12 s & 78.98 min\\
+\hline
+\end{tabular}
+\caption{Configurations of the baseline and candidate training runs.}
+\label{tab:ch5-train}
+\end{table}
+
+The optimiser of the candidate was set explicitly because Ultralytics' automatic choice depends on the number of iterations; its learning rate was halved from the AdamW default of 0.002 because the weights were already trained for the task, a judgement that was not tuned. Patience equals the number of epochs so that Ultralytics' own stopping metric could not end the run early; checkpoints were saved every five epochs and selected afterwards (Section~\ref{sec:ch6-results}). Only one run exists for each configuration.
+
+Both runs used a rented RTX 5090 on Vast.ai under a budget set by the project owner. A bundle builder packed only the training and validation images and lists (2.24 GB, with a content digest) and fails if any test path is involved; the bundle was uploaded with 16 parallel streams and verified remotely by SHA-256. On the rented machine, a script installed the pinned dependencies, checked the bundle, started training under a watchdog and packed up the results at the end. As a safety net it could also destroy the instance after 205 minutes. Before renting anything, we rehearsed the complete sequence in a Linux environment on the laptop.
+
+\subsection{Evaluation tooling}\label{sec:ch5-eval}
+The protocol of Section~\ref{sec:ch6-protocol} is implemented in \texttt{scripts/eval\_checkpoint.py}. For each dataset it calls Ultralytics validation once, with the confidence floor set to 0.001, and saves the predictions. All metrics are then recomputed from that file with the script's own greedy matching and 101-point average precision, so a single pass covers every threshold. A select mode chooses the threshold on a validation list; an apply mode applies a stored threshold to a test list and refuses a checkpoint with a different hash, a different image size or images shared with the selection list. A comparison script computes paired bootstrap differences between two evaluations. A further script selects the candidate checkpoint by a rule written into its header before the run, and refuses test lists.
+
+\subsection{Ingest, detection and tracking}
+The ingest package reads video timestamps from OpenCV, using the presentation timestamps if they are finite and strictly increasing for the whole file and frame index divided by frame rate otherwise; the two are never mixed. The GPS parser reads a CSV file with time on the video clock, latitude, longitude, accuracy, speed and bearing, and records every rejected row with its line number and reason. \texttt{Detector} loads the Ultralytics model only when it is first needed, records the SHA-256 hash of the weights and runs on the GPU if one is available. It rejects any model whose class names are anything other than \{0: pothole\}, which stops generic pretrained weights from being loaded by accident. Tracking is handled by \texttt{MotionTracker} (Section~\ref{sec:ch4-pipeline}), which always gives the same output for the same input. For every track the pipeline keeps only the annotated frame with the most confident detection and compresses it to JPEG straight away, so memory use does not grow.
+
+\subsection{Building the map and planning routes}
+The clustering code in \texttt{geo/dedup.py} places points on a grid in a local projection, so that it only has to compare neighbouring cells. It computes the great-circle distance for each candidate pair and merges clusters only under the complete-linkage rule. Road snapping is done by \texttt{EdgeIndex}, which holds every undirected road edge as a polyline in local metres and finds the nearest one with vectorised NumPy operations. The function \texttt{rebuild\_map} recomputes all derived tables in one write transaction, retried if the database is locked, and each build records the jobs, settings, code version and graph hash it used.
+
+The road graph is downloaded once with OSMnx as the drivable OpenStreetMap network of a bounding box \cite{haklay2008osm} and stored as JSON with its hash. The project's graph covers about 4 by 3.4 km of Bengaluru with 2,996 nodes and 7,138 directed edges. Routing follows Section~\ref{sec:ch4-route}. \texttt{plan\_routes} passes a callable edge weight to the NetworkX shortest-path function, so the search it runs is Dijkstra's algorithm. A returned route includes its geometry, divided into surveyed, demonstration and unsurveyed stretches, together with its figures and a short explanation in plain language. It also carries fixed caveats saying that potholes the detector missed, or that lie on unsurveyed road, are not counted, and that severity is not recorded.
+
+\subsection{Backend services}
+The FastAPI application is split into four routers. The web files are mounted last so that they can never hide an API route, and every error comes back in the same format, with a code and a message. Table~\ref{tab:ch5-api} lists the 20 endpoints. When a video is uploaded, the endpoint copies it in chunks and counts the bytes as it goes, stopping at the 2,048 MB limit, before it creates the session and queues the job. \texttt{JobRunner} manages one worker thread and its in-memory queue, and no SQLite connection is ever shared between threads. \texttt{ProcessLock} holds a non-blocking operating-system lock on a file beside the database, and the operating system frees that lock however the process exits.
+
+\begin{table}[!htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|L{2.4cm}|L{5.6cm}|L{5.0cm}|}
+\hline
+\textbf{Group} & \textbf{Endpoints} & \textbf{Purpose}\\
+\hline
+System (3) & \texttt{GET /api/health}, \texttt{/api/system}, \texttt{/api/stats} & Liveness, versions and model hash, counts\\
+\hline
+Sessions (10) & \texttt{POST/GET /api/sessions}, \texttt{GET/PATCH/DELETE /api/sessions/\{id\}}, \texttt{.../status}, \texttt{.../reprocess}, \texttt{.../detections}, \texttt{.../track}, \texttt{GET /api/artifacts/\{path\}} & Upload (202 with job), job status, observations, GPS track, images, include or delete\\
+\hline
+Map (4) & \texttt{GET /api/potholes}, \texttt{/api/potholes/\{id\}}, \texttt{/api/coverage}, \texttt{POST /api/map/rebuild} & Mapped potholes and surveyed road in a bounding box; rebuild\\
+\hline
+Routing (3) & \texttt{GET /api/routes/info}, \texttt{POST /api/routes}, \texttt{GET /api/demo/route-example} & Cost settings; plan one to three routes; demonstration route\\
+\hline
+\end{tabular}
+\caption{HTTP endpoints grouped by purpose.}
+\label{tab:ch5-api}
+\end{table}
+
+\subsection{User interfaces}
+The browser interface is written in plain HTML, CSS and JavaScript modules, uses Leaflet 1.9.4 for the map and needs no build step. It is organised into five tabs. The dashboard shows summary statistics and a switch for demonstration mode, and the upload tab is a form for the video and GPS files. The sessions tab lists recordings with their job progress and lets the user reprocess or delete them. In the detections tab every observation appears as a card with its annotated frame. The route planner takes an origin and a destination, has an avoidance slider running from 0 to 1, and shows each route as a card with its surveyed share and evidence level. On the map, recorded potholes, demonstration potholes and surveyed road are separate layers, and a banner is shown whenever demonstration mode is active. Outside the browser, a command-line program offers the commands \texttt{add}, \texttt{add-dir}, \texttt{list}, \texttt{rebuild-map} and \texttt{reset}, and any command that writes data takes the process lock first. A script creates one synthetic demonstration session from RDD2022 validation images with a generated GPS trace, captioned and flagged as synthetic.
+
+\section{Challenges encountered and Strategies used to tackle}\label{sec:ch5-challenges}
+
+\subsubsection*{Near-duplicate leakage}
+The first split assigned blocks of consecutive image identifiers, assuming capture order. A scan showed that the identifiers are shuffled: under a block split 17.6\% of India's validation images had a training image within 4 bits of hash distance. Perceptual-hash grouping replaced it, and for HRP4K, where a difference hash put 4,250 of 6,003 images into one component, a DCT-based hash and a leakage guard were used instead.
+
+\subsubsection*{Thresholds selected on test data}
+The summary precision and recall that Ultralytics reports are computed at the confidence that maximises F1 on the evaluated split itself, which on a test split selects the operating point on test data. We rewrote the evaluation so that thresholds are selected on validation data and applied unchanged to test data; the library's summary values are not used in this report.
+
+\subsubsection*{An average-precision discrepancy}
+The first version of our script closed the precision-recall curve differently from Ultralytics, which inflated AP on low-recall sets such as HRP4K for the baseline. We corrected it and marked the earlier results as superseded; afterwards our mAP\textsubscript{50} agreed with the library value to within 0.0014.
+
+\subsubsection*{A baseline nearly blind on forward-view footage}
+The RDD2022 baseline detects almost nothing on HRP4K (validation recall 0.051 at its threshold), partly because the median HRP4K pothole is about 10 px at 640 px input. The response was the candidate experiment, whose results and limits are in Chapter~\ref{ch:results}.
+
+\subsubsection*{Cloud resources}
+The first baseline attempt with 12 data-loader workers was killed by the container memory limit, because Ultralytics starts additional validation workers; the run with 6 workers completed. The slow single-stream upload led to the parallel chunked upload.
+
+\subsubsection*{Track fragmentation at vehicle speed}
+The first tracker compared each detection with a track's last box, so at vehicle speed one pothole became several short tracks that were discarded. Sampling every frame for vehicle sessions, predicting boxes from track velocity and measuring track age in source frames fixed this in replays of saved detections, which show continuity only, not accuracy.
+
+\subsubsection*{Sparse coverage for routing}
+Our recordings cover about 1,020 m on seven disconnected stretches, so a real route comparison is impossible. Route recommendation is demonstrated on a synthetic session, with safeguards so that it cannot be mistaken for data: demonstration mode is off by default, synthetic and recorded sightings are clustered separately, surveyed-road figures use recorded sessions only, and the interface labels demonstration data.

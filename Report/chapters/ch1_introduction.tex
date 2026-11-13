@@ -1,0 +1,130 @@
+\chapter{Introduction}\label{ch:intro}
+
+\section{Overview}
+Potholes form when water seeps into cracked asphalt and traffic breaks the weakened surface apart. On Indian roads they slow journeys, damage vehicles and cause accidents. This report describes the second phase of our project on pothole detection and pothole-aware route recommendation. In the first phase (Phase 1) we built a prototype around a YOLOv8s-seg segmentation model, ByteTrack tracking, a rule-based severity rating, an Android recorder and a route planner that queried a public OSRM server. Its evaluation could not tell us whether it would work on footage unlike its training data, so in this phase we rebuilt the system from the beginning. The rebuilt software, internally named RoadSense and called \emph{the system} in this report, takes a forward-facing road video and a GPS log, detects potholes, places each pothole once on a road map, records how much road each recording actually covered, and uses this to compare routes between two points.
+
+\subsection{Problem Statement}
+Municipal bodies still learn about most potholes from citizen complaints and occasional manual surveys, which are slow and rarely give an exact location. Navigation applications, as far as we know, choose routes by distance and traffic and say nothing about the road surface. Camera-based detection can fill this gap, but a detector is only useful if it has been evaluated on data that differs from its training data. Phase 1 reported high scores on a test split drawn from the same recordings as its training data and performed poorly on forward-facing footage that we recorded ourselves.
+
+The problem therefore has four parts: (i) detect potholes in forward-facing video with a detector whose data splits and evaluation are controlled for leakage and report their uncertainty; (ii) turn detections into a map on which each physical pothole appears once, on a named road segment; (iii) record which road has actually been surveyed, so that an unrecorded road is not mistaken for a clean one; and (iv) recommend routes that trade distance against expected potholes and state how much evidence supports each recommendation.
+
+\section{Motivation}
+The Ministry of Road Transport and Highways (MoRTH) reports 3,625 pothole-related accidents in 2021 and 4,446 in 2022, with 1,481 and 1,856 persons killed \cite{morth2023road}. Potholes are one contributing factor among several, and we do not claim that they dominate road safety. Two-wheeler riders are the most exposed, and our own recordings in Bengaluru were made from such a vehicle.
+
+A manual road survey needs trained staff and special equipment, which is why most roads are inspected only once in a while. A phone or dashcam, on the other hand, records the road on every trip, and a real-time detector of the YOLO family \cite{redmon2016yolo,jocher2023yolov8} can check that footage for potholes on ordinary hardware. Our deployed model takes 8.16 ms per frame on average at $640 \times 640$ on a laptop GPU (Chapter~\ref{ch:requirements}). What took far more effort was knowing whether the detector could be trusted on footage it had never seen, because a model that scores well on one dataset often scores much lower on another \cite{torralba2011unbiased,koh2021wilds}. We ran into exactly this in Phase 1, and it is the main reason we rebuilt the evaluation before adding anything to the application.
+
+\section{Objective}
+We set seven objectives for this phase. Chapter~\ref{ch:results} comes back to each of them and reports how far it was achieved.
+\begin{enumerate}[itemsep=0pt]
+  \item \label{obj:data} Build training and evaluation sets that cannot leak into each other. RDD2022 and HRP4K are reduced to a single pothole class, near-duplicate images are grouped by perceptual hash so that each group stays within one split, and every excluded image is logged.
+  \item \label{obj:baseline} Train a YOLOv8s baseline on RDD2022 at 640 px that can be reproduced exactly, using a fixed seed, a saved configuration and a checkpoint identified by its hash.
+  \item \label{obj:protocol} Evaluate the models in a way that shows how certain each result is. Thresholds are picked on validation data alone, results carry group-bootstrap 95\% confidence intervals, models are compared in pairs, and an external set containing manholes is kept purely for testing.
+  \item \label{obj:finetune} Fine-tune the baseline at 1280 px on RDD2022 together with HRP4K, and check whether the resulting candidate does better than the baseline on held-out test data.
+  \item \label{obj:pipeline} Connect detection to the map. Potholes are detected and tracked, each is given a GPS position, repeated sightings of the same pothole are merged, and the result is attached to the road network along with how much of each road was actually surveyed.
+  \item \label{obj:routing} Implement pothole-aware routing on an OpenStreetMap graph with a cost that adds an expected-pothole penalty to distance, reporting how much of each route was surveyed.
+  \item \label{obj:backend} Provide a tested backend (HTTP API, background jobs, database, command line) and a web interface for upload, inspection and route planning.
+\end{enumerate}
+
+\section{Scope}
+The work covers single-class pothole detection with bounding boxes in forward-facing RGB video, the data preparation and evaluation above, geotagging from a GPS log, mapping onto an OpenStreetMap road network, route comparison, and a web interface served by the same process as the API, for a single local user.
+
+Several things are outside the scope or only partly done. The system does not estimate pothole size or severity and produces no road condition score or grade. For each road segment it stores the number of mapped potholes, the surveyed length and the rate per 100 m, and for each route an evidence level. There is no authentication, no database migration and no Android recorder. The web interface has no automated tests. Our own recordings have no ground truth, so no accuracy figure exists for them, and they cover only about 1,020 m of road in seven disconnected stretches, so route comparison is demonstrated on a synthetic session. The 1280 px candidate model is experimental and is not deployed.
+
+\section{SDG Justification}
+For SDG 9 (Industry, Innovation and Infrastructure, Target 9.1), an ordinary video and GPS log become mapped potholes on road segments that carry their surveyed length, so a road authority can see which roads were recorded and what was found without a survey vehicle. The output is a count and a rate, not a pavement condition index such as ASTM D6433 \cite{astm2020d6433}, so it can direct inspections but does not replace them.
+
+For SDG 11 (Sustainable Cities and Communities, Target 11.2), the route planner offers up to three routes, from the shortest to the strongest pothole avoidance, with the potholes passed and the surveyed share of each. It has been demonstrated on a synthetic session only.
+
+SDG 3 (Good Health and Well-being, Target 3.6) concerns road injuries, and potholes are a recorded cause of road accidents \cite{morth2023road}. A camera records a pothole before a vehicle hits it, unlike accelerometer methods \cite{eriksson2008pothole}. We have measured no effect on accidents and make no safety claim beyond providing the information.
+
+\subsection{How the SDGs are addressed in the implementation}
+Table~\ref{tab:ch1-sdg} links each goal to the parts of the implemented system that serve it, the place in this report where each part is designed, built and tested, and what the evidence does and does not show.
+
+\begin{table}[!htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|L{2.0cm}|L{4.9cm}|L{2.3cm}|L{3.6cm}|}
+\hline
+\textbf{SDG and target} & \textbf{Implemented components} & \textbf{Where in this report} & \textbf{Evidence and limits} \\
+\hline
+SDG 9, Target 9.1 (resilient infrastructure) & Video and GPS ingestion, YOLOv8s detector, motion-aware tracker and geotagging turn ordinary phone or dashcam footage into sightings; the map builder merges them into mapped potholes, snaps them to OpenStreetMap road segments and stores per segment the pothole count, surveyed length and rate per 100 m; the API and map layers show recorded potholes and surveyed road & Sections~\ref{sec:ch4-pipeline}, \ref{sec:ch4-db}, \ref{sec:ch5-modules}; tests in Section~\ref{sec:ch6-tests} & Detector mAP\textsubscript{50} 0.497 on held-out RDD2022 test data; map-building and API tests pass. Counts and rates only, not a condition index; no labelled data from our own roads \\
+\hline
+SDG 11, Target 11.2 (safe, sustainable transport) & Route planner on a local OpenStreetMap graph with a cost that adds expected potholes to distance and treats unsurveyed road as unknown; up to three routes with distance, potholes passed, surveyed share and evidence level; route-planner tab in the web interface & Sections~\ref{sec:ch4-route}, \ref{sec:ch5-modules}; tests in Section~\ref{sec:ch6-tests} & Routing tests pass; route comparison demonstrated on a synthetic session, because our recordings cover only about 1,020 m \\
+\hline
+SDG 3, Target 3.6 (fewer road injuries) & Forward-facing camera detection that records a pothole before a vehicle reaches it; avoidance setting in the route planner; route caveats that never call a road safe or pothole-free & Sections~\ref{sec:ch4-pipeline}, \ref{sec:ch4-route}; results in Section~\ref{sec:ch6-results} & Information support only; the detector has known false positives on covers and patches, and no effect on accidents was measured \\
+\hline
+\end{tabular}
+\caption{How each Sustainable Development Goal is addressed in the implemented system.}
+\label{tab:ch1-sdg}
+\end{table}
+
+\section{Existing System}
+Pothole information in Indian cities comes mainly from complaints, social media and periodic inspection. Survey vehicles with laser, depth or LiDAR sensors measure the surface accurately \cite{ma2022review,kang2017pothole} but cover little of the network. Automatic methods are vibration-based, vision-based or based on three-dimensional reconstruction \cite{kim2022review,ma2022review}. Most vision work since the road-damage datasets of Maeda et al. and Arya et al. \cite{maeda2018road,arya2022rdd2022} stops at the detector; the few systems that add mapping or routing are preprints without independent evaluation \cite{sahoo2025iwatchroadv2,balakuntala2013pothole}.
+
+\subsection{The earlier implementation (Phase 1)}
+Phase 1 trained a YOLOv8s-seg model \cite{jocher2023yolov8} at 640 px on every fifth frame of paired road and mask videos (3,720 training, 1,240 validation and 1,230 test frames from 372, 124 and 123 videos). It tracked detections with ByteTrack \cite{zhang2022bytetrack}, rated each pothole Mild, Moderate or Severe from the area, edge irregularity and elongation of its mask, interpolated positions from an optional GPS log, and counted Severe and Moderate potholes within 20 m of the alternatives returned by a public OSRM server \cite{luxen2011osrm}. An Android application recorded video and GPS. The Phase 1 report gives a mask precision of 0.959, recall of 0.907 and mAP\textsubscript{50} of 0.905 on its own in-distribution test split.
+
+Four limitations motivated the rebuild. First, the severity thresholds were calibrated on a small sample, not on human grades, and the pixel area of a pothole depends on camera distance (Phase 1 README). Second, the only evaluation was on a split from the same videos and camera set-up as training, which says nothing about other cameras or viewpoints. Third, the Phase 1 report records that a forward-facing recording made on a two-wheeler was over-segmented. Fourth, routing counted potholes near each route, so an unrecorded road and a recorded clean road looked the same, and it depended on an external server. Chapter~\ref{ch:results} compares the Phase 1 model qualitatively with the new models on our own recordings.
+
+\section{Proposed System}
+Table~\ref{tab:ch1-comparison} summarises how the rebuild differs. Following the design decisions taken at the start of this phase, it uses forward-facing footage only, single-class box detection without segmentation or severity, RDD2022 as the first training set with our own footage reserved for testing, and no Android application.
+
+\begin{table}[!htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|L{2.4cm}|L{5.0cm}|L{5.6cm}|}
+\hline
+\textbf{Aspect} & \textbf{Phase 1 system} & \textbf{Rebuilt system} \\
+\hline
+Task & Instance segmentation with a Mild, Moderate or Severe rating & Single-class box detection; no severity \\
+\hline
+Training data & Paired road and mask videos, every fifth frame & RDD2022 (HRP4K added for the candidate); near-duplicates grouped by perceptual hash \\
+\hline
+Evaluation & In-distribution test split & Held-out splits, external manhole probe, group-bootstrap 95\% intervals \\
+\hline
+Tracking & ByteTrack on every fifth frame & Own motion-aware IoU tracker; stride chosen from GPS speed \\
+\hline
+Mapping & Positions on a map & Merge sightings within 8 m, snap to the nearest road edge within 30 m, record surveyed length \\
+\hline
+Routing & Public OSRM alternatives, potholes within 20 m & Dijkstra on a local OpenStreetMap graph; cost adds expected potholes to length \\
+\hline
+Recording & Android application & Video and GPS CSV file uploaded \\
+\hline
+\end{tabular}
+\caption{Differences between the Phase 1 system and the rebuilt system.}
+\label{tab:ch1-comparison}
+\end{table}
+
+The deployed detector is the \emph{baseline}, a YOLOv8s model trained on RDD2022 at 640 px. The \emph{candidate}, fine-tuned from it on RDD2022 and HRP4K \cite{chen2026hrp4k} at 1280 px, is an experiment and is not deployed, because it showed no reduction in false positives or manhole confusion and lost some accuracy on RDD2022 (Chapter~\ref{ch:results}). Around the detector, the application processes uploads as background jobs, stores confirmed detections as sightings, rebuilds the pothole map after each job, and plans up to three routes with their potholes passed, surveyed share and evidence level. Chapters~\ref{ch:requirements} to~\ref{ch:implementation} give the requirements, design and implementation.
+
+\section{Work Plan}
+Table~\ref{tab:ch1-workplan} lists the phases of the work.
+
+\begin{table}[!htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|L{8.6cm}|L{3.6cm}|}
+\hline
+\textbf{Phase} & \textbf{Work} & \textbf{Period} \\
+\hline
+1 & Literature survey, problem definition and the Phase 1 prototype and report & Phase-1 (previous semester) \\
+\hline
+2 & Design decisions for the rebuild; RDD2022 conversion to one pothole class, near-duplicate grouping and leakage-controlled splits & August 2026 \\
+\hline
+3 & Baseline YOLOv8s training on a rented GPU; evaluation protocol with validation-only thresholds and group-bootstrap intervals & August -- September 2026 \\
+\hline
+4 & Detection pipeline: motion-aware tracking, GPS geotagging, merging of sightings and road snapping & September 2026 \\
+\hline
+5 & Road graph and route planner, FastAPI backend, SQLite database and web interface & September -- October 2026 \\
+\hline
+6 & Own road recordings; HRP4K and manhole-probe review; candidate fine-tuning at 1280 px & October 2026 \\
+\hline
+7 & Automated testing, evaluation and comparison on own recordings, report and presentation & October 2026 \\
+\hline
+\end{tabular}
+\caption{Work plan.}
+\label{tab:ch1-workplan}
+\end{table}
